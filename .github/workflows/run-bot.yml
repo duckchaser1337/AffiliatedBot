@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: "24"
           cache: "npm"
@@ -35,8 +35,14 @@ jobs:
       - name: Persist state
         if: always()
         run: |
+          # Se o bot falhou antes de gravar qualquer coisa (ex: configuração ausente),
+          # não há estado pra salvar — sair limpo pra não esconder o erro real do passo anterior.
+          if [ ! -d data ]; then
+            echo "Nada para salvar: data/ não foi criado nesta execução."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/state.json data/ml-token.enc
+          git add data/
           git diff --cached --quiet || git commit -m "chore(data): atualiza estado do bot"
           git push
