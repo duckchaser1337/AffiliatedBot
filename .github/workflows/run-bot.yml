@@ -32,6 +32,8 @@ jobs:
           ML_TOKEN_ENCRYPTION_KEY: ${{ secrets.ML_TOKEN_ENCRYPTION_KEY }}
           ML_AFFILIATE_MATT_WORD: ${{ vars.ML_AFFILIATE_MATT_WORD }}
           ML_AFFILIATE_MATT_TOOL: ${{ vars.ML_AFFILIATE_MATT_TOOL }}
+          SOURCES: ${{ vars.SOURCES }}
+          CHANNELS: ${{ vars.CHANNELS }}
       - name: Persist state
         if: always()
         run: |

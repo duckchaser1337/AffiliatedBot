@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import path from "node:path";
-import { mlTokenResponseSchema } from "../src/marketplaces/mercadolivre/schemas.js";
-import { writeTokenFile } from "../src/marketplaces/mercadolivre/tokenStore.js";
+import { mlTokenResponseSchema } from "../src/sources/mercadolivre/schemas.js";
+import { writeTokenFile } from "../src/sources/mercadolivre/tokenStore.js";
 
 // Script local rodado UMA vez pelo usuário para obter o primeiro refresh_token do
 // Mercado Livre via OAuth Authorization Code flow. Não roda no GitHub Actions.
