@@ -24,5 +24,6 @@ export function mapToProduct(item: MlItem): Product | null {
     // thumbnail vem solto no schema (não queremos rejeitar a oferta inteira por causa
     // de uma miniatura malformada) — valida aqui, na borda antes de virar foto nos canais.
     imageUrl: item.thumbnail && isValidUrl(item.thumbnail) ? item.thumbnail : undefined,
+    officialStore: item.official_store_id != null,
   };
 }

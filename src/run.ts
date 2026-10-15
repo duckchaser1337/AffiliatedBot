@@ -3,15 +3,18 @@ import { createPublishers, publishToAll } from "./channels/index.js";
 import { loadSettings } from "./config/env.js";
 import { shouldSkipAsDuplicate } from "./curation/dedupe.js";
 import { isRealOffer } from "./curation/isRealOffer.js";
+import { checkNiche, loadNicheRules } from "./curation/niche.js";
 import { loadState, recordObservation, recordPosted, saveState } from "./curation/priceHistory.js";
 import { logger } from "./logger.js";
 import { createSources } from "./sources/index.js";
 import { productKey } from "./sources/types.js";
 
 const STATE_PATH = path.join(process.cwd(), "data", "state.json");
+const NICHE_PATH = path.join(process.cwd(), "config", "niche.json");
 
 export async function run(): Promise<void> {
   const settings = loadSettings();
+  const nicheRules = await loadNicheRules(NICHE_PATH);
   const sources = createSources(settings.SOURCES);
   const publishers = createPublishers(settings.CHANNELS);
   let state = await loadState(STATE_PATH);
@@ -24,6 +27,12 @@ export async function run(): Promise<void> {
       for await (const product of source.products()) {
         candidates += 1;
         const key = productKey(product);
+
+        const nicheCheck = checkNiche(product, nicheRules);
+        if (!nicheCheck.allowed) {
+          logger.info("Fora do nicho, ignorando", { produto: key, reason: nicheCheck.reason });
+          continue;
+        }
 
         const offerCheck = isRealOffer(state.items[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT);
         state = recordObservation(state, key, product.price).state;

@@ -21,6 +21,11 @@ describe("mlItemSchema", () => {
     expect(mlItemSchema.safeParse(withoutPrice).success).toBe(false);
   });
 
+  it("aceita official_store_id numérico, nulo ou ausente", () => {
+    expect(mlItemSchema.safeParse({ ...validItem, official_store_id: 123 }).success).toBe(true);
+    expect(mlItemSchema.safeParse({ ...validItem, official_store_id: null }).success).toBe(true);
+  });
+
   it("rejeita preço negativo", () => {
     expect(mlItemSchema.safeParse({ ...validItem, price: -5 }).success).toBe(false);
   });

@@ -9,6 +9,7 @@ export const mlItemSchema = z.object({
   permalink: z.string().url(),
   available_quantity: z.number().int().nonnegative(),
   status: z.string(),
+  official_store_id: z.number().nullable().optional(),
 });
 
 export type MlItem = z.infer<typeof mlItemSchema>;
