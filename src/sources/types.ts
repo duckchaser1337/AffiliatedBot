@@ -9,6 +9,8 @@ export interface Product {
   currency: string;
   url: string;
   imageUrl?: string;
+  // Loja oficial da marca: itens de segurança (freio, cadeirinha...) só são publicados assim.
+  officialStore?: boolean;
 }
 
 export interface Source {

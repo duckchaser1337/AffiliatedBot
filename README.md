@@ -1,15 +1,15 @@
-# Bot de achadinhos de maquiagem e moda
+# Achado de Garagem — bot de afiliados
 
-Bot de afiliados para um nicho de maquiagem e moda, voltado ao público feminino e LGBT+. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
+Bot de afiliados da marca **Achado de Garagem**: acessórios e cuidados automotivos. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
 
-Hoje funciona com Mercado Livre → Telegram. A estrutura já separa **fontes** (de onde vêm os produtos) de **canais** (onde publica), para receber Shopee, Threads e Instagram (ver [Escopo](#escopo)).
+Hoje funciona com Mercado Livre → Telegram. A estrutura já separa **fontes** (de onde vêm os produtos) de **canais** (onde publica), para receber Shopee e Instagram (ver [Escopo](#escopo)).
 
 ## Estrutura
 
 ```
 src/
   sources/     # fontes de produtos; cada uma implementa a interface Source (sources/types.ts)
-  curation/    # histórico de preço, "oferta real" e anti-repetição
+  curation/    # filtro do nicho, histórico de preço, "oferta real" e anti-repetição
   content/     # textos comuns a todos os canais (ex: identificação #publi)
   channels/    # canais de publicação; cada um implementa a interface Publisher (channels/types.ts)
   run.ts       # orquestra: fontes → curadoria → todos os canais ligados
@@ -60,11 +60,17 @@ Preencha `config/watchlist.json` com os produtos que quer acompanhar:
 ```json
 {
   "itemIds": ["MLB1234567890"],
-  "searchQueries": ["fone bluetooth"]
+  "searchQueries": ["aspirador automotivo"]
 }
 ```
 
-`itemIds` é a fonte principal e estável (o ID aparece na URL do produto, formato `MLB...`). `searchQueries` é best-effort — se a busca por palavra-chave falhar ou ficar instável, o bot ignora e segue só com `itemIds` (não derruba a execução).
+`itemIds` é a fonte principal e estável (o ID aparece na URL do produto, formato `MLB...`). `searchQueries` é best-effort — se a busca por palavra-chave falhar ou ficar instável, o bot ignora e segue só com `itemIds` (não derruba a execução). O arquivo já vem com buscas de acessórios e cuidados automotivos.
+
+Todo produto passa antes pelo filtro do nicho, em `config/niche.json`. Como a publicação é automática, é ele que segura o que não pode sair:
+- `blockedTerms`: nunca publica. Itens ilegais (anti-radar, kit xenon, lâmpada LED de "upgrade" para farol, película espelhada ou em placa) e o que estiver fora do nicho.
+- `officialStoreOnlyTerms`: itens de segurança (freio, pneu, suspensão, cadeirinha, airbag). Só publica quando o produto vem de loja oficial.
+
+Os termos casam palavras inteiras, sem diferenciar maiúsculas nem acentos: `anti radar` pega "Gel Anti-Radar", mas "Suporte GPS com alerta de radar" passa.
 
 O limiar de queda pra considerar "oferta real" é `DISCOUNT_THRESHOLD_PERCENT` no `.env`/Secrets (padrão 15%).
 
@@ -87,10 +93,10 @@ A pesquisa técnica por trás deste projeto encontrou relatos de instabilidade r
 
 ## Escopo
 
-Nicho: maquiagem e moda, público feminino e LGBT+. Publicação 100% automática.
+Nicho: acessórios e cuidados automotivos (limpeza, gadgets, organização, eletrônicos). Publicação 100% automática.
 
-- **Feito**: Mercado Livre + Telegram, com fontes e canais plugáveis.
-- **Próximo — fonte Shopee** (vira a principal; o ML fica no código, desligado): Open API de afiliados, filtro do nicho em `config/niche.json` e, para maquiagem, só Shopee Mall e lojas oficiais, por causa do risco de produto falsificado.
-- **Depois — canais Threads e Instagram** (base do público, com a mesma persona), com o Telegram como espelho. X e Bluesky entram como espelhos, e o X sem link: na API paga por uso, post com link custa US$ 0,20.
-- **Fase 2**: marcas via Awin (Sephora, Boticário, Beleza na Web, Renner) e Pinterest.
+- **Feito**: Mercado Livre + Telegram, com fontes e canais plugáveis, e filtro do nicho com bloqueio de itens ilegais.
+- **Próximo — fonte Shopee**, junto com o ML: o ML é forte em peças e lojas oficiais, a Shopee em acessórios baratos. Entra pela Open API de afiliados.
+- **Depois — canal Instagram** como vitrine. O Telegram segue como canal principal de venda.
+- **Fase 2**: peças por modelo de carro. Ficaram para depois porque peça errada vira devolução, e devolução cancela a comissão.
 - **Fora de escopo, por design**: Amazon (a API exige vendas prévias, inviável pra canal novo) e automação de Canais do WhatsApp (sem API oficial da Meta; as alternativas não-oficiais violam os termos do WhatsApp e arriscam banir o número).
