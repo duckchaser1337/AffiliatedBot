@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { isRealOffer } from "../src/deals/isRealOffer.js";
-import type { ItemHistory } from "../src/deals/priceHistory.js";
+import { isRealOffer } from "../src/curation/isRealOffer.js";
+import type { ItemHistory } from "../src/curation/priceHistory.js";
 
 describe("isRealOffer", () => {
   it("rejeita quando não há histórico ainda", () => {

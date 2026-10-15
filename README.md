@@ -1,8 +1,23 @@
-# Bot de ofertas Mercado Livre → Telegram
+# Bot de achadinhos de maquiagem e moda
 
-Detecta quedas de preço reais em produtos do Mercado Livre e posta automaticamente num canal de Telegram com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
+Bot de afiliados para um nicho de maquiagem e moda, voltado ao público feminino e LGBT+. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
 
-Plano de arquitetura completo em `C:\Users\gigil\.claude\plans\mighty-swimming-blanket.md`.
+Hoje funciona com Mercado Livre → Telegram. A estrutura já separa **fontes** (de onde vêm os produtos) de **canais** (onde publica), para receber Shopee, Threads e Instagram (ver [Escopo](#escopo)).
+
+## Estrutura
+
+```
+src/
+  sources/     # fontes de produtos; cada uma implementa a interface Source (sources/types.ts)
+  curation/    # histórico de preço, "oferta real" e anti-repetição
+  content/     # textos comuns a todos os canais (ex: identificação #publi)
+  channels/    # canais de publicação; cada um implementa a interface Publisher (channels/types.ts)
+  run.ts       # orquestra: fontes → curadoria → todos os canais ligados
+```
+
+Fontes e canais são ligados pelas variáveis `SOURCES` e `CHANNELS` (lista separada por vírgula; vazio = padrão). Cada um valida só as próprias variáveis de ambiente, e só quando está ligado.
+
+Todo post com link de afiliado começa com `#publi · link de afiliado`: o guia do CONAR em vigor desde 01/06/2026 trata link de afiliado como publicidade.
 
 ## Aviso de segurança
 
@@ -35,7 +50,7 @@ O `refresh_token` do Mercado Livre fica salvo, **criptografado** (AES-256-GCM), 
 1. Crie o repositório no GitHub como **privado**.
 2. Em Settings → Secrets and variables → Actions, cadastre:
    - **Secrets**: `TELEGRAM_BOT_TOKEN`, `ML_CLIENT_ID`, `ML_CLIENT_SECRET`, `ML_TOKEN_ENCRYPTION_KEY`.
-   - **Variables**: `TELEGRAM_CHANNEL_ID`, `ML_AFFILIATE_MATT_WORD`, `ML_AFFILIATE_MATT_TOOL`.
+   - **Variables**: `TELEGRAM_CHANNEL_ID`, `ML_AFFILIATE_MATT_WORD`, `ML_AFFILIATE_MATT_TOOL`. Opcionais: `SOURCES` e `CHANNELS`, para ligar outras fontes e canais.
 3. Faça commit e push do projeto, incluindo `data/ml-token.enc` gerado no passo anterior.
 4. Em Actions → run-bot, dispare manualmente (`Run workflow`) uma vez pra validar antes de confiar no cron.
 
@@ -72,6 +87,10 @@ A pesquisa técnica por trás deste projeto encontrou relatos de instabilidade r
 
 ## Escopo
 
-- **v1 (este projeto)**: Mercado Livre + Telegram.
-- **v2 (futuro, sob demanda)**: Shopee — tem API de afiliados real, mas exige aprovação prévia no programa.
-- **Fora de escopo, por design**: Amazon (PA-API exige vendas prévias, inviável pra canal novo) e automação de WhatsApp Channels (sem API oficial da Meta — as alternativas não-oficiais violam os termos do WhatsApp e arriscam banir o número).
+Nicho: maquiagem e moda, público feminino e LGBT+. Publicação 100% automática.
+
+- **Feito**: Mercado Livre + Telegram, com fontes e canais plugáveis.
+- **Próximo — fonte Shopee** (vira a principal; o ML fica no código, desligado): Open API de afiliados, filtro do nicho em `config/niche.json` e, para maquiagem, só Shopee Mall e lojas oficiais, por causa do risco de produto falsificado.
+- **Depois — canais Threads e Instagram** (base do público, com a mesma persona), com o Telegram como espelho. X e Bluesky entram como espelhos, e o X sem link: na API paga por uso, post com link custa US$ 0,20.
+- **Fase 2**: marcas via Awin (Sephora, Boticário, Beleza na Web, Renner) e Pinterest.
+- **Fora de escopo, por design**: Amazon (a API exige vendas prévias, inviável pra canal novo) e automação de Canais do WhatsApp (sem API oficial da Meta; as alternativas não-oficiais violam os termos do WhatsApp e arriscam banir o número).

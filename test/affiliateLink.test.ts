@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildAffiliateLink } from "../src/marketplaces/mercadolivre/affiliateLink.js";
+import { buildAffiliateLink } from "../src/sources/mercadolivre/affiliateLink.js";
 
 describe("buildAffiliateLink", () => {
   it("anexa matt_word e matt_tool preservando query params existentes", () => {

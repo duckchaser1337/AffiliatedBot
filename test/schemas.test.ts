@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mlItemSchema } from "../src/marketplaces/mercadolivre/schemas.js";
+import { mlItemSchema } from "../src/sources/mercadolivre/schemas.js";
 
 const validItem = {
   id: "MLB123",

@@ -1,0 +1,10 @@
+import { createMercadoLivreSource } from "./mercadolivre/index.js";
+import type { Source, SourceId } from "./types.js";
+
+const factories: Record<SourceId, () => Source> = {
+  mercadolivre: createMercadoLivreSource,
+};
+
+export function createSources(ids: readonly SourceId[]): Source[] {
+  return ids.map((id) => factories[id]());
+}

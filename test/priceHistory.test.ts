@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { emptyState, recordObservation } from "../src/deals/priceHistory.js";
+import { emptyState, recordObservation } from "../src/curation/priceHistory.js";
 
 describe("recordObservation", () => {
   it("registra a primeira observação e não tem mínimo anterior", () => {

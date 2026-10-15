@@ -1,108 +1,71 @@
-import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { loadEnv } from "./config/env.js";
-import { shouldSkipAsDuplicate } from "./deals/dedupe.js";
-import { isRealOffer } from "./deals/isRealOffer.js";
-import { loadState, recordObservation, recordPosted, saveState } from "./deals/priceHistory.js";
+import { createPublishers, publishToAll } from "./channels/index.js";
+import { loadSettings } from "./config/env.js";
+import { shouldSkipAsDuplicate } from "./curation/dedupe.js";
+import { isRealOffer } from "./curation/isRealOffer.js";
+import { loadState, recordObservation, recordPosted, saveState } from "./curation/priceHistory.js";
 import { logger } from "./logger.js";
-import { buildAffiliateLink } from "./marketplaces/mercadolivre/affiliateLink.js";
-import { refreshAccessToken } from "./marketplaces/mercadolivre/auth.js";
-import { getItem, searchItemIds } from "./marketplaces/mercadolivre/client.js";
-import { mapToOffer } from "./marketplaces/mercadolivre/mapToOffer.js";
-import { readTokenFile, writeTokenFile } from "./marketplaces/mercadolivre/tokenStore.js";
-import { sendOfferMessage } from "./telegram/client.js";
-import { formatOfferMessage } from "./telegram/formatMessage.js";
+import { createSources } from "./sources/index.js";
+import { productKey } from "./sources/types.js";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const STATE_PATH = path.join(DATA_DIR, "state.json");
-const TOKEN_PATH = path.join(DATA_DIR, "ml-token.enc");
-const WATCHLIST_PATH = path.join(process.cwd(), "config", "watchlist.json");
-
-interface Watchlist {
-  itemIds: string[];
-  searchQueries?: string[];
-}
-
-async function loadWatchlist(): Promise<Watchlist> {
-  const contents = await readFile(WATCHLIST_PATH, "utf8");
-  return JSON.parse(contents) as Watchlist;
-}
+const STATE_PATH = path.join(process.cwd(), "data", "state.json");
 
 export async function run(): Promise<void> {
-  const env = loadEnv();
-  const watchlist = await loadWatchlist();
+  const settings = loadSettings();
+  const sources = createSources(settings.SOURCES);
+  const publishers = createPublishers(settings.CHANNELS);
   let state = await loadState(STATE_PATH);
 
-  const refreshToken = await readTokenFile(TOKEN_PATH, env.ML_TOKEN_ENCRYPTION_KEY);
-  const tokenResponse = await refreshAccessToken(refreshToken, {
-    clientId: env.ML_CLIENT_ID,
-    clientSecret: env.ML_CLIENT_SECRET,
-  });
-  // Salva o refresh_token novo imediatamente: o ML invalida o antigo a cada troca,
-  // então se o resto do run falhar depois daqui, o próximo run ainda precisa conseguir autenticar.
-  await writeTokenFile(TOKEN_PATH, tokenResponse.refresh_token, env.ML_TOKEN_ENCRYPTION_KEY);
-
-  const candidateIds = new Set(watchlist.itemIds);
-  for (const query of watchlist.searchQueries ?? []) {
-    try {
-      const ids = await searchItemIds(query, tokenResponse.access_token);
-      for (const id of ids) candidateIds.add(id);
-    } catch (error) {
-      logger.warn("Busca por palavra-chave falhou, seguindo só com a watchlist", {
-        query,
-        error: String(error),
-      });
-    }
-  }
-
+  let candidates = 0;
   let posted = 0;
+  let hadChannelFailure = false;
   try {
-    for (const itemId of candidateIds) {
-      const item = await getItem(itemId, tokenResponse.access_token);
-      if (!item) continue;
+    for (const source of sources) {
+      for await (const product of source.products()) {
+        candidates += 1;
+        const key = productKey(product);
 
-      const offer = mapToOffer(item);
-      if (!offer) continue;
+        const offerCheck = isRealOffer(state.items[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT);
+        state = recordObservation(state, key, product.price).state;
 
-      const existingHistory = state.items[offer.itemId];
-      const offerCheck = isRealOffer(existingHistory, offer.price, env.DISCOUNT_THRESHOLD_PERCENT);
+        if (!offerCheck.isReal) {
+          logger.info("Oferta ignorada", { produto: key, reason: offerCheck.reason });
+          continue;
+        }
 
-      const recorded = recordObservation(state, offer.itemId, offer.price);
-      state = recorded.state;
+        if (shouldSkipAsDuplicate(state.posted[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT)) {
+          logger.info("Oferta já postada recentemente, pulando", { produto: key });
+          continue;
+        }
 
-      if (!offerCheck.isReal) {
-        logger.info("Oferta ignorada", { itemId: offer.itemId, reason: offerCheck.reason });
-        continue;
+        const failures = await publishToAll(publishers, {
+          product,
+          affiliateUrl: await source.affiliateUrl(product),
+          discountPercent: offerCheck.discountPercent ?? 0,
+        });
+        for (const failure of failures) {
+          logger.error("Falha ao publicar", { produto: key, canal: failure.channel, error: String(failure.error) });
+        }
+        if (failures.length === publishers.length) {
+          // Não saiu em canal nenhum: não marca como postada, pra tentar de novo no próximo run.
+          throw new Error(`Nenhum canal conseguiu publicar ${key}`);
+        }
+
+        // Saiu em pelo menos um canal: marca como postada pra não repetir nos que funcionaram.
+        state = recordPosted(state, key, product.price);
+        posted += 1;
+        hadChannelFailure ||= failures.length > 0;
+        logger.info("Oferta postada", { produto: key, price: product.price });
       }
-
-      if (shouldSkipAsDuplicate(state.posted[offer.itemId], offer.price, env.DISCOUNT_THRESHOLD_PERCENT)) {
-        logger.info("Oferta já postada recentemente, pulando", { itemId: offer.itemId });
-        continue;
-      }
-
-      const affiliateUrl = buildAffiliateLink(offer.permalink, env.ML_AFFILIATE_MATT_WORD, env.ML_AFFILIATE_MATT_TOOL);
-      const text = formatOfferMessage({
-        offer,
-        affiliateUrl,
-        discountPercent: offerCheck.discountPercent ?? 0,
-      });
-
-      await sendOfferMessage({
-        botToken: env.TELEGRAM_BOT_TOKEN,
-        chatId: env.TELEGRAM_CHANNEL_ID,
-        text,
-        photoUrl: offer.thumbnail,
-      });
-
-      state = recordPosted(state, offer.itemId, offer.price);
-      posted += 1;
-      logger.info("Oferta postada", { itemId: offer.itemId, price: offer.price });
     }
   } finally {
     await saveState(STATE_PATH, state);
   }
 
-  logger.info("Execução concluída", { candidatos: candidateIds.size, postadas: posted });
+  logger.info("Execução concluída", { candidatos: candidates, postadas: posted });
+  if (hadChannelFailure) {
+    process.exitCode = 1;
+  }
 }
 
 run().catch((error) => {

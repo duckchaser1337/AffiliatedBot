@@ -1,23 +1,43 @@
 import { z } from "zod";
+import { CHANNEL_IDS } from "../channels/types.js";
+import { SOURCE_IDS } from "../sources/types.js";
 
-const envSchema = z.object({
-  TELEGRAM_BOT_TOKEN: z.string().min(1, "TELEGRAM_BOT_TOKEN é obrigatório"),
-  TELEGRAM_CHANNEL_ID: z.string().min(1, "TELEGRAM_CHANNEL_ID é obrigatório"),
-  ML_CLIENT_ID: z.string().min(1, "ML_CLIENT_ID é obrigatório"),
-  ML_CLIENT_SECRET: z.string().min(1, "ML_CLIENT_SECRET é obrigatório"),
-  ML_TOKEN_ENCRYPTION_KEY: z.string().min(1, "ML_TOKEN_ENCRYPTION_KEY é obrigatório"),
-  ML_AFFILIATE_MATT_WORD: z.string().min(1, "ML_AFFILIATE_MATT_WORD é obrigatório"),
-  ML_AFFILIATE_MATT_TOOL: z.string().min(1, "ML_AFFILIATE_MATT_TOOL é obrigatório"),
+// Lista separada por vírgula (ex: "shopee,mercadolivre"). Vazio cai no padrão, porque
+// o GitHub Actions entrega "" quando a variável do repositório não foi cadastrada.
+function idList<T extends string>(ids: readonly [T, ...T[]], fallback: [T, ...T[]]) {
+  return z
+    .string()
+    .optional()
+    .transform((value) => [
+      ...new Set(
+        (value ?? "")
+          .split(",")
+          .map((id) => id.trim())
+          .filter(Boolean),
+      ),
+    ])
+    .transform((list) => (list.length > 0 ? list : fallback))
+    .pipe(z.array(z.enum(ids)).nonempty());
+}
+
+const settingsSchema = z.object({
+  SOURCES: idList(SOURCE_IDS, ["mercadolivre"]),
+  CHANNELS: idList(CHANNEL_IDS, ["telegram"]),
   DISCOUNT_THRESHOLD_PERCENT: z.coerce.number().positive().default(15),
 });
 
-export type Env = z.infer<typeof envSchema>;
+export type Settings = z.infer<typeof settingsSchema>;
 
-export function loadEnv(source: NodeJS.ProcessEnv = process.env): Env {
-  const result = envSchema.safeParse(source);
+// Cada fonte e canal valida só as próprias variáveis, e só quando está ligado.
+export function parseEnv<T extends z.ZodTypeAny>(schema: T, source: NodeJS.ProcessEnv = process.env): z.infer<T> {
+  const result = schema.safeParse(source);
   if (!result.success) {
     const issues = result.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("\n");
     throw new Error(`Configuração inválida:\n${issues}`);
   }
   return result.data;
+}
+
+export function loadSettings(source: NodeJS.ProcessEnv = process.env): Settings {
+  return parseEnv(settingsSchema, source);
 }

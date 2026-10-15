@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { shouldSkipAsDuplicate } from "../src/deals/dedupe.js";
+import { shouldSkipAsDuplicate } from "../src/curation/dedupe.js";
 
 describe("shouldSkipAsDuplicate", () => {
   it("não pula se nunca foi postado", () => {

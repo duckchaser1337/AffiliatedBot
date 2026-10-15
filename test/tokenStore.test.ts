@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { decryptToken, encryptToken } from "../src/marketplaces/mercadolivre/tokenStore.js";
+import { decryptToken, encryptToken } from "../src/sources/mercadolivre/tokenStore.js";
 
 const KEY = randomBytes(32).toString("base64");
 
