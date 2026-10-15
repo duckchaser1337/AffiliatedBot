@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "bot": "tsx src/run.ts",
-    "setup:ml-oauth": "tsx scripts/setup-ml-oauth.ts",
+    "bot": "tsx --env-file-if-exists=.env src/run.ts",
+    "setup:ml-oauth": "tsx --env-file-if-exists=.env scripts/setup-ml-oauth.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check:shopee": "tsx --env-file-if-exists=.env scripts/shopee-check.ts"
   },
   "dependencies": {
     "zod": "^3.23.8"

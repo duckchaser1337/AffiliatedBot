@@ -1,0 +1,19 @@
+{
+  "_sobre": "Buscas da fonte Shopee. sortType: 1 relevância, 2 mais vendidos, 5 maior comissão. limit: produtos por busca (máx. 50). minRating e minSales: nota e vendas mínimas para o produto entrar na curadoria.",
+  "keywords": [
+    "aspirador automotivo",
+    "compressor de ar portatil automotivo",
+    "camera de re",
+    "suporte celular carro",
+    "carregador veicular",
+    "shampoo automotivo",
+    "cera automotiva",
+    "kit microfibra automotivo",
+    "organizador porta malas",
+    "central multimidia"
+  ],
+  "sortType": 2,
+  "limit": 20,
+  "minRating": 4.5,
+  "minSales": 50
+}

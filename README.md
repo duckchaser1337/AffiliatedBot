@@ -2,7 +2,7 @@
 
 Bot de afiliados da marca **Achado de Garagem**: acessórios e cuidados automotivos. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
 
-Hoje funciona com Mercado Livre → Telegram. A estrutura já separa **fontes** (de onde vêm os produtos) de **canais** (onde publica), para receber Shopee e Instagram (ver [Escopo](#escopo)).
+Fontes: Mercado Livre e Shopee. Canal: Telegram. A estrutura separa **fontes** (de onde vêm os produtos) de **canais** (onde publica), para receber o Instagram em seguida (ver [Escopo](#escopo)).
 
 ## Estrutura
 
@@ -46,15 +46,30 @@ O `refresh_token` do Mercado Livre fica salvo, **criptografado** (AES-256-GCM), 
    ```
 5. Rode `npm install` e depois `npm run setup:ml-oauth` — abre uma URL de autorização, você faz login/autoriza no navegador, e o script salva `data/ml-token.enc` automaticamente.
 
-### 4. Repositório e GitHub Actions
+### 4. Shopee — afiliados e Open API
+1. Cadastre-se em [affiliate.shopee.com.br](https://affiliate.shopee.com.br). A aprovação é manual e leva uns 5–15 dias, e a Shopee pede um perfil em rede social.
+2. Depois de aprovado, abra a seção **Open API** no painel e copie o **App ID** e o **Secret** para `SHOPEE_APP_ID` e `SHOPEE_APP_SECRET` no `.env`.
+3. Confira se a API responde antes de ligar a Shopee no bot:
+   ```bash
+   npm run check:shopee -- "suporte celular carro"
+   ```
+   O comando faz uma busca e lista os produtos, sem publicar nada.
+   - `A Shopee recusou: Shopee 10020` = App ID/Secret errado.
+   - `10035` = a conta ainda não tem acesso à Open API.
+
+As buscas, a nota mínima e as vendas mínimas ficam em `config/shopee.json`.
+
+### 5. Repositório e GitHub Actions
 1. Crie o repositório no GitHub como **privado**.
 2. Em Settings → Secrets and variables → Actions, cadastre:
-   - **Secrets**: `TELEGRAM_BOT_TOKEN`, `ML_CLIENT_ID`, `ML_CLIENT_SECRET`, `ML_TOKEN_ENCRYPTION_KEY`.
-   - **Variables**: `TELEGRAM_CHANNEL_ID`, `ML_AFFILIATE_MATT_WORD`, `ML_AFFILIATE_MATT_TOOL`. Opcionais: `SOURCES` e `CHANNELS`, para ligar outras fontes e canais.
+   - **Secrets**: `TELEGRAM_BOT_TOKEN`, `ML_CLIENT_ID`, `ML_CLIENT_SECRET`, `ML_TOKEN_ENCRYPTION_KEY`, `SHOPEE_APP_ID`, `SHOPEE_APP_SECRET`.
+   - **Variables**: `TELEGRAM_CHANNEL_ID`, `ML_AFFILIATE_MATT_WORD`, `ML_AFFILIATE_MATT_TOOL` e `SOURCES=mercadolivre,shopee` (sem `SOURCES`, só o Mercado Livre roda). Opcional: `CHANNELS`.
 3. Faça commit e push do projeto, incluindo `data/ml-token.enc` gerado no passo anterior.
 4. Em Actions → run-bot, dispare manualmente (`Run workflow`) uma vez pra validar antes de confiar no cron.
 
-### 5. Curadoria
+Se uma fonte falhar durante a execução (API fora do ar, credencial vencida), as outras continuam publicando. A execução termina com erro no GitHub, para você ficar sabendo.
+
+### 6. Curadoria
 Preencha `config/watchlist.json` com os produtos que quer acompanhar:
 
 ```json
@@ -83,20 +98,29 @@ npm test
 npm run bot
 ```
 
-`npm run bot` usa o `.env` local e posta de verdade no canal configurado — use um canal de teste até validar o pipeline.
+`npm run bot` carrega o `.env` local e posta de verdade no canal configurado — use um canal de teste até validar o pipeline. No GitHub Actions não existe `.env`, e as variáveis vêm dos Secrets/Variables.
 
 ## Pontos a confirmar na primeira execução real
 
 A pesquisa técnica por trás deste projeto encontrou relatos de instabilidade recente no endpoint de busca do Mercado Livre (`/sites/MLB/search`), por isso ele é tratado como best-effort e isolado. Vale confirmar na prática, no primeiro `npm run bot`:
 - Se `/items/{id}` retorna o campo `thumbnail` como documentado — se o nome do campo mudou, o bot continua funcionando, só sem imagem na mensagem (campo é opcional no schema).
 - Se a busca por palavra-chave funciona com o seu token ou cai no fallback de log-e-segue.
+- Se o campo `official_store_id` vem nos itens do ML. Se não vier, todo produto é tratado como loja não oficial: os itens de segurança são barrados, os acessórios comuns seguem normalmente.
+
+A fonte Shopee foi escrita a partir de implementações públicas da Open API, porque a documentação oficial fica atrás do login. O `npm run check:shopee` confirma, antes da primeira execução:
+- o endpoint `open-api.affiliate.shopee.com.br/graphql` e a assinatura;
+- os nomes dos campos (`priceMin`, `ratingStar`, `sales`, `shopType`, `offerLink`);
+- o domínio do `offerLink`. O bot só aceita `https` em `shopee.com.br` ou subdomínio e descarta o resto, então um "DESCARTADO" em todas as linhas aponta para isso.
 
 ## Escopo
 
 Nicho: acessórios e cuidados automotivos (limpeza, gadgets, organização, eletrônicos). Publicação 100% automática.
 
-- **Feito**: Mercado Livre + Telegram, com fontes e canais plugáveis, e filtro do nicho com bloqueio de itens ilegais.
-- **Próximo — fonte Shopee**, junto com o ML: o ML é forte em peças e lojas oficiais, a Shopee em acessórios baratos. Entra pela Open API de afiliados.
-- **Depois — canal Instagram** como vitrine. O Telegram segue como canal principal de venda.
+- **Feito**:
+  - fontes Mercado Livre (forte em peças e lojas oficiais) e Shopee (acessórios baratos), canal Telegram;
+  - filtro do nicho com bloqueio de itens ilegais;
+  - nota e vendas mínimas na Shopee.
+  - Falta validar as duas fontes com credenciais reais.
+- **Próximo — canal Instagram** como vitrine. O Telegram segue como canal principal de venda.
 - **Fase 2**: peças por modelo de carro. Ficaram para depois porque peça errada vira devolução, e devolução cancela a comissão.
 - **Fora de escopo, por design**: Amazon (a API exige vendas prévias, inviável pra canal novo) e automação de Canais do WhatsApp (sem API oficial da Meta; as alternativas não-oficiais violam os termos do WhatsApp e arriscam banir o número).

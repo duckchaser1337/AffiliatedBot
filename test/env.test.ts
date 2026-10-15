@@ -15,6 +15,7 @@ describe("loadSettings", () => {
 
   it("aceita lista separada por vírgula e remove repetidos", () => {
     expect(loadSettings({ CHANNELS: "telegram, telegram" }).CHANNELS).toEqual(["telegram"]);
+    expect(loadSettings({ SOURCES: "mercadolivre,shopee" }).SOURCES).toEqual(["mercadolivre", "shopee"]);
   });
 
   it("rejeita fonte ou canal desconhecido", () => {
