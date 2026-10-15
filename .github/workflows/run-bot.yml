@@ -32,6 +32,8 @@ jobs:
           ML_TOKEN_ENCRYPTION_KEY: ${{ secrets.ML_TOKEN_ENCRYPTION_KEY }}
           ML_AFFILIATE_MATT_WORD: ${{ vars.ML_AFFILIATE_MATT_WORD }}
           ML_AFFILIATE_MATT_TOOL: ${{ vars.ML_AFFILIATE_MATT_TOOL }}
+          SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
+          SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
           SOURCES: ${{ vars.SOURCES }}
           CHANNELS: ${{ vars.CHANNELS }}
       - name: Persist state

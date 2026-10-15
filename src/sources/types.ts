@@ -1,4 +1,4 @@
-export const SOURCE_IDS = ["mercadolivre"] as const;
+export const SOURCE_IDS = ["mercadolivre", "shopee"] as const;
 export type SourceId = (typeof SOURCE_IDS)[number];
 
 export interface Product {

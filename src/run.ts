@@ -12,6 +12,10 @@ import { productKey } from "./sources/types.js";
 const STATE_PATH = path.join(process.cwd(), "data", "state.json");
 const NICHE_PATH = path.join(process.cwd(), "config", "niche.json");
 
+function describeError(error: unknown): string {
+  return error instanceof Error ? (error.stack ?? error.message) : String(error);
+}
+
 export async function run(): Promise<void> {
   const settings = loadSettings();
   const nicheRules = await loadNicheRules(NICHE_PATH);
@@ -21,50 +25,56 @@ export async function run(): Promise<void> {
 
   let candidates = 0;
   let posted = 0;
-  let hadChannelFailure = false;
+  let hadFailure = false;
   try {
     for (const source of sources) {
-      for await (const product of source.products()) {
-        candidates += 1;
-        const key = productKey(product);
+      // Uma fonte fora do ar não pode impedir as outras de publicar; o run só fica vermelho no fim.
+      try {
+        for await (const product of source.products()) {
+          candidates += 1;
+          const key = productKey(product);
 
-        const nicheCheck = checkNiche(product, nicheRules);
-        if (!nicheCheck.allowed) {
-          logger.info("Fora do nicho, ignorando", { produto: key, reason: nicheCheck.reason });
-          continue;
+          const nicheCheck = checkNiche(product, nicheRules);
+          if (!nicheCheck.allowed) {
+            logger.info("Fora do nicho, ignorando", { produto: key, reason: nicheCheck.reason });
+            continue;
+          }
+
+          const offerCheck = isRealOffer(state.items[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT);
+          state = recordObservation(state, key, product.price).state;
+
+          if (!offerCheck.isReal) {
+            logger.info("Oferta ignorada", { produto: key, reason: offerCheck.reason });
+            continue;
+          }
+
+          if (shouldSkipAsDuplicate(state.posted[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT)) {
+            logger.info("Oferta já postada recentemente, pulando", { produto: key });
+            continue;
+          }
+
+          const failures = await publishToAll(publishers, {
+            product,
+            affiliateUrl: await source.affiliateUrl(product),
+            discountPercent: offerCheck.discountPercent ?? 0,
+          });
+          for (const failure of failures) {
+            logger.error("Falha ao publicar", { produto: key, canal: failure.channel, error: String(failure.error) });
+          }
+          if (failures.length === publishers.length) {
+            // Não saiu em canal nenhum: não marca como postada, pra tentar de novo no próximo run.
+            throw new Error(`Nenhum canal conseguiu publicar ${key}`);
+          }
+
+          // Saiu em pelo menos um canal: marca como postada pra não repetir nos que funcionaram.
+          state = recordPosted(state, key, product.price);
+          posted += 1;
+          hadFailure ||= failures.length > 0;
+          logger.info("Oferta postada", { produto: key, price: product.price });
         }
-
-        const offerCheck = isRealOffer(state.items[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT);
-        state = recordObservation(state, key, product.price).state;
-
-        if (!offerCheck.isReal) {
-          logger.info("Oferta ignorada", { produto: key, reason: offerCheck.reason });
-          continue;
-        }
-
-        if (shouldSkipAsDuplicate(state.posted[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT)) {
-          logger.info("Oferta já postada recentemente, pulando", { produto: key });
-          continue;
-        }
-
-        const failures = await publishToAll(publishers, {
-          product,
-          affiliateUrl: await source.affiliateUrl(product),
-          discountPercent: offerCheck.discountPercent ?? 0,
-        });
-        for (const failure of failures) {
-          logger.error("Falha ao publicar", { produto: key, canal: failure.channel, error: String(failure.error) });
-        }
-        if (failures.length === publishers.length) {
-          // Não saiu em canal nenhum: não marca como postada, pra tentar de novo no próximo run.
-          throw new Error(`Nenhum canal conseguiu publicar ${key}`);
-        }
-
-        // Saiu em pelo menos um canal: marca como postada pra não repetir nos que funcionaram.
-        state = recordPosted(state, key, product.price);
-        posted += 1;
-        hadChannelFailure ||= failures.length > 0;
-        logger.info("Oferta postada", { produto: key, price: product.price });
+      } catch (error) {
+        hadFailure = true;
+        logger.error("Fonte falhou, seguindo com as outras", { fonte: source.id, error: describeError(error) });
       }
     }
   } finally {
@@ -72,12 +82,12 @@ export async function run(): Promise<void> {
   }
 
   logger.info("Execução concluída", { candidatos: candidates, postadas: posted });
-  if (hadChannelFailure) {
+  if (hadFailure) {
     process.exitCode = 1;
   }
 }
 
 run().catch((error) => {
-  logger.error("Execução falhou", { error: error instanceof Error ? (error.stack ?? error.message) : String(error) });
+  logger.error("Execução falhou", { error: describeError(error) });
   process.exitCode = 1;
 });
