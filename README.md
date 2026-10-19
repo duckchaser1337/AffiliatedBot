@@ -39,15 +39,23 @@ O `refresh_token` do Mercado Livre fica salvo, **criptografado** (AES-256-GCM), 
 3. Abra a URL gerada e copie os valores dos parâmetros `matt_word` e `matt_tool` — são fixos pra sua conta e o bot vai reusar eles em todo link que gerar.
 
 ### 3. Mercado Livre — aplicação/API
-1. Crie uma aplicação em [developers.mercadolivre.com.br](https://developers.mercadolivre.com.br), anote o **Client ID** e o **Client Secret**.
-2. Cadastre `http://localhost:8734/callback` como redirect URI da aplicação.
-   - Se o Mercado Livre recusar por exigir HTTPS, use um túnel local (ex: `ngrok http 8734`) e ajuste `REDIRECT_URI` em `scripts/setup-ml-oauth.ts` para a URL do túnel — isso só precisa ser validado uma vez, no primeiro login.
-3. Copie `.env.example` para `.env` e preencha `ML_CLIENT_ID`, `ML_CLIENT_SECRET`.
-4. Gere a chave de criptografia local e cole em `ML_TOKEN_ENCRYPTION_KEY` no `.env`:
+1. Crie uma aplicação em [developers.mercadolivre.com.br](https://developers.mercadolivre.com.br) e anote o **Client ID** e o **Client Secret**. No cadastro:
+   - URI de redirect: `https://localhost:8734/callback`. O ML exige `https`, e esse endereço não precisa existir de verdade (ver passo 5).
+   - Escopos: leitura (`read`) e acesso offline (`offline_access`). Sem `offline_access`, o ML não devolve o `refresh_token` e o bot não consegue renovar o acesso.
+   - PKCE desligado e nenhum tópico de notificação.
+2. Copie `.env.example` para `.env` e preencha `ML_CLIENT_ID` e `ML_CLIENT_SECRET`.
+3. Gere a chave de criptografia local e cole em `ML_TOKEN_ENCRYPTION_KEY` no `.env`:
    ```bash
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
-5. Rode `npm install` e depois `npm run setup:ml-oauth` — abre uma URL de autorização, você faz login/autoriza no navegador, e o script salva `data/ml-token.enc` automaticamente.
+4. Rode `npm install`.
+5. Rode `npm run setup:ml-oauth`:
+   - ele mostra uma URL de autorização; abra, faça login e autorize;
+   - o navegador vai pra `https://localhost:8734/callback?code=...` e mostra **erro de conexão**, o que é normal;
+   - copie o endereço completo da barra e cole no terminal;
+   - o script salva `data/ml-token.enc`.
+
+   Se cadastrou outro endereço no app, defina `ML_REDIRECT_URI` no `.env` com ele.
 
 ### 4. Shopee — afiliados e Open API
 1. Cadastre-se em [affiliate.shopee.com.br](https://affiliate.shopee.com.br). A aprovação é manual e leva uns 5–15 dias, e a Shopee pede um perfil em rede social.
