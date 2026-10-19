@@ -26,6 +26,12 @@ describe("formatOfferMessage", () => {
     expect(message).toContain("89,90");
   });
 
+  it("sem queda de preço vira Achado do dia", () => {
+    const message = formatOfferMessage({ product: baseProduct, affiliateUrl: "https://x.com", discountPercent: 0 });
+    expect(message).toContain("Achado do dia — por");
+    expect(message).not.toContain("de queda");
+  });
+
   it("começa com a identificação de publicidade", () => {
     const message = formatOfferMessage({ product: baseProduct, affiliateUrl: "https://x.com", discountPercent: 20 });
     expect(message.startsWith(AFFILIATE_DISCLOSURE)).toBe(true);

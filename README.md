@@ -1,9 +1,9 @@
 # Achado de Garagem — bot de afiliados
 
-Bot de afiliados da marca **Achado de Garagem**: acessórios e cuidados automotivos. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
+Bot de afiliados da marca **Achado de Garagem**: acessórios e cuidados automotivos. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho de hora em hora via GitHub Actions (cron), sem depender do seu PC ligado. De hora em hora é o bastante para pegar queda de preço e cabe com folga nos 2.000 minutos grátis por mês de repositório privado.
 
 Fontes: Mercado Livre e Shopee. Divulgação:
-- **Telegram**, automático: todo achado aprovado vai pro canal.
+- **Telegram**, automático: toda queda de preço aprovada vai pro canal, e também o "Achado do dia" do kit do TikTok.
 - **TikTok**, semi-automático: três vezes por dia, o bot monta um vídeo com o melhor achado e manda no seu Telegram privado, e você posta (ver [Kit do TikTok](#7-kit-do-tiktok)).
 
 ## Estrutura
@@ -118,7 +118,13 @@ Por isso o bot prepara e você posta. Em cada horário de `config/tiktok.json` (
 2. manda no seu Telegram privado o vídeo, com a legenda pronta (`#publi` + hashtags);
 3. manda em seguida o passo a passo: som em alta, divulgação de conteúdo comercial, sacolinha do TikTok Shop e o link de afiliado.
 
-Se não houver achado novo, o horário fica aberto e o vídeo sai assim que aparecer um, até o próximo horário. Cada produto vira vídeo no máximo uma vez por semana.
+Sem queda de preço no horário, o vídeo sai do mesmo jeito, como **"Achado do dia"**:
+- o bot escolhe um produto do nicho visto nas últimas 48h, dando preferência aos mais vendidos, depois aos de loja oficial e depois aos que têm foto;
+- o vídeo diz "ACHADO DO DIA", sem "BAIXOU X%";
+- o produto também é postado no canal do Telegram, porque o vídeo manda a pessoa pra lá;
+- o mesmo produto só volta a ser "Achado do dia" depois de um mês.
+
+Só sem nenhum produto disponível o horário fica aberto até aparecer um. Uma queda de preço vira vídeo no máximo uma vez por semana.
 
 Para ligar:
 1. Abra o chat do seu bot no Telegram e mande `/start` (sem isso o bot não consegue te escrever).

@@ -29,7 +29,9 @@ export function buildKitInstructions(offer: KitOffer, slot: string): string {
     `4. Sacolinha: na vitrine de afiliado do TikTok Shop, procure "${shortTitle(offer.product.title, 40)}". Se achar, adicione o produto ao vídeo.`,
     "",
     `Produto: ${offer.product.title}`,
-    `Preço: ${formatBRL(offer.product.price)}${previous}`,
+    offer.discountPercent >= 1
+      ? `Preço: ${formatBRL(offer.product.price)}${previous}`
+      : `Preço: ${formatBRL(offer.product.price)} (achado do dia, sem queda de preço; já está no canal do Telegram)`,
     `Link de afiliado (${SOURCE_LABELS[offer.product.source]}): ${offer.affiliateUrl}`,
   ].join("\n");
 }

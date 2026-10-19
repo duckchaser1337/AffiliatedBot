@@ -45,6 +45,14 @@ describe("buildKitInstructions", () => {
   });
 });
 
+describe("buildKitInstructions (achado do dia)", () => {
+  it("avisa que não houve queda e que o produto já está no canal", () => {
+    const text = buildKitInstructions({ ...offer, discountPercent: 0, previousPrice: undefined }, "2026-10-19 09:00");
+    expect(text).toContain("achado do dia, sem queda de preço");
+    expect(text).not.toContain("antes");
+  });
+});
+
 describe("shortTitle", () => {
   it("corta no último espaço e marca com reticências", () => {
     expect(shortTitle("Suporte Celular Carro Magnético Saída de Ar", 25)).toBe("Suporte Celular Carro…");

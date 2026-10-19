@@ -9,7 +9,7 @@ import { logger } from "./logger.js";
 import { createSources } from "./sources/index.js";
 import { productKey } from "./sources/types.js";
 import { loadTikTokKit, runKitStep } from "./tiktok/kit.js";
-import { loadKitLog, recordOffer, saveKitLog } from "./tiktok/kitLog.js";
+import { loadKitLog, recordOffer, recordSeen, saveKitLog } from "./tiktok/kitLog.js";
 
 const STATE_PATH = path.join(process.cwd(), "data", "state.json");
 const KIT_LOG_PATH = path.join(process.cwd(), "data", "tiktok-kit.json");
@@ -48,6 +48,9 @@ export async function run(): Promise<void> {
             continue;
           }
 
+          const affiliateUrl = await source.affiliateUrl(product);
+          kitLog = recordSeen(kitLog, { key, product, affiliateUrl, seenAt: new Date().toISOString() });
+
           const previousPrice = state.items[key]?.minPrice;
           const offerCheck = isRealOffer(state.items[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT);
           state = recordObservation(state, key, product.price).state;
@@ -62,7 +65,6 @@ export async function run(): Promise<void> {
             continue;
           }
 
-          const affiliateUrl = await source.affiliateUrl(product);
           const discountPercent = offerCheck.discountPercent ?? 0;
           const failures = await publishToAll(publishers, { product, affiliateUrl, discountPercent });
           for (const failure of failures) {
@@ -95,7 +97,17 @@ export async function run(): Promise<void> {
 
     if (tiktokKit) {
       try {
-        kitLog = await runKitStep(tiktokKit, kitLog);
+        kitLog = await runKitStep(tiktokKit, kitLog, new Date(), {
+          publishFallback: async ({ key, product, affiliateUrl }) => {
+            const failures = await publishToAll(publishers, { product, affiliateUrl, discountPercent: 0 });
+            for (const failure of failures) {
+              logger.error("Falha ao publicar achado do dia", { produto: key, canal: failure.channel, error: String(failure.error) });
+            }
+            if (failures.length === publishers.length) {
+              throw new Error(`Nenhum canal conseguiu publicar o achado do dia ${key}`);
+            }
+          },
+        });
       } catch (error) {
         // O horário não é marcado como atendido: o próximo run tenta de novo.
         hadFailure = true;
