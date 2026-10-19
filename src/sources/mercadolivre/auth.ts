@@ -8,7 +8,7 @@ export interface MlCredentials {
 }
 
 // Aceita o endereço inteiro da barra do navegador depois da autorização
-// (https://localhost:8734/callback?code=TG-...) ou só o código.
+// (ex: https://github.com/usuario/repo?code=TG-...) ou só o código.
 export function extractAuthCode(input: string): string | undefined {
   const trimmed = input.trim();
   if (!trimmed) return undefined;

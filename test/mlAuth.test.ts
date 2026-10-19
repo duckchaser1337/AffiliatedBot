@@ -3,7 +3,7 @@ import { extractAuthCode } from "../src/sources/mercadolivre/auth.js";
 
 describe("extractAuthCode", () => {
   it("tira o código do endereço colado da barra do navegador", () => {
-    expect(extractAuthCode(" https://localhost:8734/callback?code=TG-abc123-456 \n")).toBe("TG-abc123-456");
+    expect(extractAuthCode(" https://github.com/arthurgaier/AffiliatedBot?code=TG-abc123-456 \n")).toBe("TG-abc123-456");
   });
 
   it("aceita só o código", () => {
@@ -11,7 +11,7 @@ describe("extractAuthCode", () => {
   });
 
   it("recusa endereço sem código e texto qualquer", () => {
-    expect(extractAuthCode("https://localhost:8734/callback?error=access_denied")).toBeUndefined();
+    expect(extractAuthCode("https://github.com/arthurgaier/AffiliatedBot?error=access_denied")).toBeUndefined();
     expect(extractAuthCode("não sei")).toBeUndefined();
     expect(extractAuthCode("")).toBeUndefined();
   });
