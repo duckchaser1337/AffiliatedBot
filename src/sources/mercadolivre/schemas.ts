@@ -1,22 +1,32 @@
 import { z } from "zod";
 
-export const mlItemSchema = z.object({
+// Só a API de catálogo responde pra apps comuns: /sites/MLB/search, /items e /user-products
+// devolvem 403 (confirmado em 19/10/2026). Cada registro é validado separadamente: um
+// malformado não derruba a lista inteira.
+
+export const mlCatalogProductSchema = z.object({
   id: z.string(),
-  title: z.string(),
-  price: z.number().nonnegative(),
-  currency_id: z.string(),
-  thumbnail: z.string().optional(),
-  permalink: z.string().url(),
-  available_quantity: z.number().int().nonnegative(),
-  status: z.string(),
-  official_store_id: z.number().nullable().optional(),
-  pictures: z.array(z.object({ secure_url: z.string().optional() })).optional(),
+  name: z.string(),
+  status: z.string().optional(),
+  pictures: z.array(z.object({ url: z.string().optional() })).optional(),
 });
 
-export type MlItem = z.infer<typeof mlItemSchema>;
+export type MlCatalogProduct = z.infer<typeof mlCatalogProductSchema>;
 
-export const mlSearchResultSchema = z.object({
-  results: z.array(z.object({ id: z.string() })),
+// Uma oferta (anúncio de um vendedor) dentro de um produto de catálogo.
+export const mlOfferSchema = z.object({
+  item_id: z.string(),
+  price: z.number().positive(),
+  condition: z.string().optional(),
+  official_store_id: z.number().nullable().optional(),
+});
+
+export type MlOffer = z.infer<typeof mlOfferSchema>;
+
+export const mlResultsSchema = z.object({ results: z.array(z.unknown()) });
+
+export const mlHighlightsSchema = z.object({
+  content: z.array(z.object({ id: z.string(), type: z.string() })),
 });
 
 export const mlTokenResponseSchema = z.object({

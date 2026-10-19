@@ -1,5 +1,6 @@
 {
-  "itemIds": [],
+  "_sobre": "Fonte Mercado Livre (API de catálogo). productIds: o MLB... depois de /p/ no endereço de um produto. searchQueries: busca por palavra-chave no catálogo (só entram produtos com vendedor ativo). highlightCategories: mais vendidos de cada categoria. searchLimit: produtos por busca (máx. 50).",
+  "productIds": [],
   "searchQueries": [
     "aspirador automotivo",
     "compressor de ar portatil automotivo",
@@ -11,5 +12,7 @@
     "kit microfibra automotivo",
     "organizador porta malas",
     "central multimidia"
-  ]
+  ],
+  "highlightCategories": ["MLB1747", "MLB114675", "MLB114676", "MLB188063", "MLB2227", "MLB3381", "MLB8531"],
+  "searchLimit": 10
 }

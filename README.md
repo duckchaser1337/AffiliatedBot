@@ -82,16 +82,22 @@ As buscas, a nota mínima e as vendas mínimas ficam em `config/shopee.json`.
 Se uma fonte falhar durante a execução (API fora do ar, credencial vencida), as outras continuam publicando. A execução termina com erro no GitHub, para você ficar sabendo.
 
 ### 6. Curadoria
-Preencha `config/watchlist.json` com os produtos que quer acompanhar:
+A fonte do Mercado Livre usa a **API de catálogo**. A de anúncios (`/sites/MLB/search`, `/items`) responde 403 para apps comuns desde outubro de 2026. Em `config/watchlist.json`:
 
 ```json
 {
-  "itemIds": ["MLB1234567890"],
-  "searchQueries": ["aspirador automotivo"]
+  "productIds": ["MLB25804364"],
+  "searchQueries": ["aspirador automotivo"],
+  "highlightCategories": ["MLB1747"],
+  "searchLimit": 10
 }
 ```
 
-`itemIds` é a fonte principal e estável (o ID aparece na URL do produto, formato `MLB...`). `searchQueries` é best-effort — se a busca por palavra-chave falhar ou ficar instável, o bot ignora e segue só com `itemIds` (não derruba a execução). O arquivo já vem com buscas de acessórios e cuidados automotivos.
+- `productIds`: produtos fixos. É o `MLB...` que vem depois de `/p/` no endereço do produto.
+- `searchQueries`: busca por palavra-chave no catálogo. Muitos resultados são produtos sem ninguém vendendo e ficam de fora.
+- `highlightCategories`: os mais vendidos de cada categoria. O arquivo já vem com acessórios, interior e exterior, limpeza, ferramentas, som e GPS.
+
+Para cada produto, o bot pega a **oferta nova mais barata** entre os vendedores. O link leva à página do produto com essa oferta selecionada, e "loja oficial" é a do vendedor dela. Uma busca que falha é pulada; se **todas** falharem, a execução fica vermelha.
 
 Todo produto passa antes pelo filtro do nicho, em `config/niche.json`. Como a publicação é automática, é ele que segura o que não pode sair:
 - `blockedTerms`: nunca publica. Itens ilegais (anti-radar, kit xenon, lâmpada LED de "upgrade" para farol, película espelhada ou em placa) e o que estiver fora do nicho.
@@ -133,10 +139,9 @@ npm run bot
 
 ## Pontos a confirmar na primeira execução real
 
-A pesquisa técnica por trás deste projeto encontrou relatos de instabilidade recente no endpoint de busca do Mercado Livre (`/sites/MLB/search`), por isso ele é tratado como best-effort e isolado. Vale confirmar na prática, no primeiro `npm run bot`:
-- Se `/items/{id}` retorna `pictures` (foto em tamanho cheio, usada no vídeo do TikTok) e `thumbnail` (miniatura, reserva). Se nenhum vier, o bot continua funcionando: a mensagem sai sem imagem e o vídeo usa o nome do produto no lugar da foto.
-- Se a busca por palavra-chave funciona com o seu token ou cai no fallback de log-e-segue.
-- Se o campo `official_store_id` vem nos itens do ML. Se não vier, todo produto é tratado como loja não oficial: os itens de segurança são barrados, os acessórios comuns seguem normalmente.
+A fonte do Mercado Livre foi testada contra a API real em 19/10/2026: 105 produtos com vendedor ativo em ~50s, com nome, foto, preço e loja oficial. Fica a confirmar, abrindo no navegador um link postado pelo bot:
+- se o parâmetro `pdp_filters=item_id:...` abre a página já com a oferta escolhida, para o preço do post bater com o da página;
+- se a comissão de afiliado é registrada com `matt_word`/`matt_tool` nesse link. O teste de cliques no painel de afiliado responde isso.
 
 A fonte Shopee foi escrita a partir de implementações públicas da Open API, porque a documentação oficial fica atrás do login. O `npm run check:shopee` confirma, antes da primeira execução:
 - o endpoint `open-api.affiliate.shopee.com.br/graphql` e a assinatura;
