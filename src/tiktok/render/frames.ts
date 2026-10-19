@@ -3,8 +3,7 @@ import path from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import satori, { type SatoriOptions } from "satori";
 import sharp from "sharp";
-import { AFFILIATE_DISCLOSURE } from "../../content/disclosure.js";
-import { formatBRL, shortTitle } from "../../content/format.js";
+import { formatBRL, productHeadline } from "../../content/format.js";
 import { logger } from "../../logger.js";
 import type { KitOffer } from "../kitLog.js";
 
@@ -91,7 +90,7 @@ function productCard(offer: KitOffer, photo: string | undefined, height: number)
     ? image(photo, CONTENT_WIDTH - 96, height - 96, { objectFit: "contain" })
     : box(
         { fontFamily: "Barlow", fontWeight: 700, fontSize: 64, textAlign: "center", padding: 48 },
-        shortTitle(offer.product.title, 60),
+        productHeadline(offer.product.title, 60),
       );
   return box(
     {
@@ -105,10 +104,6 @@ function productCard(offer: KitOffer, photo: string | undefined, height: number)
     },
     inner,
   );
-}
-
-function disclosure(color: string): Element {
-  return box({ fontFamily: "Barlow", fontWeight: 600, fontSize: 34, color }, AFFILIATE_DISCLOSURE);
 }
 
 function stripe(): Element {
@@ -130,7 +125,6 @@ function hookFrame(offer: KitOffer, photo: string | undefined): Element {
       ...SAFE_AREA,
       gap: 36,
     },
-    disclosure(BLACK),
     box(
       {
         alignSelf: "flex-start",
@@ -166,11 +160,10 @@ function detailFrame(offer: KitOffer, photo: string | undefined): Element {
       ...SAFE_AREA,
       gap: 36,
     },
-    disclosure(BLACK),
     productCard(offer, photo, 640),
     box(
       { width: CONTENT_WIDTH, fontFamily: "Barlow", fontWeight: 700, fontSize: 60, lineHeight: 1.15 },
-      shortTitle(offer.product.title, 80),
+      productHeadline(offer.product.title, 80),
     ),
     box(
       {
@@ -216,7 +209,6 @@ function ctaFrame(): Element {
       box({ fontFamily: "Anton", fontSize: 170, lineHeight: 1, color: YELLOW }, "LINK NA BIO"),
       box({ fontFamily: "Barlow", fontWeight: 600, fontSize: 54 }, "e no canal do Telegram"),
       box({ fontFamily: "Anton", fontSize: 60, letterSpacing: 2, color: YELLOW }, "ACHADO DE GARAGEM"),
-      disclosure("#CFCFCF"),
     ),
   );
 }

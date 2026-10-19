@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { AFFILIATE_DISCLOSURE } from "../src/content/disclosure.js";
-import { shortTitle } from "../src/content/format.js";
+import { productHeadline } from "../src/content/format.js";
 import { buildKitInstructions, buildTikTokCaption } from "../src/tiktok/caption.js";
 import type { KitOffer } from "../src/tiktok/kitLog.js";
 
@@ -21,9 +20,10 @@ const offer: KitOffer = {
 };
 
 describe("buildTikTokCaption", () => {
-  it("começa com a identificação de publicidade e traz preço, queda e hashtags", () => {
+  it("traz título, preço, queda e hashtags, sem #publi no texto", () => {
     const caption = buildTikTokCaption(offer, ["#achadodegaragem", "#carro"]);
-    expect(caption.startsWith(AFFILIATE_DISCLOSURE)).toBe(true);
+    expect(caption.startsWith("Compressor de Ar Portátil")).toBe(true);
+    expect(caption).not.toContain("#publi");
     // O formato de moeda do Node usa espaço não separável entre "R$" e o valor.
     expect(caption).toMatch(/R\$\s129,90/);
     expect(caption).toContain("baixou 21%");
@@ -53,9 +53,24 @@ describe("buildKitInstructions (achado do dia)", () => {
   });
 });
 
-describe("shortTitle", () => {
-  it("corta no último espaço e marca com reticências", () => {
-    expect(shortTitle("Suporte Celular Carro Magnético Saída de Ar", 25)).toBe("Suporte Celular Carro…");
-    expect(shortTitle("Curto", 25)).toBe("Curto");
+describe("productHeadline", () => {
+  const longTitle =
+    "Suporte Magnético Para Celular Com Ventosa De Vácuo Ajustável 360° Universal Para Carro Painel Vidro Mesa E Superfícies Com Fixação Forte Para Smartphone E Uso Veicular E Ajuste Prático - Swave";
+
+  it("fica com as palavras-chave do começo, sem reticências", () => {
+    expect(productHeadline(longTitle, 80)).toBe(
+      "Suporte Magnético Para Celular Com Ventosa De Vácuo Ajustável 360° Universal",
+    );
+  });
+
+  it("não termina em conector", () => {
+    expect(productHeadline("Shampoo Automotivo Neutro Com Cera Para Carro E Moto Lavagem Completa", 40)).toBe(
+      "Shampoo Automotivo Neutro Com Cera",
+    );
+  });
+
+  it("título curto fica igual e palavra gigante é cortada", () => {
+    expect(productHeadline("Cera Automotiva  Vonixx - 500ml", 80)).toBe("Cera Automotiva Vonixx - 500ml");
+    expect(productHeadline("A".repeat(100), 10)).toBe("AAAAAAAAAA");
   });
 });
