@@ -10,6 +10,7 @@ export const mlItemSchema = z.object({
   available_quantity: z.number().int().nonnegative(),
   status: z.string(),
   official_store_id: z.number().nullable().optional(),
+  pictures: z.array(z.object({ secure_url: z.string().optional() })).optional(),
 });
 
 export type MlItem = z.infer<typeof mlItemSchema>;

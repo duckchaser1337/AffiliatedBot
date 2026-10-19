@@ -21,9 +21,12 @@ export function mapToProduct(item: MlItem): Product | null {
     price: item.price,
     currency: item.currency_id,
     url: item.permalink,
-    // thumbnail vem solto no schema (não queremos rejeitar a oferta inteira por causa
-    // de uma miniatura malformada) — valida aqui, na borda antes de virar foto nos canais.
-    imageUrl: item.thumbnail && isValidUrl(item.thumbnail) ? item.thumbnail : undefined,
+    // Fotos vêm soltas no schema (não queremos rejeitar a oferta inteira por causa
+    // de uma imagem malformada) — valida aqui, na borda antes de virar foto nos canais.
+    // A primeira de pictures tem tamanho cheio; thumbnail (~90px) fica só de reserva.
+    imageUrl: [item.pictures?.[0]?.secure_url, item.thumbnail].find(
+      (url): url is string => url !== undefined && isValidUrl(url),
+    ),
     officialStore: item.official_store_id != null,
   };
 }

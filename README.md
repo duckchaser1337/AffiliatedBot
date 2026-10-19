@@ -2,7 +2,9 @@
 
 Bot de afiliados da marca **Achado de Garagem**: acessórios e cuidados automotivos. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho via GitHub Actions (cron), sem depender do seu PC ligado.
 
-Fontes: Mercado Livre e Shopee. Canal: Telegram. A estrutura separa **fontes** (de onde vêm os produtos) de **canais** (onde publica), para receber o Instagram em seguida (ver [Escopo](#escopo)).
+Fontes: Mercado Livre e Shopee. Divulgação:
+- **Telegram**, automático: todo achado aprovado vai pro canal.
+- **TikTok**, semi-automático: três vezes por dia, o bot monta um vídeo com o melhor achado e manda no seu Telegram privado, e você posta (ver [Kit do TikTok](#7-kit-do-tiktok)).
 
 ## Estrutura
 
@@ -12,7 +14,8 @@ src/
   curation/    # filtro do nicho, histórico de preço, "oferta real" e anti-repetição
   content/     # textos comuns a todos os canais (ex: identificação #publi)
   channels/    # canais de publicação; cada um implementa a interface Publisher (channels/types.ts)
-  run.ts       # orquestra: fontes → curadoria → todos os canais ligados
+  tiktok/      # kit do TikTok: escolha do achado, arte, vídeo e envio pro Telegram privado
+  run.ts       # orquestra: fontes → curadoria → todos os canais ligados → kit do TikTok
 ```
 
 Fontes e canais são ligados pelas variáveis `SOURCES` e `CHANNELS` (lista separada por vírgula; vazio = padrão). Cada um valida só as próprias variáveis de ambiente, e só quando está ligado.
@@ -63,7 +66,7 @@ As buscas, a nota mínima e as vendas mínimas ficam em `config/shopee.json`.
 1. Crie o repositório no GitHub como **privado**.
 2. Em Settings → Secrets and variables → Actions, cadastre:
    - **Secrets**: `TELEGRAM_BOT_TOKEN`, `ML_CLIENT_ID`, `ML_CLIENT_SECRET`, `ML_TOKEN_ENCRYPTION_KEY`, `SHOPEE_APP_ID`, `SHOPEE_APP_SECRET`.
-   - **Variables**: `TELEGRAM_CHANNEL_ID`, `ML_AFFILIATE_MATT_WORD`, `ML_AFFILIATE_MATT_TOOL` e `SOURCES=mercadolivre,shopee` (sem `SOURCES`, só o Mercado Livre roda). Opcional: `CHANNELS`.
+   - **Variables**: `TELEGRAM_CHANNEL_ID`, `ML_AFFILIATE_MATT_WORD`, `ML_AFFILIATE_MATT_TOOL`, `SOURCES=mercadolivre,shopee` (sem `SOURCES`, só o Mercado Livre roda) e `TELEGRAM_KIT_CHAT_ID` (ver passo 7). Opcional: `CHANNELS`.
 3. Faça commit e push do projeto, incluindo `data/ml-token.enc` gerado no passo anterior.
 4. Em Actions → run-bot, dispare manualmente (`Run workflow`) uma vez pra validar antes de confiar no cron.
 
@@ -89,6 +92,25 @@ Os termos casam palavras inteiras, sem diferenciar maiúsculas nem acentos: `ant
 
 O limiar de queda pra considerar "oferta real" é `DISCOUNT_THRESHOLD_PERCENT` no `.env`/Secrets (padrão 15%).
 
+### 7. Kit do TikTok
+O TikTok não deixa um bot publicar sozinho:
+- pela API oficial, post de app não auditado fica privado;
+- a auditoria recusa ferramenta interna e app que coloca marca ou preço por cima do vídeo;
+- robô no navegador viola os termos e arrisca a conta.
+
+Por isso o bot prepara e você posta. Em cada horário de `config/tiktok.json` (padrão 9h, 13h e 19h, horário de Brasília), ele pega o achado com maior queda real das últimas 48h que ainda não virou vídeo. Daí:
+1. monta um vídeo vertical de 12s (1080×1920, sem som) na identidade Oficina: queda de preço, nome e preço, "link na bio";
+2. manda no seu Telegram privado o vídeo, com a legenda pronta (`#publi` + hashtags);
+3. manda em seguida o passo a passo: som em alta, divulgação de conteúdo comercial, sacolinha do TikTok Shop e o link de afiliado.
+
+Se não houver achado novo, o horário fica aberto e o vídeo sai assim que aparecer um, até o próximo horário. Cada produto vira vídeo no máximo uma vez por semana.
+
+Para ligar:
+1. Abra o chat do seu bot no Telegram e mande `/start` (sem isso o bot não consegue te escrever).
+2. Pegue o seu `chat_id` com o [@userinfobot](https://t.me/userinfobot) e cadastre em `TELEGRAM_KIT_CHAT_ID` (Variables do GitHub e `.env`). Vazio = kit desligado.
+
+Pra ver como fica a arte sem enviar nada: `npm run kit:preview` (ou `npm run kit:preview -- <url-da-foto>` com a foto de um produto real). O kit de exemplo sai na pasta `preview/`.
+
 ## Rodando localmente
 
 ```bash
@@ -103,7 +125,7 @@ npm run bot
 ## Pontos a confirmar na primeira execução real
 
 A pesquisa técnica por trás deste projeto encontrou relatos de instabilidade recente no endpoint de busca do Mercado Livre (`/sites/MLB/search`), por isso ele é tratado como best-effort e isolado. Vale confirmar na prática, no primeiro `npm run bot`:
-- Se `/items/{id}` retorna o campo `thumbnail` como documentado — se o nome do campo mudou, o bot continua funcionando, só sem imagem na mensagem (campo é opcional no schema).
+- Se `/items/{id}` retorna `pictures` (foto em tamanho cheio, usada no vídeo do TikTok) e `thumbnail` (miniatura, reserva). Se nenhum vier, o bot continua funcionando: a mensagem sai sem imagem e o vídeo usa o nome do produto no lugar da foto.
 - Se a busca por palavra-chave funciona com o seu token ou cai no fallback de log-e-segue.
 - Se o campo `official_store_id` vem nos itens do ML. Se não vier, todo produto é tratado como loja não oficial: os itens de segurança são barrados, os acessórios comuns seguem normalmente.
 
@@ -114,13 +136,14 @@ A fonte Shopee foi escrita a partir de implementações públicas da Open API, p
 
 ## Escopo
 
-Nicho: acessórios e cuidados automotivos (limpeza, gadgets, organização, eletrônicos). Publicação 100% automática.
+Nicho: acessórios e cuidados automotivos (limpeza, gadgets, organização, eletrônicos). Divulgação pelo TikTok (vídeo montado pelo bot, postado por você) e pelo Telegram (automático). Venda pela sacolinha do TikTok Shop e pelo link na bio.
 
 - **Feito**:
   - fontes Mercado Livre (forte em peças e lojas oficiais) e Shopee (acessórios baratos), canal Telegram;
   - filtro do nicho com bloqueio de itens ilegais;
-  - nota e vendas mínimas na Shopee.
-  - Falta validar as duas fontes com credenciais reais.
-- **Próximo — canal Instagram** como vitrine. O Telegram segue como canal principal de venda.
+  - nota e vendas mínimas na Shopee;
+  - kit do TikTok.
+  - Falta validar tudo com credenciais reais.
+- **Próximo — vitrine (link na bio)**: página no GitHub Pages com os achados recentes e o link de afiliado de cada um. O TikTok só libera link na bio a partir de 1.000 seguidores; até lá, o vídeo leva pro canal do Telegram.
 - **Fase 2**: peças por modelo de carro. Ficaram para depois porque peça errada vira devolução, e devolução cancela a comissão.
 - **Fora de escopo, por design**: Amazon (a API exige vendas prévias, inviável pra canal novo) e automação de Canais do WhatsApp (sem API oficial da Meta; as alternativas não-oficiais violam os termos do WhatsApp e arriscam banir o número).
