@@ -7,6 +7,18 @@ export interface MlCredentials {
   clientSecret: string;
 }
 
+// Aceita o endereço inteiro da barra do navegador depois da autorização
+// (https://localhost:8734/callback?code=TG-...) ou só o código.
+export function extractAuthCode(input: string): string | undefined {
+  const trimmed = input.trim();
+  if (!trimmed) return undefined;
+  try {
+    return new URL(trimmed).searchParams.get("code") ?? undefined;
+  } catch {
+    return /^TG-[\w-]+$/.test(trimmed) ? trimmed : undefined;
+  }
+}
+
 export async function refreshAccessToken(
   refreshToken: string,
   credentials: MlCredentials,
