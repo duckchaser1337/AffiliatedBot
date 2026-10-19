@@ -64,12 +64,14 @@ export function createMercadoLivreSource({
       const candidates = new Map<string, MlCatalogProduct | undefined>(
         watchlist.productIds.map((id) => [id, undefined]),
       );
+      const bestSellerIds = new Set<string>();
 
       const discoveries = [
         ...watchlist.highlightCategories.map((category) => ({
           label: { categoria: category },
           run: async () => {
             for (const id of await getBestSellerProductIds(category, accessToken)) {
+              bestSellerIds.add(id);
               if (!candidates.has(id)) candidates.set(id, undefined);
             }
           },
@@ -110,7 +112,7 @@ export function createMercadoLivreSource({
           withoutOffers += 1;
           continue;
         }
-        yield mapToProduct(details, offer);
+        yield { ...mapToProduct(details, offer), bestSeller: bestSellerIds.has(id) };
       }
       logger.info("Mercado Livre: candidatos do catálogo", { total: candidates.size, semVendedorAtivo: withoutOffers });
     },

@@ -11,6 +11,8 @@ export interface Product {
   imageUrl?: string;
   // Loja oficial da marca: itens de segurança (freio, cadeirinha...) só são publicados assim.
   officialStore?: boolean;
+  // Veio da lista de mais vendidos da plataforma: tem preferência no "Achado do dia" do TikTok.
+  bestSeller?: boolean;
 }
 
 export interface Source {

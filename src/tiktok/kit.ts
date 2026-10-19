@@ -5,7 +5,7 @@ import { sendTextMessage, sendVideoFile } from "../channels/telegram/client.js";
 import { parseEnv } from "../config/env.js";
 import { logger } from "../logger.js";
 import { buildKitInstructions, buildTikTokCaption } from "./caption.js";
-import { markKitSent, pickOfferForKit, type KitLog } from "./kitLog.js";
+import { markKitSent, pickFallbackForKit, pickOfferForKit, type KitLog, type KitOffer } from "./kitLog.js";
 import { FRAME_HEIGHT, FRAME_WIDTH, loadProductImage, renderKitFrames } from "./render/frames.js";
 import { framesToVideo } from "./render/video.js";
 import { currentSlot } from "./schedule.js";
@@ -47,21 +47,47 @@ export async function loadTikTokKit(
   return { botToken: env.TELEGRAM_BOT_TOKEN, chatId, config };
 }
 
-// Um vídeo por horário: pega o melhor achado ainda não usado, monta e manda no Telegram privado.
-export async function runKitStep(kit: TikTokKit, log: KitLog, now: Date = new Date()): Promise<KitLog> {
+export interface KitStepOptions {
+  // Publica o "Achado do dia" nos canais: o vídeo diz que o link está no canal do Telegram.
+  publishFallback?: (offer: KitOffer) => Promise<void>;
+}
+
+// Um vídeo por horário: a maior queda de preço ainda não usada; sem queda, um "Achado do dia"
+// da reserva. Monta o vídeo e manda no Telegram privado.
+export async function runKitStep(
+  kit: TikTokKit,
+  log: KitLog,
+  now: Date = new Date(),
+  { publishFallback }: KitStepOptions = {},
+): Promise<KitLog> {
   const slot = currentSlot(now, kit.config.slots, kit.config.timeZone);
   if (!slot || log.servedSlots.includes(slot)) return log;
 
-  const offer = pickOfferForKit(log, now, kit.config.lookbackHours);
+  let offer = pickOfferForKit(log, now, kit.config.lookbackHours);
+  const isFallback = !offer;
   if (!offer) {
-    // Não marca o horário: se aparecer achado antes do próximo, ele ainda vira vídeo.
-    logger.info("Kit do TikTok: nenhum achado novo para este horário", { horario: slot });
-    return log;
+    const entry = pickFallbackForKit(log, now, kit.config.lookbackHours);
+    if (!entry) {
+      // Não marca o horário: se aparecer achado antes do próximo, ele ainda vira vídeo.
+      logger.info("Kit do TikTok: nenhum achado para este horário", { horario: slot });
+      return log;
+    }
+    offer = {
+      key: entry.key,
+      product: entry.product,
+      affiliateUrl: entry.affiliateUrl,
+      discountPercent: 0,
+      foundAt: entry.seenAt,
+    };
   }
 
+  // Vídeo pronto antes de postar no canal: se a montagem falhar, nada sai pela metade.
   const photo = offer.product.imageUrl ? await loadProductImage(offer.product.imageUrl) : undefined;
   const frames = await renderKitFrames(offer, photo);
   const video = await framesToVideo(frames, { width: FRAME_WIDTH, height: FRAME_HEIGHT });
+  if (isFallback) {
+    await publishFallback?.(offer);
+  }
 
   await sendVideoFile({
     botToken: kit.botToken,
@@ -72,6 +98,10 @@ export async function runKitStep(kit: TikTokKit, log: KitLog, now: Date = new Da
   });
   await sendTextMessage({ botToken: kit.botToken, chatId: kit.chatId, text: buildKitInstructions(offer, slot) });
 
-  logger.info("Kit do TikTok enviado", { horario: slot, produto: offer.key });
+  logger.info("Kit do TikTok enviado", {
+    horario: slot,
+    produto: offer.key,
+    tipo: isFallback ? "achado do dia" : "queda de preço",
+  });
   return markKitSent(log, offer.key, slot, now);
 }

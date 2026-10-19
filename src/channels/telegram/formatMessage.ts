@@ -10,11 +10,13 @@ function escapeHtml(text: string): string {
 
 function buildMessage(title: string, { product, affiliateUrl, discountPercent }: ProductPost): string {
   const price = formatBRL(product.price);
-  const discount = discountPercent.toFixed(0);
+  // Sem queda de preço é o "Achado do dia" do kit do TikTok, que também vem pro canal.
+  const priceLine =
+    discountPercent >= 1 ? `${discountPercent.toFixed(0)}% de queda — por ${price}` : `Achado do dia — por ${price}`;
   return (
     `${AFFILIATE_DISCLOSURE}\n\n` +
     `<b>${title}</b>\n\n` +
-    `${discount}% de queda — por ${price}\n\n` +
+    `${priceLine}\n\n` +
     `<a href="${affiliateUrl}">Ver oferta</a>`
   );
 }
