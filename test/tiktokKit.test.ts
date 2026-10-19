@@ -73,7 +73,7 @@ describe("runKitStep", () => {
     expect(methods).toEqual(["sendVideo", "sendMessage"]);
     const form = fetchMock.mock.calls[0][1]?.body as FormData;
     expect(form.get("chat_id")).toBe("999");
-    expect(String(form.get("caption"))).toContain("#publi");
+    expect(String(form.get("caption"))).toContain("#achadodegaragem");
     expect(form.get("video")).toBeInstanceOf(Blob);
     expect(log.servedSlots).toEqual(["2026-10-19 09:00"]);
     expect(log.offers["shopee:1"].kitAt).toBe(now.toISOString());

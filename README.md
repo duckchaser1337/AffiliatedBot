@@ -12,7 +12,7 @@ Fontes: Mercado Livre e Shopee. Divulgação:
 src/
   sources/     # fontes de produtos; cada uma implementa a interface Source (sources/types.ts)
   curation/    # filtro do nicho, histórico de preço, "oferta real" e anti-repetição
-  content/     # textos comuns a todos os canais (ex: identificação #publi)
+  content/     # formatação comum a todos os canais (preço, título enxuto)
   channels/    # canais de publicação; cada um implementa a interface Publisher (channels/types.ts)
   tiktok/      # kit do TikTok: escolha do achado, arte, vídeo e envio pro Telegram privado
   run.ts       # orquestra: fontes → curadoria → todos os canais ligados → kit do TikTok
@@ -20,7 +20,7 @@ src/
 
 Fontes e canais são ligados pelas variáveis `SOURCES` e `CHANNELS` (lista separada por vírgula; vazio = padrão). Cada um valida só as próprias variáveis de ambiente, e só quando está ligado.
 
-Todo post com link de afiliado começa com `#publi · link de afiliado`: o guia do CONAR em vigor desde 01/06/2026 trata link de afiliado como publicidade.
+**Identificação de publicidade:** por decisão do dono do canal (19/10/2026), os posts não trazem `#publi`. No Telegram, a descrição do canal menciona a comissão. No TikTok, a identificação é a marcação de conteúdo comercial do próprio app, e o passo a passo do kit pede para ativá-la sempre. O art. 36 do Código de Defesa do Consumidor e o guia do CONAR (em vigor desde 01/06/2026) tratam link de afiliado como publicidade que precisa ser identificável. Para voltar a identificar no post, é só reintroduzir a linha em `src/channels/telegram/formatMessage.ts` e `src/tiktok/caption.ts`.
 
 ## Aviso de segurança
 
@@ -115,7 +115,7 @@ O TikTok não deixa um bot publicar sozinho:
 
 Por isso o bot prepara e você posta. Em cada horário de `config/tiktok.json` (padrão 9h, 13h e 19h, horário de Brasília), ele pega o achado com maior queda real das últimas 48h que ainda não virou vídeo. Daí:
 1. monta um vídeo vertical de 12s (1080×1920, sem som) na identidade Oficina: queda de preço, nome e preço, "link na bio";
-2. manda no seu Telegram privado o vídeo, com a legenda pronta (`#publi` + hashtags);
+2. manda no seu Telegram privado o vídeo, com a legenda pronta (título enxuto, preço e hashtags);
 3. manda em seguida o passo a passo: som em alta, divulgação de conteúdo comercial, sacolinha do TikTok Shop e o link de afiliado.
 
 Sem queda de preço no horário, o vídeo sai do mesmo jeito, como **"Achado do dia"**:

@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { formatOfferMessage } from "../src/channels/telegram/formatMessage.js";
-import { AFFILIATE_DISCLOSURE } from "../src/content/disclosure.js";
 import type { Product } from "../src/sources/types.js";
 
 const baseProduct: Product = {
@@ -32,15 +31,25 @@ describe("formatOfferMessage", () => {
     expect(message).not.toContain("de queda");
   });
 
-  it("começa com a identificação de publicidade", () => {
+  it("começa direto pelo título, sem linha de #publi", () => {
     const message = formatOfferMessage({ product: baseProduct, affiliateUrl: "https://x.com", discountPercent: 20 });
-    expect(message.startsWith(AFFILIATE_DISCLOSURE)).toBe(true);
+    expect(message.startsWith("<b>Fone de ouvido")).toBe(true);
+    expect(message).not.toContain("#publi");
+  });
+
+  it("encurta o título nas palavras-chave do produto", () => {
+    const product = {
+      ...baseProduct,
+      title:
+        "Suporte Magnético Para Celular Com Ventosa De Vácuo Ajustável 360° Universal Para Carro Painel Vidro Mesa E Superfícies Com Fixação Forte Para Smartphone E Uso Veicular E Ajuste Prático - Swave",
+    };
+    const message = formatOfferMessage({ product, affiliateUrl: "https://x.com", discountPercent: 0 });
+    expect(message).toContain("<b>Suporte Magnético Para Celular Com Ventosa De Vácuo Ajustável 360° Universal</b>");
   });
 
   it("mantém a mensagem dentro do limite de caption do Telegram", () => {
     const longTitleProduct = { ...baseProduct, title: "A".repeat(2000) };
     const message = formatOfferMessage({ product: longTitleProduct, affiliateUrl: "https://x.com", discountPercent: 20 });
     expect(message.length).toBeLessThanOrEqual(1024);
-    expect(message.startsWith(AFFILIATE_DISCLOSURE)).toBe(true);
   });
 });
