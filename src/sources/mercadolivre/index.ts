@@ -6,8 +6,9 @@ import { logger } from "../../logger.js";
 import type { Source } from "../types.js";
 import { buildAffiliateLink } from "./affiliateLink.js";
 import { refreshAccessToken } from "./auth.js";
-import { getItem, searchItemIds } from "./client.js";
-import { mapToProduct } from "./mapToProduct.js";
+import { getBestSellerProductIds, getCatalogProduct, getProductOffers, searchCatalog } from "./client.js";
+import { mapToProduct, pickOffer } from "./mapToProduct.js";
+import type { MlCatalogProduct } from "./schemas.js";
 import { readTokenFile, writeTokenFile } from "./tokenStore.js";
 
 const TOKEN_PATH = path.join(process.cwd(), "data", "ml-token.enc");
@@ -21,53 +22,97 @@ const envSchema = z.object({
   ML_AFFILIATE_MATT_TOOL: z.string().min(1, "ML_AFFILIATE_MATT_TOOL é obrigatório"),
 });
 
-interface Watchlist {
-  itemIds: string[];
-  searchQueries?: string[];
+const watchlistSchema = z.object({
+  // IDs de produto de catálogo: o MLB... que vem depois de /p/ no endereço do produto.
+  productIds: z.array(z.string().min(1)).default([]),
+  searchQueries: z.array(z.string().min(1)).default([]),
+  // Categorias cujos mais vendidos entram como candidatos.
+  highlightCategories: z.array(z.string().min(1)).default([]),
+  searchLimit: z.number().int().min(1).max(50).default(10),
+});
+
+type Watchlist = z.infer<typeof watchlistSchema>;
+
+async function loadWatchlist(watchlistPath: string): Promise<Watchlist> {
+  const contents = await readFile(watchlistPath, "utf8");
+  return watchlistSchema.parse(JSON.parse(contents));
 }
 
-async function loadWatchlist(): Promise<Watchlist> {
-  const contents = await readFile(WATCHLIST_PATH, "utf8");
-  return JSON.parse(contents) as Watchlist;
-}
-
-export function createMercadoLivreSource(): Source {
+export function createMercadoLivreSource({
+  tokenPath = TOKEN_PATH,
+  watchlistPath = WATCHLIST_PATH,
+}: { tokenPath?: string; watchlistPath?: string } = {}): Source {
   const env = parseEnv(envSchema);
 
   return {
     id: "mercadolivre",
 
     async *products() {
-      const watchlist = await loadWatchlist();
+      const watchlist = await loadWatchlist(watchlistPath);
 
-      const refreshToken = await readTokenFile(TOKEN_PATH, env.ML_TOKEN_ENCRYPTION_KEY);
+      const refreshToken = await readTokenFile(tokenPath, env.ML_TOKEN_ENCRYPTION_KEY);
       const tokenResponse = await refreshAccessToken(refreshToken, {
         clientId: env.ML_CLIENT_ID,
         clientSecret: env.ML_CLIENT_SECRET,
       });
       // Salva o refresh_token novo imediatamente: o ML invalida o antigo a cada troca,
       // então se o resto do run falhar depois daqui, o próximo run ainda precisa conseguir autenticar.
-      await writeTokenFile(TOKEN_PATH, tokenResponse.refresh_token, env.ML_TOKEN_ENCRYPTION_KEY);
+      await writeTokenFile(tokenPath, tokenResponse.refresh_token, env.ML_TOKEN_ENCRYPTION_KEY);
+      const accessToken = tokenResponse.access_token;
 
-      const candidateIds = new Set(watchlist.itemIds);
-      for (const query of watchlist.searchQueries ?? []) {
+      // id → detalhes, quando a busca já trouxe; os demais são buscados um a um depois.
+      const candidates = new Map<string, MlCatalogProduct | undefined>(
+        watchlist.productIds.map((id) => [id, undefined]),
+      );
+
+      const discoveries = [
+        ...watchlist.highlightCategories.map((category) => ({
+          label: { categoria: category },
+          run: async () => {
+            for (const id of await getBestSellerProductIds(category, accessToken)) {
+              if (!candidates.has(id)) candidates.set(id, undefined);
+            }
+          },
+        })),
+        ...watchlist.searchQueries.map((query) => ({
+          label: { query },
+          run: async () => {
+            for (const product of await searchCatalog(query, accessToken, watchlist.searchLimit)) {
+              candidates.set(product.id, product);
+            }
+          },
+        })),
+      ];
+
+      let failedDiscoveries = 0;
+      for (const discovery of discoveries) {
         try {
-          const ids = await searchItemIds(query, tokenResponse.access_token);
-          for (const id of ids) candidateIds.add(id);
+          await discovery.run();
         } catch (error) {
-          logger.warn("Busca por palavra-chave falhou, seguindo só com a watchlist", {
-            query,
+          failedDiscoveries += 1;
+          logger.warn("Busca no Mercado Livre falhou, seguindo com as outras", {
+            ...discovery.label,
             error: String(error),
           });
         }
       }
-
-      for (const itemId of candidateIds) {
-        const item = await getItem(itemId, tokenResponse.access_token);
-        if (!item) continue;
-        const product = mapToProduct(item);
-        if (product) yield product;
+      // Token ou app com problema derruba todas as buscas: isso tem que aparecer como erro, não como "0 produtos".
+      if (discoveries.length > 0 && failedDiscoveries === discoveries.length && watchlist.productIds.length === 0) {
+        throw new Error("Todas as buscas no Mercado Livre falharam");
       }
+
+      let withoutOffers = 0;
+      for (const [id, known] of candidates) {
+        const details = known ?? (await getCatalogProduct(id, accessToken));
+        if (!details) continue;
+        const offer = pickOffer(await getProductOffers(id, accessToken));
+        if (!offer) {
+          withoutOffers += 1;
+          continue;
+        }
+        yield mapToProduct(details, offer);
+      }
+      logger.info("Mercado Livre: candidatos do catálogo", { total: candidates.size, semVendedorAtivo: withoutOffers });
     },
 
     async affiliateUrl(product) {
