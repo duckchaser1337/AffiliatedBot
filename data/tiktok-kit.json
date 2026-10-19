@@ -1,4 +1,1689 @@
 {
   "offers": {},
-  "servedSlots": []
+  "pool": {
+    "mercadolivre:MLB23873203": {
+      "key": "mercadolivre:MLB23873203",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB23873203",
+        "title": "Estilete Largo Lâmina 18mm Profissional ES 218 Vonder",
+        "price": 9.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB23873203?pdp_filters=item_id%3AMLB4991593381",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_671735-MLA116842476956_092026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB23873203?pdp_filters=item_id%3AMLB4991593381&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:21.467Z"
+    },
+    "mercadolivre:MLB52109079": {
+      "key": "mercadolivre:MLB52109079",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB52109079",
+        "title": "Câmera De Re Automotiva 8 Leds Hd Infravermelho Visão Noturna Colorida Universal Veicular Carro Borboleta 2 Em 1 A Prova D'agua Gurumania",
+        "price": 32.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB52109079?pdp_filters=item_id%3AMLB5483573282",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_856616-MLA96076005507_102025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB52109079?pdp_filters=item_id%3AMLB5483573282&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:21.667Z"
+    },
+    "mercadolivre:MLB56330062": {
+      "key": "mercadolivre:MLB56330062",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB56330062",
+        "title": "3 Câmera Wifi Automotiva Veicular Carro Com Hd Noturna 1080p Icarbonx",
+        "price": 87.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB56330062?pdp_filters=item_id%3AMLB7499958762",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_928984-MLA99926475771_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB56330062?pdp_filters=item_id%3AMLB7499958762&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:21.903Z"
+    },
+    "mercadolivre:MLB78751661": {
+      "key": "mercadolivre:MLB78751661",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB78751661",
+        "title": "Camera De Ré HD 180° Automotiva Traseira Borboleta 2 em 1 Á Prova D'água Visão Noturna Pholex",
+        "price": 22.39,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB78751661?pdp_filters=item_id%3AMLB5171684049",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_879031-MLA116990360759_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB78751661?pdp_filters=item_id%3AMLB5171684049&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:22.127Z"
+    },
+    "mercadolivre:MLB64690346": {
+      "key": "mercadolivre:MLB64690346",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB64690346",
+        "title": "Capa Para Carro Forrada Impermeável 100% Proteção Anti Raios Uv, Sol, Poeira, Riscos, Chuva Diversos Tamanhos P M e G Sumo",
+        "price": 59.85,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB64690346?pdp_filters=item_id%3AMLB4455464987",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_742926-MLA116270602221_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB64690346?pdp_filters=item_id%3AMLB4455464987&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:22.322Z"
+    },
+    "mercadolivre:MLB38803116": {
+      "key": "mercadolivre:MLB38803116",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB38803116",
+        "title": "Capa De Cobrir Carro Cobrecar Parcialmente Forrada - G",
+        "price": 46.32,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB38803116?pdp_filters=item_id%3AMLB4976029620",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_908721-MLA110234373729_042026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB38803116?pdp_filters=item_id%3AMLB4976029620&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:22.519Z"
+    },
+    "mercadolivre:MLB40492240": {
+      "key": "mercadolivre:MLB40492240",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB40492240",
+        "title": "Pano Reutilizável Duramax Com 3 Rolos De 58 Unidades Cada Branco Scott",
+        "price": 27,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB40492240?pdp_filters=item_id%3AMLB3831129151",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_736387-MLA117953995422_102026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB40492240?pdp_filters=item_id%3AMLB3831129151&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:22.770Z"
+    },
+    "mercadolivre:MLB65973789": {
+      "key": "mercadolivre:MLB65973789",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB65973789",
+        "title": "Aspirador Portátil 3 Em 1 Com Soprador e Filtro HEPA Para Carro e Teclado USB",
+        "price": 25.59,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB65973789?pdp_filters=item_id%3AMLB4491652323",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_752805-MLA111156017870_052026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB65973789?pdp_filters=item_id%3AMLB4491652323&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:22.976Z"
+    },
+    "mercadolivre:MLB26380332": {
+      "key": "mercadolivre:MLB26380332",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB26380332",
+        "title": "Vonixx Blend 500ml Proteção E Brilho + Flanela Microfibra",
+        "price": 45,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB26380332?pdp_filters=item_id%3AMLB4387554633",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_660778-MLA110508992255_042026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB26380332?pdp_filters=item_id%3AMLB4387554633&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:23.199Z"
+    },
+    "mercadolivre:MLB30542545": {
+      "key": "mercadolivre:MLB30542545",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB30542545",
+        "title": "Cera Líquida Carnaúba Vonixx Tok Final Proteção Pintura 500ml + Toalha Microfibra",
+        "price": 31,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB30542545?pdp_filters=item_id%3AMLB6858364254",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_989031-MLA99448149496_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB30542545?pdp_filters=item_id%3AMLB6858364254&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:23.418Z"
+    },
+    "mercadolivre:MLB34693612": {
+      "key": "mercadolivre:MLB34693612",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB34693612",
+        "title": "WD-40 LIMPADOR MULTIUSO DESENCRAVANTE AUTOMOTIVO 300 Ml LIMPADOR",
+        "price": 36,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB34693612?pdp_filters=item_id%3AMLB6407970540",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_745023-MLA111651599695_052026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB34693612?pdp_filters=item_id%3AMLB6407970540&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:23.647Z"
+    },
+    "mercadolivre:MLB73198354": {
+      "key": "mercadolivre:MLB73198354",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB73198354",
+        "title": "Mini Aspirador De Pó Portátil Recarregável Soprador Usb Automotivo 3em1 Sem Fio Premium Vácuo Limpeza Carro Multifuncional Casa Dr Hank",
+        "price": 29.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB73198354?pdp_filters=item_id%3AMLB7084459708",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_739911-MLA111969831660_062026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB73198354?pdp_filters=item_id%3AMLB7084459708&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:23.845Z"
+    },
+    "mercadolivre:MLB44496353": {
+      "key": "mercadolivre:MLB44496353",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB44496353",
+        "title": "Kit Shampoo Automotivo Esfregação Neutro V-floc V-mol Vonixx",
+        "price": 41.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB44496353?pdp_filters=item_id%3AMLB5511639686",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_644725-MLA100045208185_122025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB44496353?pdp_filters=item_id%3AMLB5511639686&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:24.048Z"
+    },
+    "mercadolivre:MLB26814317": {
+      "key": "mercadolivre:MLB26814317",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB26814317",
+        "title": "Aspirador Automotivo Portátil WAP CAR Filtro HEPA Cabo de 3,7m 180W 12V2",
+        "price": 97,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB26814317?pdp_filters=item_id%3AMLB4512676520",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_736298-MLU75357969839_032024-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB26814317?pdp_filters=item_id%3AMLB4512676520&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:24.269Z"
+    },
+    "mercadolivre:MLB24293583": {
+      "key": "mercadolivre:MLB24293583",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB24293583",
+        "title": "Vonixx V-MOL shampoo automotivo limpeza concentrado 1,5L",
+        "price": 39.57,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB24293583?pdp_filters=item_id%3AMLB5890563996",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_868253-MLA109853292346_042026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB24293583?pdp_filters=item_id%3AMLB5890563996&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:24.498Z"
+    },
+    "mercadolivre:MLB28794450": {
+      "key": "mercadolivre:MLB28794450",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB28794450",
+        "title": "01 Uni Limpa Contato Elétrico Eletronico Mundial Prime",
+        "price": 17.06,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB28794450?pdp_filters=item_id%3AMLB4822372755",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_892041-MLA117855430208_102026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB28794450?pdp_filters=item_id%3AMLB4822372755&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:24.716Z"
+    },
+    "mercadolivre:MLB31401081": {
+      "key": "mercadolivre:MLB31401081",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB31401081",
+        "title": "Cera Automotiva Vitrificadora Blend Vonixx Carnaúba + Sílica",
+        "price": 44.5,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB31401081?pdp_filters=item_id%3AMLB4543355257",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_969634-MLA99443031276_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB31401081?pdp_filters=item_id%3AMLB4543355257&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:24.919Z"
+    },
+    "mercadolivre:MLB37821126": {
+      "key": "mercadolivre:MLB37821126",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB37821126",
+        "title": "Kit Lavagem Shampoo Cera Tok Final Intense Sintra Fast Vonixx",
+        "price": 149.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB37821126?pdp_filters=item_id%3AMLB7752905992",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_659633-MLA117032776949_092026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB37821126?pdp_filters=item_id%3AMLB7752905992&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:25.127Z"
+    },
+    "mercadolivre:MLB51526922": {
+      "key": "mercadolivre:MLB51526922",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB51526922",
+        "title": "Revitalizador De Plástico Automotivo Matrix Cera Moto E Carro Para Choque Original",
+        "price": 19.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB51526922?pdp_filters=item_id%3AMLB4103426437",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_828944-MLA114070647031_072026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB51526922?pdp_filters=item_id%3AMLB4103426437&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:25.334Z"
+    },
+    "mercadolivre:MLB65976897": {
+      "key": "mercadolivre:MLB65976897",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB65976897",
+        "title": "Glazy Anti Fog Vonixx 500ml Spray Antiembaçante Vidros Auto",
+        "price": 39.01,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB65976897?pdp_filters=item_id%3AMLB5208650369",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_624528-MLA115741959898_092026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB65976897?pdp_filters=item_id%3AMLB5208650369&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:25.561Z"
+    },
+    "mercadolivre:MLB27361273": {
+      "key": "mercadolivre:MLB27361273",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB27361273",
+        "title": "Sintra Fast 500ml Vonixx Limpador Painel Limpeza Interna Automotivo",
+        "price": 28.62,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB27361273?pdp_filters=item_id%3AMLB4967655066",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_887988-MLA114488127035_072026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB27361273?pdp_filters=item_id%3AMLB4967655066&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:25.784Z"
+    },
+    "mercadolivre:MLB37780138": {
+      "key": "mercadolivre:MLB37780138",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB37780138",
+        "title": "Shampoo Automotivo Neutro V Floc Concentrado 3l Vonixx",
+        "price": 69.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB37780138?pdp_filters=item_id%3AMLB7765619692",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_687361-MLA114748708514_082026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB37780138?pdp_filters=item_id%3AMLB7765619692&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:25.996Z"
+    },
+    "mercadolivre:MLB65770538": {
+      "key": "mercadolivre:MLB65770538",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB65770538",
+        "title": "Carregador Inteligente De Bateria Automotiva 12v 6a Bivolt Recupera Baterias 4ah A 100ah Todos Veículos Moto Carro Caminhão Barco Woosh",
+        "price": 38.49,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB65770538?pdp_filters=item_id%3AMLB7803770812",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_712572-MLA119455735087_102026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB65770538?pdp_filters=item_id%3AMLB7803770812&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:26.196Z"
+    },
+    "mercadolivre:MLB20562024": {
+      "key": "mercadolivre:MLB20562024",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB20562024",
+        "title": "Portátil B&G Mini Compressor",
+        "price": 56.5,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB20562024?pdp_filters=item_id%3AMLB7076442330",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_884639-MLA112856291753_062026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB20562024?pdp_filters=item_id%3AMLB7076442330&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:26.414Z"
+    },
+    "mercadolivre:MLB62564330": {
+      "key": "mercadolivre:MLB62564330",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB62564330",
+        "title": "Carregador de Bateria 12V 6A Bivolt Inteligente Carro Moto Caminhão Automotivo 4Ah a 100Ah Com Função Reparo Display Digital Proteção Carga Emergencia Portátil Resistente Eficiente Multifuncional",
+        "price": 37.35,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB62564330?pdp_filters=item_id%3AMLB5340966739",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_702532-MLA119472389033_102026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB62564330?pdp_filters=item_id%3AMLB5340966739&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:26.624Z"
+    },
+    "mercadolivre:MLB26499306": {
+      "key": "mercadolivre:MLB26499306",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB26499306",
+        "title": "Compressor de Ar Portátil Digital Lumi 150psi Preto P/ Carro Moto Bicicleta",
+        "price": 139.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB26499306?pdp_filters=item_id%3AMLB7845631806",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_638944-MLA98643789577_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB26499306?pdp_filters=item_id%3AMLB7845631806&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:26.824Z"
+    },
+    "mercadolivre:MLB58366147": {
+      "key": "mercadolivre:MLB58366147",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB58366147",
+        "title": "Auxiliar de Partida Carregador Bateria Com Compressor de Ar Emergência Portátil Veicular Floots Automotivo",
+        "price": 175.5,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB58366147?pdp_filters=item_id%3AMLB6939196310",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_873588-MLA112878636368_072026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB58366147?pdp_filters=item_id%3AMLB6939196310&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:27.024Z"
+    },
+    "mercadolivre:MLB75836344": {
+      "key": "mercadolivre:MLB75836344",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB75836344",
+        "title": "Auxiliar de Partida Carregador Bateria e Compressor de Ar Portátil 6 em 1 Inteligente para Carro, Moto e Bicicleta com Lanterna e Power Bank",
+        "price": 159.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB75836344?pdp_filters=item_id%3AMLB7218305234",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_973555-MLA115777841187_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB75836344?pdp_filters=item_id%3AMLB7218305234&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:27.218Z"
+    },
+    "mercadolivre:MLB74933617": {
+      "key": "mercadolivre:MLB74933617",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB74933617",
+        "title": "Auxiliar De Partida Bateria Carro Compressor De Ar Portátil 12V 4 funções em 1 Inflador Digital Calibrador Pneu Power Bank Lanterna LED Emergência Automotiva Moto SUV Bicicleta Caminhonete MidiaFone",
+        "price": 178.66,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB74933617?pdp_filters=item_id%3AMLB4860621979",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_754380-MLA117622146633_092026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB74933617?pdp_filters=item_id%3AMLB4860621979&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:27.409Z"
+    },
+    "mercadolivre:MLB78821849": {
+      "key": "mercadolivre:MLB78821849",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB78821849",
+        "title": "Carregador InteIigente de Bateria Automotiva 12V 6A Bivolt com Display Digital para Bateras 4Ah a 100Ah Carro Moto Utilitário Barco Caminhão",
+        "price": 47.39,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB78821849?pdp_filters=item_id%3AMLB5179066775",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_671811-MLA117076247005_092026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB78821849?pdp_filters=item_id%3AMLB5179066775&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:27.612Z"
+    },
+    "mercadolivre:MLB29753519": {
+      "key": "mercadolivre:MLB29753519",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB29753519",
+        "title": "Bomba De Encher Pneu De Carro Bike Moto Portátil Digital Ex B&G",
+        "price": 59.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB29753519?pdp_filters=item_id%3AMLB7777875480",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_769734-MLA104701374932_012026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB29753519?pdp_filters=item_id%3AMLB7777875480&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:27.813Z"
+    },
+    "mercadolivre:MLB56979786": {
+      "key": "mercadolivre:MLB56979786",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB56979786",
+        "title": "Compressor De Ar Pneu Calibrador Compressor De Pneu Digital Portátil Para Carro Bicicleta E Moto Sem Fio",
+        "price": 64.77,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB56979786?pdp_filters=item_id%3AMLB7432237902",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_678551-MLA92916337221_092025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB56979786?pdp_filters=item_id%3AMLB7432237902&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:28.013Z"
+    },
+    "mercadolivre:MLB25541577": {
+      "key": "mercadolivre:MLB25541577",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB25541577",
+        "title": "Macaco Hidráulico Carrinho Sparta 2 Ton Jacarezinho Com Maleta",
+        "price": 199.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB25541577?pdp_filters=item_id%3AMLB4239908378",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_774401-MLA99349317432_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB25541577?pdp_filters=item_id%3AMLB4239908378&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:28.178Z"
+    },
+    "mercadolivre:MLB79094088": {
+      "key": "mercadolivre:MLB79094088",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB79094088",
+        "title": "Auxiliar de Partida Nixzen 4 em 1 com Compressor de Ar e Power Bank para Carro, Moto e SUV",
+        "price": 162.02,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB79094088?pdp_filters=item_id%3AMLB7619716152",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_705638-MLA117768512089_092026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB79094088?pdp_filters=item_id%3AMLB7619716152&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:28.373Z"
+    },
+    "mercadolivre:MLB57468779": {
+      "key": "mercadolivre:MLB57468779",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB57468779",
+        "title": "Bomba Elétrica Portátil Digital Para Encher Pneu De Carro Moto Bicicleta Inflador Automotivo Cor Preto",
+        "price": 165,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB57468779?pdp_filters=item_id%3AMLB5371851493",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_919649-MLA112122698633_052026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB57468779?pdp_filters=item_id%3AMLB5371851493&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:28.578Z"
+    },
+    "mercadolivre:MLB46001818": {
+      "key": "mercadolivre:MLB46001818",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB46001818",
+        "title": "Carregador Inteligente de Bateria Automotiva 12V 6A, Indobest Para Carro e Moto, Bivolt",
+        "price": 44.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB46001818?pdp_filters=item_id%3AMLB7359224392",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_969241-MLA117707338351_092026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB46001818?pdp_filters=item_id%3AMLB7359224392&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:28.789Z"
+    },
+    "mercadolivre:MLB74791422": {
+      "key": "mercadolivre:MLB74791422",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB74791422",
+        "title": "Auxiliar De Partida Bateria Com Compressor De Ar 150 Psi Calibrador Digital De Pneu 12V 4 Em 1 Recarregável Bivolt Inflador Mangueira Para Carro Caminhonete SUV Pickup Emergência Automotiva MidiaFone",
+        "price": 159.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB74791422?pdp_filters=item_id%3AMLB4836904105",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_757051-MLA112847786254_072026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB74791422?pdp_filters=item_id%3AMLB4836904105&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:28.989Z"
+    },
+    "mercadolivre:MLB66795238": {
+      "key": "mercadolivre:MLB66795238",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB66795238",
+        "title": "Auxiliar Partida Bateria Compressor Ar Inteligente Emergência Portátil Veicular Com Compressor De Ar, Pares Portátil Compressor Ar Veicular",
+        "price": 164.72,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB66795238?pdp_filters=item_id%3AMLB7043091442",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_770098-MLA108173139218_032026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB66795238?pdp_filters=item_id%3AMLB7043091442&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:29.175Z"
+    },
+    "mercadolivre:MLB24783436": {
+      "key": "mercadolivre:MLB24783436",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB24783436",
+        "title": "Modulo Taramps 400 Rms Ts-400 Ts400x4 T400 4 Canais V6",
+        "price": 165,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB24783436?pdp_filters=item_id%3AMLB4185869673",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_998570-MLA114937661178_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB24783436?pdp_filters=item_id%3AMLB4185869673&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:29.383Z"
+    },
+    "mercadolivre:MLB21562564": {
+      "key": "mercadolivre:MLB21562564",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB21562564",
+        "title": "Amplificador Taramps TS 800x4 800W 4 Canais para Som Automotivo",
+        "price": 293.26,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB21562564?pdp_filters=item_id%3AMLB6188008724",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_631074-MLA99452011506_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB21562564?pdp_filters=item_id%3AMLB6188008724&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:29.614Z"
+    },
+    "mercadolivre:MLB24075966": {
+      "key": "mercadolivre:MLB24075966",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB24075966",
+        "title": "Processador de Áudio Digital Taramps Pro 2.4S para Som Automotivo com Crossover e Equalizador 15 Bandas",
+        "price": 159.08,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB24075966?pdp_filters=item_id%3AMLB4559000033",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_830482-MLA108910560858_032026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB24075966?pdp_filters=item_id%3AMLB4559000033&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:29.818Z"
+    },
+    "mercadolivre:MLB22306610": {
+      "key": "mercadolivre:MLB22306610",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB22306610",
+        "title": "MP3 Player First Option 6688 Som Automotivo Radio Bluetooth 25W FM USB Pen Drive BT Carro Caminhonte 1 Din Caixa Bob Saida RCA",
+        "price": 49.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB22306610?pdp_filters=item_id%3AMLB6654679728",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_775556-MLA99443908594_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB22306610?pdp_filters=item_id%3AMLB6654679728&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:30.061Z"
+    },
+    "mercadolivre:MLB73941875": {
+      "key": "mercadolivre:MLB73941875",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB73941875",
+        "title": "Adaptador Receptor Bluetooth Usb Carro Musica Chamada S/fio B Basto",
+        "price": 25.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB73941875?pdp_filters=item_id%3AMLB4671716641",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_716843-MLA113646859011_062026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB73941875?pdp_filters=item_id%3AMLB4671716641&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:30.251Z"
+    },
+    "mercadolivre:MLB56719962": {
+      "key": "mercadolivre:MLB56719962",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB56719962",
+        "title": "Receptor Adaptador Bluetooth Usb P2 Audio Stereo Musica Som Marca : RR88",
+        "price": 19,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB56719962?pdp_filters=item_id%3AMLB4757662273",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_604409-MLA99921584455_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB56719962?pdp_filters=item_id%3AMLB4757662273&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:30.886Z"
+    },
+    "mercadolivre:MLB54834171": {
+      "key": "mercadolivre:MLB54834171",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB54834171",
+        "title": "Rádio Pioneer Bluetooth 5.4 Automotivo MVH-145BR USB MP3 FM FLAC 1 DIN 4x23W RMS",
+        "price": 339.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB54834171?pdp_filters=item_id%3AMLB5727849180",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_962397-MLA116738487776_092026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB54834171?pdp_filters=item_id%3AMLB5727849180&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:31.110Z"
+    },
+    "mercadolivre:MLB76522700": {
+      "key": "mercadolivre:MLB76522700",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB76522700",
+        "title": "Adaptador CarPlay e Android Auto Sem Fio para Multimídia Landara 2 em 1 Com Bluetooth USB",
+        "price": 79.93,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB76522700?pdp_filters=item_id%3AMLB5046093609",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_677931-MLA114424526070_082026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB76522700?pdp_filters=item_id%3AMLB5046093609&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:31.314Z"
+    },
+    "mercadolivre:MLB35312771": {
+      "key": "mercadolivre:MLB35312771",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB35312771",
+        "title": "Amplificador Taramps TS 1200X4 1200W de Potência 4 Canais Estéreo para Som Automotivo",
+        "price": 474.4,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB35312771?pdp_filters=item_id%3AMLB5995698194",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_883478-MLA111821388984_062026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB35312771?pdp_filters=item_id%3AMLB5995698194&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:31.533Z"
+    },
+    "mercadolivre:MLB22655991": {
+      "key": "mercadolivre:MLB22655991",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB22655991",
+        "title": "Processador de Áudio Digital Automotivo Stetsom STX2448 com Crossover e Equalizador",
+        "price": 231,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB22655991?pdp_filters=item_id%3AMLB4759107285",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_706699-MLA99442468740_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB22655991?pdp_filters=item_id%3AMLB4759107285&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:31.763Z"
+    },
+    "mercadolivre:MLB28061661": {
+      "key": "mercadolivre:MLB28061661",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB28061661",
+        "title": "Controle Longa Distancia Stetsom Sx1 Universal Vermelho",
+        "price": 58.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB28061661?pdp_filters=item_id%3AMLB4169307629",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_751657-MLA99932093179_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB28061661?pdp_filters=item_id%3AMLB4169307629&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:31.963Z"
+    },
+    "mercadolivre:MLB53196666": {
+      "key": "mercadolivre:MLB53196666",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB53196666",
+        "title": "Adaptador Bluetooth Carro Universal Transmissor GotWire Carregador Automotivo",
+        "price": 19.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB53196666?pdp_filters=item_id%3AMLB5529725942",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_687160-MLA99920312689_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB53196666?pdp_filters=item_id%3AMLB5529725942&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:32.161Z"
+    },
+    "mercadolivre:MLB27685629": {
+      "key": "mercadolivre:MLB27685629",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB27685629",
+        "title": "Controle Jfa Acqua Branco K1200 Longa Distância",
+        "price": 58.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB27685629?pdp_filters=item_id%3AMLB3995419457",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_815444-MLA99452023208_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB27685629?pdp_filters=item_id%3AMLB3995419457&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:32.372Z"
+    },
+    "mercadolivre:MLB40558338": {
+      "key": "mercadolivre:MLB40558338",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB40558338",
+        "title": "Cabo Rca 5 Metros Blindado Profissional Linha Prime Auto",
+        "price": 37.7,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB40558338?pdp_filters=item_id%3AMLB6184971364",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_655199-MLA99577193742_122025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB40558338?pdp_filters=item_id%3AMLB6184971364&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:32.580Z"
+    },
+    "mercadolivre:MLB77600105": {
+      "key": "mercadolivre:MLB77600105",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB77600105",
+        "title": "Adaptador Carplay Sem Fio Android Auto 2 Em 1 Usb Usb-c Wireless Plug play Automático Car play Smart Wireless AI Box Crowley",
+        "price": 69.43,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB77600105?pdp_filters=item_id%3AMLB7498498622",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_831743-MLA115253673478_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB77600105?pdp_filters=item_id%3AMLB7498498622&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:32.737Z"
+    },
+    "mercadolivre:MLB63236068": {
+      "key": "mercadolivre:MLB63236068",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB63236068",
+        "title": "Bateria Moura MA5-D 5 Ah 12V Selada para Honda, Yamaha e Mais",
+        "price": 136.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB63236068?pdp_filters=item_id%3AMLB5384107689",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_928705-MLA114988390101_072026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB63236068?pdp_filters=item_id%3AMLB5384107689&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:32.916Z"
+    },
+    "mercadolivre:MLB43514400": {
+      "key": "mercadolivre:MLB43514400",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB43514400",
+        "title": "Par De Alto Falante Hurricane Triaxial Aurum A6t 6 Pol 120w RMS 240w max",
+        "price": 78,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB43514400?pdp_filters=item_id%3AMLB5168465795",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_696883-MLA99444301768_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB43514400?pdp_filters=item_id%3AMLB5168465795&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:33.127Z"
+    },
+    "mercadolivre:MLB62193214": {
+      "key": "mercadolivre:MLB62193214",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB62193214",
+        "title": "Suporte Celular Saída De Ar Gps Veicular Carro Ar Condicionado Gira 360 Cor Preto",
+        "price": 17.79,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB62193214?pdp_filters=item_id%3AMLB5321090193",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_866021-MLA115610582801_082026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB62193214?pdp_filters=item_id%3AMLB5321090193&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:33.331Z"
+    },
+    "mercadolivre:MLB63990262": {
+      "key": "mercadolivre:MLB63990262",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB63990262",
+        "title": "Rastreador GPS Veicular 4G com App em Tempo Real | Ideal para Frotas, Carro, Moto, Caminhão e Veículos Elétricos",
+        "price": 74.7,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB63990262?pdp_filters=item_id%3AMLB4742623935",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_957300-MLA104155632809_012026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB63990262?pdp_filters=item_id%3AMLB4742623935&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:33.537Z"
+    },
+    "mercadolivre:MLB32108068": {
+      "key": "mercadolivre:MLB32108068",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB32108068",
+        "title": "Suporte celular com carregador para moto guidão alumínio articulado preto",
+        "price": 22.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB32108068?pdp_filters=item_id%3AMLB5715856890",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_630592-MLA99931907155_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB32108068?pdp_filters=item_id%3AMLB5715856890&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:33.760Z"
+    },
+    "mercadolivre:MLB44577765": {
+      "key": "mercadolivre:MLB44577765",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB44577765",
+        "title": "Suporte Magnético Veicular H’maston CJ-51 Celular Giro 360°",
+        "price": 14.15,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB44577765?pdp_filters=item_id%3AMLB7226161406",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_630976-MLA106783805344_022026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB44577765?pdp_filters=item_id%3AMLB7226161406&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:33.997Z"
+    },
+    "mercadolivre:MLB42452800": {
+      "key": "mercadolivre:MLB42452800",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB42452800",
+        "title": "Suporte Veicular Magnético P/ Celular Gps Imã Potente",
+        "price": 11.92,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB42452800?pdp_filters=item_id%3AMLB5399074269",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_763110-MLA99435017120_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB42452800?pdp_filters=item_id%3AMLB5399074269&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:34.220Z"
+    },
+    "mercadolivre:MLB74889234": {
+      "key": "mercadolivre:MLB74889234",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB74889234",
+        "title": "Kit 2 Suporte Celular Carro Magnético Imã Painel - DuxEcom",
+        "price": 22.56,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB74889234?pdp_filters=item_id%3AMLB6930467006",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_727373-MLA114054990151_072026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB74889234?pdp_filters=item_id%3AMLB6930467006&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:34.422Z"
+    },
+    "mercadolivre:MLB54862425": {
+      "key": "mercadolivre:MLB54862425",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB54862425",
+        "title": "Suporte Para Celular GPS Retrátil Carro Ventosa Rotação 180° Cj02 Preto",
+        "price": 15.97,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB54862425?pdp_filters=item_id%3AMLB5354065665",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_983240-MLA106449741912_022026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB54862425?pdp_filters=item_id%3AMLB5354065665&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:34.632Z"
+    },
+    "mercadolivre:MLB41993912": {
+      "key": "mercadolivre:MLB41993912",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB41993912",
+        "title": "Suporte Magnético Veicular H'maston CJ-51 para Celular Carro 360° Cinza",
+        "price": 15.84,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB41993912?pdp_filters=item_id%3AMLB6796305424",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_626491-MLA116371719405_082026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB41993912?pdp_filters=item_id%3AMLB6796305424&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:34.854Z"
+    },
+    "mercadolivre:MLB55208592": {
+      "key": "mercadolivre:MLB55208592",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB55208592",
+        "title": "Suporte Celular Estilo Capacete Moto -proteção Solar E Chuva Cor Azul-celeste",
+        "price": 25.89,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB55208592?pdp_filters=item_id%3AMLB7408132636",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_897362-MLA93353507132_092025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB55208592?pdp_filters=item_id%3AMLB7408132636&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:35.061Z"
+    },
+    "mercadolivre:MLB75501072": {
+      "key": "mercadolivre:MLB75501072",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB75501072",
+        "title": "Suporte Magnético Celular Moto Bike Imã Neodímio Extra Forte Reforçado Resistente Para Motoboy Gps - Multicontrol",
+        "price": 26.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB75501072?pdp_filters=item_id%3AMLB7177253234",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_746636-MLA117205536011_092026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB75501072?pdp_filters=item_id%3AMLB7177253234&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:35.260Z"
+    },
+    "mercadolivre:MLB22368285": {
+      "key": "mercadolivre:MLB22368285",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB22368285",
+        "title": "Cabo Carregador Tipo-C Compativel Com iPhone 6 7 8 X Xr Xs 11 12 13 14 Pro Max Plus Turbo Tipo C Branco",
+        "price": 14.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB22368285?pdp_filters=item_id%3AMLB7821583294",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_878630-MLA115491124480_082026-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB22368285?pdp_filters=item_id%3AMLB7821583294&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:35.465Z"
+    },
+    "mercadolivre:MLB37291089": {
+      "key": "mercadolivre:MLB37291089",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB37291089",
+        "title": "Suporte de Celular Eowihor PBH503 360° para Moto, Bicicleta e Veículo Elétrico",
+        "price": 56.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB37291089?pdp_filters=item_id%3AMLB4445874293",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_903775-MLU77784710654_072024-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB37291089?pdp_filters=item_id%3AMLB4445874293&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:35.665Z"
+    },
+    "mercadolivre:MLB66585314": {
+      "key": "mercadolivre:MLB66585314",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB66585314",
+        "title": "Suporte Magnético Para Celular Com Ventosa De Vácuo Ajustável 360° Universal Para Carro Painel Vidro Mesa E Superfícies Com Fixação Forte Para Smartphone E Uso Veicular E Ajuste Prático - Swave",
+        "price": 17.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB66585314?pdp_filters=item_id%3AMLB4542401423",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_879018-MLA117877454469_092026-F.jpg",
+        "officialStore": true,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB66585314?pdp_filters=item_id%3AMLB4542401423&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:35.867Z",
+      "kitAt": "2026-10-19T20:03:42.934Z"
+    },
+    "mercadolivre:MLB60693206": {
+      "key": "mercadolivre:MLB60693206",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB60693206",
+        "title": "suporte de celular para carros Com Ventosa no Painel e Vidro",
+        "price": 15,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB60693206?pdp_filters=item_id%3AMLB7698885280",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_644613-MLA95230550456_102025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB60693206?pdp_filters=item_id%3AMLB7698885280&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:36.078Z"
+    },
+    "mercadolivre:MLB27394814": {
+      "key": "mercadolivre:MLB27394814",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB27394814",
+        "title": "Suporte de Celular Gps para Carro com Ventosa Exbom Sp-t24 Preto",
+        "price": 19.64,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB27394814?pdp_filters=item_id%3AMLB5757293398",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_893394-MLA99335330064_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": true
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB27394814?pdp_filters=item_id%3AMLB5757293398&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:36.285Z"
+    },
+    "mercadolivre:MLB44719026": {
+      "key": "mercadolivre:MLB44719026",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB44719026",
+        "title": "Aspirador portátil sem fio Aspi Aspirador automotivo portátil 100ml preto",
+        "price": 27.49,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB44719026?pdp_filters=item_id%3AMLB7460902694",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_933745-MLA100085588679_122025-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB44719026?pdp_filters=item_id%3AMLB7460902694&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:36.520Z"
+    },
+    "mercadolivre:MLB29646587": {
+      "key": "mercadolivre:MLB29646587",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB29646587",
+        "title": "Filtro Para Aspirador Automotivo Vonder Apv 12",
+        "price": 24.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB29646587?pdp_filters=item_id%3AMLB3621427319",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_758393-MLA95654268075_102025-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB29646587?pdp_filters=item_id%3AMLB3621427319&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:36.678Z"
+    },
+    "mercadolivre:MLB62252895": {
+      "key": "mercadolivre:MLB62252895",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB62252895",
+        "title": "Aspirador Automotivo Portátil Carro 50w Vermelho",
+        "price": 84.5,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB62252895?pdp_filters=item_id%3AMLB5229696741",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_810109-MLA98163831070_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB62252895?pdp_filters=item_id%3AMLB5229696741&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:36.913Z"
+    },
+    "mercadolivre:MLB29659790": {
+      "key": "mercadolivre:MLB29659790",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB29659790",
+        "title": "Ponteira para Aspirador Automotivo Vonder APV 12",
+        "price": 25.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB29659790?pdp_filters=item_id%3AMLB3949187267",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_739596-MLA96266048756_102025-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB29659790?pdp_filters=item_id%3AMLB3949187267&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.001Z"
+    },
+    "mercadolivre:MLB44719021": {
+      "key": "mercadolivre:MLB44719021",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB44719021",
+        "title": "Aspirador portátil sem fio Aspi Aspirador automotivo portátil 100ml Black",
+        "price": 28.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB44719021?pdp_filters=item_id%3AMLB7691083210",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_933745-MLA100085588679_122025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB44719021?pdp_filters=item_id%3AMLB7691083210&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.096Z"
+    },
+    "mercadolivre:MLB72671298": {
+      "key": "mercadolivre:MLB72671298",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB72671298",
+        "title": "Mini Compressor Ar Portatil Calibrador Automotivo",
+        "price": 146,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB72671298?pdp_filters=item_id%3AMLB7764712198",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_921542-MLA111724203142_062026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB72671298?pdp_filters=item_id%3AMLB7764712198&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.258Z"
+    },
+    "mercadolivre:MLB35749678": {
+      "key": "mercadolivre:MLB35749678",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB35749678",
+        "title": "Compressor Ar Portatil Automotivo 12v Calibrador + 3 Bico",
+        "price": 87.09,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB35749678?pdp_filters=item_id%3AMLB6263910762",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_997538-MLA99939660767_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB35749678?pdp_filters=item_id%3AMLB6263910762&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.350Z"
+    },
+    "mercadolivre:MLB70269779": {
+      "key": "mercadolivre:MLB70269779",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB70269779",
+        "title": "Compressor Ar Automotivo 150psi Portátil Viagem Kit Reparo",
+        "price": 109.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB70269779?pdp_filters=item_id%3AMLB4719367091",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_699160-MLA111233145264_052026-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB70269779?pdp_filters=item_id%3AMLB4719367091&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.456Z"
+    },
+    "mercadolivre:MLB67158079": {
+      "key": "mercadolivre:MLB67158079",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB67158079",
+        "title": "Auxiliar Partida Bateria Compressor Ar Inteligente Emergência Portátil Veicular Compressor Ar",
+        "price": 185.49,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB67158079?pdp_filters=item_id%3AMLB4669468801",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_988587-MLA109470217005_032026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB67158079?pdp_filters=item_id%3AMLB4669468801&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.621Z"
+    },
+    "mercadolivre:MLB75085605": {
+      "key": "mercadolivre:MLB75085605",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB75085605",
+        "title": "Compressor Ar Automotivo Portátil Cav150 12v Bivolt Vonder Preto",
+        "price": 389.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB75085605?pdp_filters=item_id%3AMLB5366025293",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_938227-MLA114252914241_072026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB75085605?pdp_filters=item_id%3AMLB5366025293&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:37.784Z"
+    },
+    "mercadolivre:MLB35826455": {
+      "key": "mercadolivre:MLB35826455",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB35826455",
+        "title": "Câmera De Ré 420p Automotiva Estacionamento Borboleta Camera",
+        "price": 32,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB35826455?pdp_filters=item_id%3AMLB7734622644",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_918194-MLA100083303319_122025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB35826455?pdp_filters=item_id%3AMLB7734622644&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:38.029Z"
+    },
+    "mercadolivre:MLB78614202": {
+      "key": "mercadolivre:MLB78614202",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB78614202",
+        "title": "Suporte Camera Celular Suporte Celular Com Led Estabilizador Celular Com Luz Suporte Celular Com Luz Estabilizador Celular Luz Microfone Tripé Ajustável 360º Rotativo Vídeo Live Streaming Preto",
+        "price": 72.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB78614202?pdp_filters=item_id%3AMLB7582046802",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_772004-MLA117163538883_092026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB78614202?pdp_filters=item_id%3AMLB7582046802&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:38.260Z"
+    },
+    "mercadolivre:MLB80617603": {
+      "key": "mercadolivre:MLB80617603",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB80617603",
+        "title": "Suporte Celular Gimbal 360° Rastreamento Facial Por Gestos Suporte Celular Gimbal",
+        "price": 200,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB80617603?pdp_filters=item_id%3AMLB7835747772",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_799240-MLA118038491710_102026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB80617603?pdp_filters=item_id%3AMLB7835747772&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:38.419Z"
+    },
+    "mercadolivre:MLB77873647": {
+      "key": "mercadolivre:MLB77873647",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB77873647",
+        "title": "Chaveiro Suporte Celular",
+        "price": 9.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB77873647?pdp_filters=item_id%3AMLB5140896995",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_640731-MLA115108878548_082026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB77873647?pdp_filters=item_id%3AMLB5140896995&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:38.837Z"
+    },
+    "mercadolivre:MLB74470242": {
+      "key": "mercadolivre:MLB74470242",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB74470242",
+        "title": "Suporte Veicular Para Celular Magnético iPhone Android Table Suporte Para Celular Veicular Suporte Celular Carro Suporte Magnetico Celular",
+        "price": 29.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB74470242?pdp_filters=item_id%3AMLB7202860150",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_630179-MLA112543339554_062026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB74470242?pdp_filters=item_id%3AMLB7202860150&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.023Z"
+    },
+    "mercadolivre:MLB44661657": {
+      "key": "mercadolivre:MLB44661657",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB44661657",
+        "title": "carregador veicular + cabo",
+        "price": 28.35,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB44661657?pdp_filters=item_id%3AMLB4872004081",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_749284-MLA99509457230_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB44661657?pdp_filters=item_id%3AMLB4872004081&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.179Z"
+    },
+    "mercadolivre:MLB79313762": {
+      "key": "mercadolivre:MLB79313762",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB79313762",
+        "title": "Kit Carregador Veicular 12v 4.8a 2 Usb Turbo Cabo Usb-c Carregador Veicular Turbo Compativel Com iPhone, Samsung Motorola",
+        "price": 26,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB79313762?pdp_filters=item_id%3AMLB7694066848",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_824364-MLA117639552921_092026-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB79313762?pdp_filters=item_id%3AMLB7694066848&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.262Z"
+    },
+    "mercadolivre:MLB36152048": {
+      "key": "mercadolivre:MLB36152048",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB36152048",
+        "title": "Kit Carregador De Tomada Kingo + Carregador Veicular",
+        "price": 38.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB36152048?pdp_filters=item_id%3AMLB5829131728",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_738069-MLA99377708056_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB36152048?pdp_filters=item_id%3AMLB5829131728&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.471Z"
+    },
+    "mercadolivre:MLB38114043": {
+      "key": "mercadolivre:MLB38114043",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB38114043",
+        "title": "Lanterna Sinalizador Com Carregador Veicular Jyx62nevz",
+        "price": 19,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB38114043?pdp_filters=item_id%3AMLB4642855045",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_938559-MLU78255420153_082024-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB38114043?pdp_filters=item_id%3AMLB4642855045&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.635Z"
+    },
+    "mercadolivre:MLB78739485": {
+      "key": "mercadolivre:MLB78739485",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB78739485",
+        "title": "Carregador Veicular - Usb - Transmissor Adaptável Preto",
+        "price": 39.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB78739485?pdp_filters=item_id%3AMLB7839018986",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_895889-MLA115550149888_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB78739485?pdp_filters=item_id%3AMLB7839018986&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.723Z"
+    },
+    "mercadolivre:MLB10008358": {
+      "key": "mercadolivre:MLB10008358",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB10008358",
+        "title": "Carregador Veicular USB Pmcell CV-34",
+        "price": 23.05,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB10008358?pdp_filters=item_id%3AMLB5926247420",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_813666-MLA99460665570_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB10008358?pdp_filters=item_id%3AMLB5926247420&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.834Z"
+    },
+    "mercadolivre:MLB44254678": {
+      "key": "mercadolivre:MLB44254678",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB44254678",
+        "title": "Kit Carregador Veicular 3.4a Tipo C + Cabo Carregador Tipo C",
+        "price": 25.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB44254678?pdp_filters=item_id%3AMLB7747723988",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_848793-MLA81067625699_112024-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB44254678?pdp_filters=item_id%3AMLB7747723988&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:39.984Z"
+    },
+    "mercadolivre:MLB37509301": {
+      "key": "mercadolivre:MLB37509301",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB37509301",
+        "title": "Carregador Veicular Super Rápido 40w Usb Dupla",
+        "price": 184,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB37509301?pdp_filters=item_id%3AMLB5183224804",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_785725-MLA84838050803_052025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB37509301?pdp_filters=item_id%3AMLB5183224804&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:40.072Z"
+    },
+    "mercadolivre:MLB27456461": {
+      "key": "mercadolivre:MLB27456461",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB27456461",
+        "title": "Kit Lavagem Automotiva Vonixx V-FLOC Sintra Luva Microfibra",
+        "price": 78.89,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB27456461?pdp_filters=item_id%3AMLB3669461551",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_844989-MLA99894007585_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB27456461?pdp_filters=item_id%3AMLB3669461551&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:40.242Z"
+    },
+    "mercadolivre:MLB27574637": {
+      "key": "mercadolivre:MLB27574637",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB27574637",
+        "title": "Cera De Carnaúba Automotiva Limpadora Finisher Lata 900g",
+        "price": 40,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB27574637?pdp_filters=item_id%3AMLB5365592491",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_814100-MLA100073943061_122025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB27574637?pdp_filters=item_id%3AMLB5365592491&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:40.402Z"
+    },
+    "mercadolivre:MLB63649885": {
+      "key": "mercadolivre:MLB63649885",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB63649885",
+        "title": "Kit Microfibra 200gsm 2 Face Lite 4uni Carpro Variadas",
+        "price": 72.03,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB63649885?pdp_filters=item_id%3AMLB6106622836",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_862820-MLA102479878492_122025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB63649885?pdp_filters=item_id%3AMLB6106622836&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:40.693Z"
+    },
+    "mercadolivre:MLB55030281": {
+      "key": "mercadolivre:MLB55030281",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB55030281",
+        "title": "2 Aplicador Espuma Automotivo Vonixx + Kit Pano Microfibra",
+        "price": 38.89,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB55030281?pdp_filters=item_id%3AMLB4196846923",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_923459-MLA99313572814_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB55030281?pdp_filters=item_id%3AMLB4196846923&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:40.855Z"
+    },
+    "mercadolivre:MLB40045703": {
+      "key": "mercadolivre:MLB40045703",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB40045703",
+        "title": "Kit 3 Panos Microfibra Multiuso Automotivo Casa 30x30cm",
+        "price": 20.61,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB40045703?pdp_filters=item_id%3AMLB4239736157",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_611363-MLA99872459147_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB40045703?pdp_filters=item_id%3AMLB4239736157&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:40.956Z"
+    },
+    "mercadolivre:MLB26606441": {
+      "key": "mercadolivre:MLB26606441",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB26606441",
+        "title": "Kit 3 Panos Microfibra Automotivo Flanela 40x40cm Centralsul",
+        "price": 58.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB26606441?pdp_filters=item_id%3AMLB4786321363",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_659250-MLA99869208487_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB26606441?pdp_filters=item_id%3AMLB4786321363&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:41.050Z"
+    },
+    "mercadolivre:MLB77298937": {
+      "key": "mercadolivre:MLB77298937",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB77298937",
+        "title": "Kit Shampoo Automotivo Toalha Luva Microfibra Limpeza Total",
+        "price": 44,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB77298937?pdp_filters=item_id%3AMLB7511294130",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_784748-MLA114772526924_082026-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB77298937?pdp_filters=item_id%3AMLB7511294130&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:41.214Z"
+    },
+    "mercadolivre:MLB21931871": {
+      "key": "mercadolivre:MLB21931871",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB21931871",
+        "title": "Pano de Limpeza Multiuso Inoven Kit Microfibra Verde 600 Unidades",
+        "price": 59.99,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB21931871?pdp_filters=item_id%3AMLB7551092258",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_874358-MLA99338387800_112025-F.jpg",
+        "officialStore": true,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB21931871?pdp_filters=item_id%3AMLB7551092258&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:41.315Z"
+    },
+    "mercadolivre:MLB40163397": {
+      "key": "mercadolivre:MLB40163397",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB40163397",
+        "title": "Pano Microfibra Automotivo Kit 5un 40x60 60x40",
+        "price": 53,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB40163397?pdp_filters=item_id%3AMLB4237978119",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_836523-MLA99825017151_112025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB40163397?pdp_filters=item_id%3AMLB4237978119&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:41.405Z"
+    },
+    "mercadolivre:MLB26022275": {
+      "key": "mercadolivre:MLB26022275",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB26022275",
+        "title": "Organizador Porta Copos Descartaveis + Porta Mexedor Dourado",
+        "price": 168.3,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB26022275?pdp_filters=item_id%3AMLB4166627500",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_738534-MLA95497818758_102025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB26022275?pdp_filters=item_id%3AMLB4166627500&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:41.837Z"
+    },
+    "mercadolivre:MLB60747476": {
+      "key": "mercadolivre:MLB60747476",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB60747476",
+        "title": "Organizador Porta Malas Bolsa Premium Tsi Carpete Velcro Preto",
+        "price": 142.89,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB60747476?pdp_filters=item_id%3AMLB5391721879",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_733409-MLA95408272784_102025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB60747476?pdp_filters=item_id%3AMLB5391721879&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:41.925Z"
+    },
+    "mercadolivre:MLB32039890": {
+      "key": "mercadolivre:MLB32039890",
+      "product": {
+        "source": "mercadolivre",
+        "id": "MLB32039890",
+        "title": "Organizador Porta Malas Compras Objetos Ferramentas Livros Cor Grafite",
+        "price": 96.9,
+        "currency": "BRL",
+        "url": "https://www.mercadolivre.com.br/p/MLB32039890?pdp_filters=item_id%3AMLB5471962296",
+        "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_768735-MLA95547779217_102025-F.jpg",
+        "officialStore": false,
+        "bestSeller": false
+      },
+      "affiliateUrl": "https://www.mercadolivre.com.br/p/MLB32039890?pdp_filters=item_id%3AMLB5471962296&matt_word=ag20261019143003323&matt_tool=23433625",
+      "seenAt": "2026-10-19T20:03:42.098Z"
+    }
+  },
+  "servedSlots": [
+    "2026-10-19 13:00"
+  ]
 }
