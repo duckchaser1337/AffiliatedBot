@@ -1,14 +1,11 @@
 import { AFFILIATE_DISCLOSURE } from "../../content/disclosure.js";
+import { formatBRL } from "../../content/format.js";
 import type { ProductPost } from "../types.js";
 
 const MAX_CAPTION_LENGTH = 1024;
 
 function escapeHtml(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-function formatBRL(value: number): string {
-  return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
 function buildMessage(title: string, { product, affiliateUrl, discountPercent }: ProductPost): string {

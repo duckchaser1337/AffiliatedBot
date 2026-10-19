@@ -8,8 +8,11 @@ import { loadState, recordObservation, recordPosted, saveState } from "./curatio
 import { logger } from "./logger.js";
 import { createSources } from "./sources/index.js";
 import { productKey } from "./sources/types.js";
+import { loadTikTokKit, runKitStep } from "./tiktok/kit.js";
+import { loadKitLog, recordOffer, saveKitLog } from "./tiktok/kitLog.js";
 
 const STATE_PATH = path.join(process.cwd(), "data", "state.json");
+const KIT_LOG_PATH = path.join(process.cwd(), "data", "tiktok-kit.json");
 const NICHE_PATH = path.join(process.cwd(), "config", "niche.json");
 
 function describeError(error: unknown): string {
@@ -21,7 +24,12 @@ export async function run(): Promise<void> {
   const nicheRules = await loadNicheRules(NICHE_PATH);
   const sources = createSources(settings.SOURCES);
   const publishers = createPublishers(settings.CHANNELS);
+  const tiktokKit = await loadTikTokKit();
+  if (!tiktokKit) {
+    logger.info("Kit do TikTok desligado (TELEGRAM_KIT_CHAT_ID vazio)");
+  }
   let state = await loadState(STATE_PATH);
+  let kitLog = await loadKitLog(KIT_LOG_PATH);
 
   let candidates = 0;
   let posted = 0;
@@ -40,6 +48,7 @@ export async function run(): Promise<void> {
             continue;
           }
 
+          const previousPrice = state.items[key]?.minPrice;
           const offerCheck = isRealOffer(state.items[key], product.price, settings.DISCOUNT_THRESHOLD_PERCENT);
           state = recordObservation(state, key, product.price).state;
 
@@ -53,11 +62,9 @@ export async function run(): Promise<void> {
             continue;
           }
 
-          const failures = await publishToAll(publishers, {
-            product,
-            affiliateUrl: await source.affiliateUrl(product),
-            discountPercent: offerCheck.discountPercent ?? 0,
-          });
+          const affiliateUrl = await source.affiliateUrl(product);
+          const discountPercent = offerCheck.discountPercent ?? 0;
+          const failures = await publishToAll(publishers, { product, affiliateUrl, discountPercent });
           for (const failure of failures) {
             logger.error("Falha ao publicar", { produto: key, canal: failure.channel, error: String(failure.error) });
           }
@@ -68,6 +75,14 @@ export async function run(): Promise<void> {
 
           // Saiu em pelo menos um canal: marca como postada pra não repetir nos que funcionaram.
           state = recordPosted(state, key, product.price);
+          kitLog = recordOffer(kitLog, {
+            key,
+            product,
+            affiliateUrl,
+            discountPercent,
+            previousPrice,
+            foundAt: new Date().toISOString(),
+          });
           posted += 1;
           hadFailure ||= failures.length > 0;
           logger.info("Oferta postada", { produto: key, price: product.price });
@@ -77,8 +92,19 @@ export async function run(): Promise<void> {
         logger.error("Fonte falhou, seguindo com as outras", { fonte: source.id, error: describeError(error) });
       }
     }
+
+    if (tiktokKit) {
+      try {
+        kitLog = await runKitStep(tiktokKit, kitLog);
+      } catch (error) {
+        // O horário não é marcado como atendido: o próximo run tenta de novo.
+        hadFailure = true;
+        logger.error("Kit do TikTok falhou", { error: describeError(error) });
+      }
+    }
   } finally {
     await saveState(STATE_PATH, state);
+    await saveKitLog(KIT_LOG_PATH, kitLog);
   }
 
   logger.info("Execução concluída", { candidatos: candidates, postadas: posted });

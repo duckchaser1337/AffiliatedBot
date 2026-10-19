@@ -15,7 +15,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -36,6 +36,7 @@ jobs:
           SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
           SOURCES: ${{ vars.SOURCES }}
           CHANNELS: ${{ vars.CHANNELS }}
+          TELEGRAM_KIT_CHAT_ID: ${{ vars.TELEGRAM_KIT_CHAT_ID }}
       - name: Persist state
         if: always()
         run: |
