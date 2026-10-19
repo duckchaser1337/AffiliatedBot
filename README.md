@@ -40,10 +40,11 @@ O `refresh_token` do Mercado Livre fica salvo, **criptografado** (AES-256-GCM), 
 
 ### 3. Mercado Livre — aplicação/API
 1. Crie uma aplicação em [developers.mercadolivre.com.br](https://developers.mercadolivre.com.br) e anote o **Client ID** e o **Client Secret**. No cadastro:
-   - URI de redirect: `https://localhost:8734/callback`. O ML exige `https`, e esse endereço não precisa existir de verdade (ver passo 5).
-   - Escopos: leitura (`read`) e acesso offline (`offline_access`). Sem `offline_access`, o ML não devolve o `refresh_token` e o bot não consegue renovar o acesso.
-   - PKCE desligado e nenhum tópico de notificação.
-2. Copie `.env.example` para `.env` e preencha `ML_CLIENT_ID` e `ML_CLIENT_SECRET`.
+   - URIs de redirect: o link do seu repositório no GitHub (ex: `https://github.com/usuario/repo`). O ML exige `https` e não aceita `localhost`. O endereço só serve pra devolver o código na barra do navegador (ver passo 5).
+   - Fluxos OAuth: **Authorization Code** e **Refresh Token**. Sem o Refresh Token, o acesso vale poucas horas e o bot não consegue renovar sozinho.
+   - PKCE desligado, unidade de negócio Mercado Livre, nenhum tópico de notificação.
+   - Permissões: o mínimo. O bot só lê anúncios públicos.
+2. Copie `.env.example` para `.env` e preencha `ML_CLIENT_ID`, `ML_CLIENT_SECRET` e `ML_REDIRECT_URI`, este último igual ao cadastrado no app.
 3. Gere a chave de criptografia local e cole em `ML_TOKEN_ENCRYPTION_KEY` no `.env`:
    ```bash
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
@@ -51,11 +52,11 @@ O `refresh_token` do Mercado Livre fica salvo, **criptografado** (AES-256-GCM), 
 4. Rode `npm install`.
 5. Rode `npm run setup:ml-oauth`:
    - ele mostra uma URL de autorização; abra, faça login e autorize;
-   - o navegador vai pra `https://localhost:8734/callback?code=...` e mostra **erro de conexão**, o que é normal;
+   - o navegador abre o endereço de redirect com `?code=TG-...` no final;
    - copie o endereço completo da barra e cole no terminal;
    - o script salva `data/ml-token.enc`.
 
-   Se cadastrou outro endereço no app, defina `ML_REDIRECT_URI` no `.env` com ele.
+   O código vale poucos minutos, é de uso único e não funciona sem o Client Secret. Por isso não tem problema ele passar pela página do GitHub.
 
 ### 4. Shopee — afiliados e Open API
 1. Cadastre-se em [affiliate.shopee.com.br](https://affiliate.shopee.com.br). A aprovação é manual e leva uns 5–15 dias, e a Shopee pede um perfil em rede social.
