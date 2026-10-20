@@ -3,8 +3,8 @@
 Bot de afiliados da marca **Achado de Garagem**: acessórios e cuidados automotivos. Detecta ofertas reais e publica automaticamente com link de afiliado. Roda sozinho de hora em hora via GitHub Actions (cron), sem depender do seu PC ligado. De hora em hora é o bastante para pegar queda de preço e cabe com folga nos 2.000 minutos grátis por mês de repositório privado.
 
 Fontes: Mercado Livre e Shopee. Divulgação:
-- **Telegram**, automático: toda queda de preço aprovada vai pro canal, e também o "Achado do dia" do kit do TikTok.
-- **TikTok**, semi-automático: três vezes por dia, o bot monta um vídeo com o melhor achado e manda no seu Telegram privado, e você posta (ver [Kit do TikTok](#7-kit-do-tiktok)).
+- **Telegram**, automático: toda queda de preço aprovada vai pro canal, e também os projetos publicados.
+- **TikTok**, manual: vídeos "quanto custa esse projeto" com preços de peças parecidas por cima; o bot acha as peças e prepara textos, legenda e o post do canal (ver [Projetos](#7-projetos-quanto-custa-esse-projeto)).
 
 ## Estrutura
 
@@ -14,13 +14,14 @@ src/
   curation/    # filtro do nicho, histórico de preço, "oferta real" e anti-repetição
   content/     # formatação comum a todos os canais (preço, título enxuto)
   channels/    # canais de publicação; cada um implementa a interface Publisher (channels/types.ts)
-  tiktok/      # kit do TikTok: escolha do achado, arte, vídeo e envio pro Telegram privado
-  run.ts       # orquestra: fontes → curadoria → todos os canais ligados → kit do TikTok
+  projeto/     # "quanto custa esse projeto": peças parecidas, textos do vídeo, legenda e post
+  run.ts       # orquestra: fontes → curadoria → todos os canais ligados
+  projeto.ts   # entrada do workflow "projeto"
 ```
 
 Fontes e canais são ligados pelas variáveis `SOURCES` e `CHANNELS` (lista separada por vírgula; vazio = padrão). Cada um valida só as próprias variáveis de ambiente, e só quando está ligado.
 
-**Identificação de publicidade:** por decisão do dono do canal (19/10/2026), os posts não trazem `#publi`. No Telegram, a descrição do canal menciona a comissão. No TikTok, a identificação é a marcação de conteúdo comercial do próprio app, e o passo a passo do kit pede para ativá-la sempre. O art. 36 do Código de Defesa do Consumidor e o guia do CONAR (em vigor desde 01/06/2026) tratam link de afiliado como publicidade que precisa ser identificável. Para voltar a identificar no post, é só reintroduzir a linha em `src/channels/telegram/formatMessage.ts` e `src/tiktok/caption.ts`.
+**Identificação de publicidade:** por decisão do dono do canal (19/10/2026), os posts não trazem `#publi`. No Telegram, a descrição do canal menciona a comissão. No TikTok, a identificação fica com quem posta (marcação de conteúdo comercial do próprio app). O art. 36 do Código de Defesa do Consumidor e o guia do CONAR (em vigor desde 01/06/2026) tratam link de afiliado como publicidade que precisa ser identificável. Para voltar a identificar no post, é só reintroduzir a linha em `src/channels/telegram/formatMessage.ts`, `src/projeto/messages.ts` e `config/projeto.json`.
 
 ## Aviso de segurança
 
@@ -100,37 +101,34 @@ A fonte do Mercado Livre usa a **API de catálogo**. A de anúncios (`/sites/MLB
 Para cada produto, o bot pega a **oferta nova mais barata** entre os vendedores. O link leva à página do produto com essa oferta selecionada, e "loja oficial" é a do vendedor dela. Uma busca que falha é pulada; se **todas** falharem, a execução fica vermelha.
 
 Todo produto passa antes pelo filtro do nicho, em `config/niche.json`. Como a publicação é automática, é ele que segura o que não pode sair:
-- `blockedTerms`: nunca publica. Itens ilegais (anti-radar, kit xenon, lâmpada LED de "upgrade" para farol, película espelhada ou em placa) e o que estiver fora do nicho.
-- `officialStoreOnlyTerms`: itens de segurança (freio, pneu, suspensão, cadeirinha, airbag). Só publica quando o produto vem de loja oficial.
+- `blockedTerms`: nunca publica. Anti-radar, bloqueador de sinal, película espelhada, película de farol ou de placa, e o que estiver fora do nicho.
+- `officialStoreOnlyTerms`: só publica quando o produto vem de loja oficial. Hoje: pneu, cadeirinha infantil, airbag e cinto.
+
+Kits de xenon/LED de farol, freio, suspensão e peças de direção e roda foram liberados a pedido do dono do canal (19/10/2026).
 
 Os termos casam palavras inteiras, sem diferenciar maiúsculas nem acentos: `anti radar` pega "Gel Anti-Radar", mas "Suporte GPS com alerta de radar" passa.
 
 O limiar de queda pra considerar "oferta real" é `DISCOUNT_THRESHOLD_PERCENT` no `.env`/Secrets (padrão 15%).
 
-### 7. Kit do TikTok
-O TikTok não deixa um bot publicar sozinho:
-- pela API oficial, post de app não auditado fica privado;
-- a auditoria recusa ferramenta interna e app que coloca marca ou preço por cima do vídeo;
-- robô no navegador viola os termos e arrisca a conta.
+### 7. Projetos ("quanto custa esse projeto")
+O conteúdo do TikTok são vídeos de carro rebaixado ou tunado com o preço de peças parecidas por cima ("Farol + R$390", "Roda aro 17 + R$2.500"… e o total no fim). A legenda manda a pessoa pro canal do Telegram, onde o projeto fica com o link de afiliado de cada peça.
 
-Por isso o bot prepara e você posta. Em cada horário de `config/tiktok.json` (padrão 9h, 13h e 19h, horário de Brasília), ele pega o achado com maior queda real das últimas 48h que ainda não virou vídeo. Daí:
-1. monta um vídeo vertical de 12s (1080×1920, sem som) na identidade Oficina: queda de preço, nome e preço, "link na bio";
-2. manda no seu Telegram privado o vídeo, com a legenda pronta (título enxuto, preço e hashtags);
-3. manda em seguida o passo a passo: som em alta, divulgação de conteúdo comercial, sacolinha do TikTok Shop e o link de afiliado.
+Pra cada vídeo, rode o workflow **projeto** (Actions → projeto → Run workflow; funciona pelo app do GitHub):
+- `itens`: as peças, separadas por `;`. Cada uma pode ser:
+  - nome e valor aproximado (`roda aro 17: 12k`): o bot busca uma peça parecida no catálogo do ML, na mesma faixa de preço;
+  - nome, preço e link de um produto do ML (`farol: 389 https://produto.mercadolivre.com.br/...`), pras peças que a busca não acha. Farol e muitas peças de tuning só existem como anúncio comum, que a API do ML não deixa buscar. Com link de catálogo (`/p/MLB...`), o preço é lido sozinho.
+- `carro` (opcional): modelo do carro do vídeo (`saveiro g6`). Entra na busca de cada peça.
+- `titulo` (opcional): nome do projeto, vai na legenda e no post.
+- `publicar`: desmarcado, manda só a prévia no seu privado; marcado, também posta no canal.
 
-Sem queda de preço no horário, o vídeo sai do mesmo jeito, como **"Achado do dia"**:
-- o bot escolhe um produto do nicho visto nas últimas 48h, dando preferência aos mais vendidos, depois aos de loja oficial e depois aos que têm foto;
-- o vídeo diz "ACHADO DO DIA", sem "BAIXOU X%";
-- o produto também é postado no canal do Telegram, porque o vídeo manda a pessoa pra lá;
-- o mesmo produto só volta a ser "Achado do dia" depois de um mês.
+No seu Telegram privado (`TELEGRAM_KIT_CHAT_ID`; mande `/start` pro bot antes) chegam:
+- os textos pro vídeo, na ordem, e o total;
+- a legenda, com o chamado pro canal (em `config/projeto.json`);
+- a peça escolhida pra cada item. Peça que não deu pra achar aparece com o motivo e fica fora do total.
 
-Só sem nenhum produto disponível o horário fica aberto até aparecer um. Uma queda de preço vira vídeo no máximo uma vez por semana.
+O workflow usa o mesmo grupo do run-bot, porque os dois renovam o mesmo token do ML, e salva o token renovado. Por isso, rode pelo GitHub e não com `npm run projeto` no seu PC: o token local ficaria desatualizado.
 
-Para ligar:
-1. Abra o chat do seu bot no Telegram e mande `/start` (sem isso o bot não consegue te escrever).
-2. Pegue o seu `chat_id` com o [@userinfobot](https://t.me/userinfobot) e cadastre em `TELEGRAM_KIT_CHAT_ID` (Variables do GitHub e `.env`). Vazio = kit desligado.
-
-Pra ver como fica a arte sem enviar nada: `npm run kit:preview` (ou `npm run kit:preview -- <url-da-foto>` com a foto de um produto real). O kit de exemplo sai na pasta `preview/`.
+A edição e a postagem do vídeo são manuais. O bot não baixa, edita nem reposta vídeo de terceiros. Repostar vídeo de outro criador sem autorização pode render denúncia por direito autoral e strike na conta.
 
 ## Rodando localmente
 
@@ -156,14 +154,12 @@ A fonte Shopee foi escrita a partir de implementações públicas da Open API, p
 
 ## Escopo
 
-Nicho: acessórios e cuidados automotivos (limpeza, gadgets, organização, eletrônicos). Divulgação pelo TikTok (vídeo montado pelo bot, postado por você) e pelo Telegram (automático). Venda pela sacolinha do TikTok Shop e pelo link na bio.
+Nicho: acessórios, cuidados e peças automotivas, com foco em carro rebaixado e tunado. Divulgação pelo TikTok (vídeos "quanto custa esse projeto", editados e postados por você) e pelo Telegram (quedas de preço automáticas e os projetos).
 
 - **Feito**:
-  - fontes Mercado Livre (forte em peças e lojas oficiais) e Shopee (acessórios baratos), canal Telegram;
-  - filtro do nicho com bloqueio de itens ilegais;
+  - fontes Mercado Livre (catálogo) e Shopee, canal Telegram;
+  - filtro do nicho;
   - nota e vendas mínimas na Shopee;
-  - kit do TikTok.
-  - Falta validar tudo com credenciais reais.
-- **Próximo — vitrine (link na bio)**: página no GitHub Pages com os achados recentes e o link de afiliado de cada um. O TikTok só libera link na bio a partir de 1.000 seguidores; até lá, o vídeo leva pro canal do Telegram.
-- **Fase 2**: peças por modelo de carro. Ficaram para depois porque peça errada vira devolução, e devolução cancela a comissão.
+  - projetos: peças parecidas, textos do vídeo, legenda e post no canal.
+- **Próximo**: buscar as peças dos projetos também na Shopee quando o cadastro for aprovado. A API da Shopee busca anúncios, o que cobre farol e peças de tuning.
 - **Fora de escopo, por design**: Amazon (a API exige vendas prévias, inviável pra canal novo) e automação de Canais do WhatsApp (sem API oficial da Meta; as alternativas não-oficiais violam os termos do WhatsApp e arriscam banir o número).

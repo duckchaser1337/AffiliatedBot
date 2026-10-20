@@ -62,29 +62,16 @@ export async function sendOfferMessage({ botToken, chatId, text, photoUrl }: Sen
   });
 }
 
-export async function sendTextMessage({ botToken, chatId, text }: Omit<SendMessageParams, "photoUrl">): Promise<void> {
+interface SendTextParams extends Omit<SendMessageParams, "photoUrl"> {
+  // Texto com <b>, <a href>... (parse_mode HTML); sem isso vai como texto puro.
+  html?: boolean;
+}
+
+export async function sendTextMessage({ botToken, chatId, text, html = false }: SendTextParams): Promise<void> {
   await post(botToken, "sendMessage", {
     chat_id: chatId,
     text,
+    ...(html ? { parse_mode: "HTML" } : {}),
     link_preview_options: { is_disabled: true },
-  });
-}
-
-interface SendVideoParams {
-  botToken: string;
-  chatId: string;
-  video: Buffer;
-  fileName: string;
-  caption: string;
-}
-
-export async function sendVideoFile({ botToken, chatId, video, fileName, caption }: SendVideoParams): Promise<void> {
-  await request(botToken, "sendVideo", () => {
-    const form = new FormData();
-    form.set("chat_id", chatId);
-    form.set("caption", caption);
-    form.set("supports_streaming", "true");
-    form.set("video", new Blob([new Uint8Array(video)], { type: "video/mp4" }), fileName);
-    return { method: "POST", body: form };
   });
 }

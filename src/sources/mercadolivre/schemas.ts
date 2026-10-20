@@ -8,6 +8,8 @@ export const mlCatalogProductSchema = z.object({
   id: z.string(),
   name: z.string(),
   status: z.string().optional(),
+  // Tipo de produto no catálogo (ex: MLB-VEHICLE_HEADLIGHTS).
+  domain_id: z.string().optional(),
   pictures: z.array(z.object({ url: z.string().optional() })).optional(),
 });
 

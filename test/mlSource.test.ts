@@ -79,9 +79,9 @@ describe("createMercadoLivreSource (catálogo)", () => {
 
     const products = await collect(source.products());
 
-    expect(products.map((p) => [p.id, p.title, p.price, p.officialStore, p.bestSeller])).toEqual([
-      ["MLB2", "Suporte B", 30, false, true],
-      ["MLB1", "Aspirador A", 45, true, true],
+    expect(products.map((p) => [p.id, p.title, p.price, p.officialStore])).toEqual([
+      ["MLB2", "Suporte B", 30, false],
+      ["MLB1", "Aspirador A", 45, true],
     ]);
     expect(decryptToken(await readFile(tokenPath, "utf8"), key)).toBe("TG-novo");
 

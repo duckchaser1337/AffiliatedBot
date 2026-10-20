@@ -28,10 +28,15 @@ export interface NicheCheck {
   reason?: string;
 }
 
-// Casa palavras inteiras: "pivo" pega "Pivô de Suspensão", mas não "Suporte Pivotante".
+// Casa palavras inteiras, todas as do termo, em qualquer ordem: "pivo" pega "Pivô de Suspensão",
+// mas não "Suporte Pivotante"; "insulfilm espelhado" pega "Insulfilm Azul Espelhado".
 function findTerm(title: string, terms: readonly string[]): string | undefined {
-  const padded = ` ${normalize(title)} `;
-  return terms.find((term) => padded.includes(` ${normalize(term)} `));
+  const titleWords = new Set(normalize(title).split(" "));
+  return terms.find((term) =>
+    normalize(term)
+      .split(" ")
+      .every((word) => titleWords.has(word)),
+  );
 }
 
 export function checkNiche(product: Product, rules: NicheRules): NicheCheck {
