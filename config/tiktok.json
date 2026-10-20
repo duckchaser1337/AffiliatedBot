@@ -1,7 +1,0 @@
-{
-  "_sobre": "Kit do TikTok: em cada horário (no fuso timeZone), o bot pega o achado com maior queda real das últimas lookbackHours que ainda não virou vídeo, monta o vídeo e manda no seu Telegram privado (TELEGRAM_KIT_CHAT_ID). Um vídeo por horário.",
-  "slots": ["09:00", "13:00", "19:00"],
-  "timeZone": "America/Sao_Paulo",
-  "lookbackHours": 48,
-  "hashtags": ["#achadodegaragem", "#achadosautomotivos", "#acessoriosautomotivos", "#carro", "#achadinhos"]
-}

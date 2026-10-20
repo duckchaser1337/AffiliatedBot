@@ -36,7 +36,6 @@ jobs:
           SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
           SOURCES: ${{ vars.SOURCES }}
           CHANNELS: ${{ vars.CHANNELS }}
-          TELEGRAM_KIT_CHAT_ID: ${{ vars.TELEGRAM_KIT_CHAT_ID }}
       - name: Persist state
         if: always()
         run: |

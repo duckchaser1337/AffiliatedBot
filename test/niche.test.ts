@@ -57,7 +57,16 @@ describe("config/niche.json", () => {
   it("é válido", async () => {
     const loaded = await loadNicheRules(path.join(process.cwd(), "config", "niche.json"));
     expect(loaded.blockedTerms.length).toBeGreaterThan(0);
-    expect(checkNiche(product("Kit Xenon H4"), loaded).allowed).toBe(false);
+    expect(checkNiche(product("Gel Anti-Radar Para Placa"), loaded).allowed).toBe(false);
     expect(checkNiche(product("Shampoo Automotivo Com Cera 1L"), loaded).allowed).toBe(true);
+    // Liberados a pedido do dono do canal (19/10/2026).
+    expect(checkNiche(product("Kit Xenon H4 8000K"), loaded).allowed).toBe(true);
+    expect(checkNiche(product("Pastilha De Freio Dianteira"), loaded).allowed).toBe(true);
+    expect(checkNiche(product("Kit Suspensão Rosca Gol G5"), loaded).allowed).toBe(true);
+    // Termo de várias palavras vale mesmo com outra palavra no meio.
+    expect(checkNiche(product("Insulfilm Azul Espelhado Para Carro 0,75x2m"), loaded).allowed).toBe(false);
+    expect(checkNiche(product("Insulfilm Fumê G20 Para Carro"), loaded).allowed).toBe(true);
+    // Pneu continua só de loja oficial.
+    expect(checkNiche(product("Jogo De Pneus Aro 15"), loaded).allowed).toBe(false);
   });
 });

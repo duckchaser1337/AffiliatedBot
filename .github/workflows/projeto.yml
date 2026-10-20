@@ -1,0 +1,71 @@
+name: projeto
+
+# "Quanto custa esse projeto": acha peças parecidas no Mercado Livre pras peças do vídeo,
+# manda os textos e a legenda no seu Telegram privado e, com "publicar", posta no canal.
+on:
+  workflow_dispatch:
+    inputs:
+      itens:
+        description: "Peças e valores aproximados (ex: farol: 2500; roda aro 17: 12k; insulfilm: 600)"
+        required: true
+        type: string
+      titulo:
+        description: "Nome do projeto (ex: Saveiro rebaixada)"
+        required: false
+        type: string
+      carro:
+        description: "Modelo do carro do vídeo, melhora a busca das peças (ex: saveiro g6)"
+        required: false
+        type: string
+      publicar:
+        description: "Postar no canal (desmarcado = só prévia no seu privado)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Mesmo grupo do run-bot: os dois renovam o mesmo token do ML e não podem rodar juntos.
+concurrency:
+  group: run-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: "npm"
+      - run: npm ci
+      - run: npm run projeto
+        env:
+          PROJETO_ITENS: ${{ inputs.itens }}
+          PROJETO_TITULO: ${{ inputs.titulo }}
+          PROJETO_CARRO: ${{ inputs.carro }}
+          PROJETO_PUBLICAR: ${{ inputs.publicar }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ vars.TELEGRAM_CHANNEL_ID }}
+          TELEGRAM_KIT_CHAT_ID: ${{ vars.TELEGRAM_KIT_CHAT_ID }}
+          ML_CLIENT_ID: ${{ secrets.ML_CLIENT_ID }}
+          ML_CLIENT_SECRET: ${{ secrets.ML_CLIENT_SECRET }}
+          ML_TOKEN_ENCRYPTION_KEY: ${{ secrets.ML_TOKEN_ENCRYPTION_KEY }}
+          ML_AFFILIATE_MATT_WORD: ${{ vars.ML_AFFILIATE_MATT_WORD }}
+          ML_AFFILIATE_MATT_TOOL: ${{ vars.ML_AFFILIATE_MATT_TOOL }}
+      - name: Persist state
+        if: always()
+        run: |
+          # Salva o token do ML renovado nesta execução.
+          if [ ! -d data ]; then
+            echo "Nada para salvar: data/ não existe."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore(data): token do ML renovado pelo projeto"
+          git push

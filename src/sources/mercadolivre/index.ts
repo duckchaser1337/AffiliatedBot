@@ -11,10 +11,10 @@ import { mapToProduct, pickOffer } from "./mapToProduct.js";
 import type { MlCatalogProduct } from "./schemas.js";
 import { readTokenFile, writeTokenFile } from "./tokenStore.js";
 
-const TOKEN_PATH = path.join(process.cwd(), "data", "ml-token.enc");
+export const ML_TOKEN_PATH = path.join(process.cwd(), "data", "ml-token.enc");
 const WATCHLIST_PATH = path.join(process.cwd(), "config", "watchlist.json");
 
-const envSchema = z.object({
+const mlEnvSchema = z.object({
   ML_CLIENT_ID: z.string().min(1, "ML_CLIENT_ID é obrigatório"),
   ML_CLIENT_SECRET: z.string().min(1, "ML_CLIENT_SECRET é obrigatório"),
   ML_TOKEN_ENCRYPTION_KEY: z.string().min(1, "ML_TOKEN_ENCRYPTION_KEY é obrigatório"),
@@ -33,16 +33,34 @@ const watchlistSchema = z.object({
 
 type Watchlist = z.infer<typeof watchlistSchema>;
 
+export type MlEnv = z.infer<typeof mlEnvSchema>;
+
+export function loadMlEnv(source: NodeJS.ProcessEnv = process.env): MlEnv {
+  return parseEnv(mlEnvSchema, source);
+}
+
+// Troca o refresh_token por um access_token e salva o refresh novo imediatamente: o ML invalida
+// o antigo a cada troca, então se o resto do run falhar depois daqui, o próximo ainda autentica.
+export async function refreshMlAccessToken(env: MlEnv, tokenPath: string = ML_TOKEN_PATH): Promise<string> {
+  const refreshToken = await readTokenFile(tokenPath, env.ML_TOKEN_ENCRYPTION_KEY);
+  const tokenResponse = await refreshAccessToken(refreshToken, {
+    clientId: env.ML_CLIENT_ID,
+    clientSecret: env.ML_CLIENT_SECRET,
+  });
+  await writeTokenFile(tokenPath, tokenResponse.refresh_token, env.ML_TOKEN_ENCRYPTION_KEY);
+  return tokenResponse.access_token;
+}
+
 async function loadWatchlist(watchlistPath: string): Promise<Watchlist> {
   const contents = await readFile(watchlistPath, "utf8");
   return watchlistSchema.parse(JSON.parse(contents));
 }
 
 export function createMercadoLivreSource({
-  tokenPath = TOKEN_PATH,
+  tokenPath = ML_TOKEN_PATH,
   watchlistPath = WATCHLIST_PATH,
 }: { tokenPath?: string; watchlistPath?: string } = {}): Source {
-  const env = parseEnv(envSchema);
+  const env = loadMlEnv();
 
   return {
     id: "mercadolivre",
@@ -50,28 +68,18 @@ export function createMercadoLivreSource({
     async *products() {
       const watchlist = await loadWatchlist(watchlistPath);
 
-      const refreshToken = await readTokenFile(tokenPath, env.ML_TOKEN_ENCRYPTION_KEY);
-      const tokenResponse = await refreshAccessToken(refreshToken, {
-        clientId: env.ML_CLIENT_ID,
-        clientSecret: env.ML_CLIENT_SECRET,
-      });
-      // Salva o refresh_token novo imediatamente: o ML invalida o antigo a cada troca,
-      // então se o resto do run falhar depois daqui, o próximo run ainda precisa conseguir autenticar.
-      await writeTokenFile(tokenPath, tokenResponse.refresh_token, env.ML_TOKEN_ENCRYPTION_KEY);
-      const accessToken = tokenResponse.access_token;
+      const accessToken = await refreshMlAccessToken(env, tokenPath);
 
       // id → detalhes, quando a busca já trouxe; os demais são buscados um a um depois.
       const candidates = new Map<string, MlCatalogProduct | undefined>(
         watchlist.productIds.map((id) => [id, undefined]),
       );
-      const bestSellerIds = new Set<string>();
 
       const discoveries = [
         ...watchlist.highlightCategories.map((category) => ({
           label: { categoria: category },
           run: async () => {
             for (const id of await getBestSellerProductIds(category, accessToken)) {
-              bestSellerIds.add(id);
               if (!candidates.has(id)) candidates.set(id, undefined);
             }
           },
@@ -112,7 +120,7 @@ export function createMercadoLivreSource({
           withoutOffers += 1;
           continue;
         }
-        yield { ...mapToProduct(details, offer), bestSeller: bestSellerIds.has(id) };
+        yield mapToProduct(details, offer);
       }
       logger.info("Mercado Livre: candidatos do catálogo", { total: candidates.size, semVendedorAtivo: withoutOffers });
     },
