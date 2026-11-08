@@ -4,10 +4,6 @@
       "observations": [
         {
           "price": 9.9,
-          "observedAt": "2026-10-19T19:44:36.445Z"
-        },
-        {
-          "price": 9.9,
           "observedAt": "2026-10-19T20:03:21.467Z"
         },
         {
@@ -361,16 +357,16 @@
         {
           "price": 12.9,
           "observedAt": "2026-11-08T07:14:55.131Z"
+        },
+        {
+          "price": 12.9,
+          "observedAt": "2026-11-08T15:05:49.784Z"
         }
       ],
       "minPrice": 5
     },
     "mercadolivre:MLB52109079": {
       "observations": [
-        {
-          "price": 32.99,
-          "observedAt": "2026-10-19T19:44:36.619Z"
-        },
         {
           "price": 32.99,
           "observedAt": "2026-10-19T20:03:21.667Z"
@@ -726,16 +722,16 @@
         {
           "price": 32.98,
           "observedAt": "2026-11-08T07:14:55.412Z"
+        },
+        {
+          "price": 32.98,
+          "observedAt": "2026-11-08T15:05:49.984Z"
         }
       ],
       "minPrice": 30
     },
     "mercadolivre:MLB56330062": {
       "observations": [
-        {
-          "price": 87.9,
-          "observedAt": "2026-10-19T19:44:36.719Z"
-        },
         {
           "price": 87.9,
           "observedAt": "2026-10-19T20:03:21.903Z"
@@ -1091,16 +1087,16 @@
         {
           "price": 87.9,
           "observedAt": "2026-11-08T07:14:55.608Z"
+        },
+        {
+          "price": 87.9,
+          "observedAt": "2026-11-08T15:05:50.396Z"
         }
       ],
       "minPrice": 74.28
     },
     "mercadolivre:MLB78751661": {
       "observations": [
-        {
-          "price": 22.39,
-          "observedAt": "2026-10-19T19:44:36.811Z"
-        },
         {
           "price": 22.39,
           "observedAt": "2026-10-19T20:03:22.127Z"
@@ -1456,16 +1452,16 @@
         {
           "price": 24.7,
           "observedAt": "2026-11-08T07:14:56.380Z"
+        },
+        {
+          "price": 24.7,
+          "observedAt": "2026-11-08T15:05:50.731Z"
         }
       ],
       "minPrice": 21.4
     },
     "mercadolivre:MLB64690346": {
       "observations": [
-        {
-          "price": 59.85,
-          "observedAt": "2026-10-19T19:44:36.936Z"
-        },
         {
           "price": 59.85,
           "observedAt": "2026-10-19T20:03:22.322Z"
@@ -1821,16 +1817,16 @@
         {
           "price": 63,
           "observedAt": "2026-11-08T07:14:56.186Z"
+        },
+        {
+          "price": 63,
+          "observedAt": "2026-11-08T15:05:50.592Z"
         }
       ],
       "minPrice": 59.34
     },
     "mercadolivre:MLB38803116": {
       "observations": [
-        {
-          "price": 46.32,
-          "observedAt": "2026-10-19T19:44:37.082Z"
-        },
         {
           "price": 46.32,
           "observedAt": "2026-10-19T20:03:22.519Z"
@@ -2186,6 +2182,10 @@
         {
           "price": 44.29,
           "observedAt": "2026-11-08T07:14:57.192Z"
+        },
+        {
+          "price": 44.29,
+          "observedAt": "2026-11-08T15:05:51.131Z"
         }
       ],
       "minPrice": 43.14
@@ -2277,10 +2277,6 @@
     },
     "mercadolivre:MLB65973789": {
       "observations": [
-        {
-          "price": 25.59,
-          "observedAt": "2026-10-19T19:44:37.376Z"
-        },
         {
           "price": 25.59,
           "observedAt": "2026-10-19T20:03:22.976Z"
@@ -2636,16 +2632,16 @@
         {
           "price": 23.72,
           "observedAt": "2026-11-08T07:14:58.621Z"
+        },
+        {
+          "price": 23.72,
+          "observedAt": "2026-11-08T15:05:52.111Z"
         }
       ],
       "minPrice": 21.59
     },
     "mercadolivre:MLB26380332": {
       "observations": [
-        {
-          "price": 45,
-          "observedAt": "2026-10-19T19:44:37.509Z"
-        },
         {
           "price": 45,
           "observedAt": "2026-10-19T20:03:23.199Z"
@@ -3001,16 +2997,16 @@
         {
           "price": 47.39,
           "observedAt": "2026-11-08T07:14:58.066Z"
+        },
+        {
+          "price": 47.39,
+          "observedAt": "2026-11-08T15:05:51.733Z"
         }
       ],
       "minPrice": 40.9
     },
     "mercadolivre:MLB30542545": {
       "observations": [
-        {
-          "price": 31,
-          "observedAt": "2026-10-19T19:44:37.659Z"
-        },
         {
           "price": 31,
           "observedAt": "2026-10-19T20:03:23.418Z"
@@ -3366,16 +3362,16 @@
         {
           "price": 32.5,
           "observedAt": "2026-11-08T07:14:59.772Z"
+        },
+        {
+          "price": 32.5,
+          "observedAt": "2026-11-08T15:05:52.710Z"
         }
       ],
       "minPrice": 10
     },
     "mercadolivre:MLB34693612": {
       "observations": [
-        {
-          "price": 36,
-          "observedAt": "2026-10-19T19:44:37.807Z"
-        },
         {
           "price": 36,
           "observedAt": "2026-10-19T20:03:23.647Z"
@@ -3731,16 +3727,16 @@
         {
           "price": 38.23,
           "observedAt": "2026-11-08T07:14:57.657Z"
+        },
+        {
+          "price": 38.23,
+          "observedAt": "2026-11-08T15:05:51.520Z"
         }
       ],
       "minPrice": 32
     },
     "mercadolivre:MLB73198354": {
       "observations": [
-        {
-          "price": 29.99,
-          "observedAt": "2026-10-19T19:44:37.931Z"
-        },
         {
           "price": 29.99,
           "observedAt": "2026-10-19T20:03:23.845Z"
@@ -4096,16 +4092,16 @@
         {
           "price": 29.09,
           "observedAt": "2026-11-08T07:14:58.285Z"
+        },
+        {
+          "price": 29.09,
+          "observedAt": "2026-11-08T15:05:51.918Z"
         }
       ],
       "minPrice": 29.09
     },
     "mercadolivre:MLB44496353": {
       "observations": [
-        {
-          "price": 41.9,
-          "observedAt": "2026-10-19T19:44:38.077Z"
-        },
         {
           "price": 41.9,
           "observedAt": "2026-10-19T20:03:24.048Z"
@@ -4461,6 +4457,10 @@
         {
           "price": 42.9,
           "observedAt": "2026-11-08T07:14:59.358Z"
+        },
+        {
+          "price": 40.64,
+          "observedAt": "2026-11-08T15:05:52.525Z"
         }
       ],
       "minPrice": 39.9
@@ -4764,10 +4764,6 @@
     },
     "mercadolivre:MLB24293583": {
       "observations": [
-        {
-          "price": 39.57,
-          "observedAt": "2026-10-19T19:44:38.397Z"
-        },
         {
           "price": 39.57,
           "observedAt": "2026-10-19T20:03:24.498Z"
@@ -5123,6 +5119,10 @@
         {
           "price": 37.23,
           "observedAt": "2026-11-08T07:15:00.262Z"
+        },
+        {
+          "price": 37.23,
+          "observedAt": "2026-11-08T15:05:53.161Z"
         }
       ],
       "minPrice": 28.52
@@ -5290,10 +5290,6 @@
     },
     "mercadolivre:MLB31401081": {
       "observations": [
-        {
-          "price": 44.5,
-          "observedAt": "2026-10-19T19:44:38.688Z"
-        },
         {
           "price": 44.5,
           "observedAt": "2026-10-19T20:03:24.919Z"
@@ -5649,16 +5645,16 @@
         {
           "price": 44.58,
           "observedAt": "2026-11-08T07:15:00.538Z"
+        },
+        {
+          "price": 44.58,
+          "observedAt": "2026-11-08T15:05:53.394Z"
         }
       ],
       "minPrice": 39.68
     },
     "mercadolivre:MLB37821126": {
       "observations": [
-        {
-          "price": 149.9,
-          "observedAt": "2026-10-19T19:44:38.841Z"
-        },
         {
           "price": 149.9,
           "observedAt": "2026-10-19T20:03:25.127Z"
@@ -6014,16 +6010,16 @@
         {
           "price": 159,
           "observedAt": "2026-11-08T07:14:58.962Z"
+        },
+        {
+          "price": 159,
+          "observedAt": "2026-11-08T15:05:52.297Z"
         }
       ],
       "minPrice": 125.48
     },
     "mercadolivre:MLB51526922": {
       "observations": [
-        {
-          "price": 19.99,
-          "observedAt": "2026-10-19T19:44:39.069Z"
-        },
         {
           "price": 19.99,
           "observedAt": "2026-10-19T20:03:25.334Z"
@@ -6379,6 +6375,10 @@
         {
           "price": 19.99,
           "observedAt": "2026-11-08T07:15:01.659Z"
+        },
+        {
+          "price": 19.99,
+          "observedAt": "2026-11-08T15:05:54.367Z"
         }
       ],
       "minPrice": 19.99
@@ -6508,10 +6508,6 @@
     },
     "mercadolivre:MLB65770538": {
       "observations": [
-        {
-          "price": 38.49,
-          "observedAt": "2026-10-19T19:44:39.770Z"
-        },
         {
           "price": 38.49,
           "observedAt": "2026-10-19T20:03:26.196Z"
@@ -6867,6 +6863,10 @@
         {
           "price": 36.76,
           "observedAt": "2026-11-08T07:15:02.136Z"
+        },
+        {
+          "price": 36.76,
+          "observedAt": "2026-11-08T15:05:54.766Z"
         }
       ],
       "minPrice": 35
@@ -7305,6 +7305,10 @@
         {
           "price": 39.9,
           "observedAt": "2026-11-08T07:15:01.878Z"
+        },
+        {
+          "price": 39.9,
+          "observedAt": "2026-11-08T15:05:54.563Z"
         }
       ],
       "minPrice": 35.9
@@ -7536,10 +7540,6 @@
     },
     "mercadolivre:MLB58366147": {
       "observations": [
-        {
-          "price": 175.5,
-          "observedAt": "2026-10-19T19:44:40.301Z"
-        },
         {
           "price": 175.5,
           "observedAt": "2026-10-19T20:03:27.024Z"
@@ -7895,6 +7895,10 @@
         {
           "price": 158.99,
           "observedAt": "2026-11-08T07:15:03.742Z"
+        },
+        {
+          "price": 158.99,
+          "observedAt": "2026-11-08T15:05:55.877Z"
         }
       ],
       "minPrice": 149.9
@@ -8236,16 +8240,16 @@
         {
           "price": 165.9,
           "observedAt": "2026-11-08T07:15:02.975Z"
+        },
+        {
+          "price": 165.9,
+          "observedAt": "2026-11-08T15:05:55.336Z"
         }
       ],
       "minPrice": 130
     },
     "mercadolivre:MLB74933617": {
       "observations": [
-        {
-          "price": 178.66,
-          "observedAt": "2026-10-19T19:44:40.549Z"
-        },
         {
           "price": 178.66,
           "observedAt": "2026-10-19T20:03:27.409Z"
@@ -8601,16 +8605,16 @@
         {
           "price": 159.99,
           "observedAt": "2026-11-08T07:15:04.937Z"
+        },
+        {
+          "price": 159.99,
+          "observedAt": "2026-11-08T15:05:56.740Z"
         }
       ],
       "minPrice": 100
     },
     "mercadolivre:MLB78821849": {
       "observations": [
-        {
-          "price": 46,
-          "observedAt": "2026-10-19T19:44:40.677Z"
-        },
         {
           "price": 47.39,
           "observedAt": "2026-10-19T20:03:27.612Z"
@@ -8966,6 +8970,10 @@
         {
           "price": 46,
           "observedAt": "2026-11-08T07:15:04.401Z"
+        },
+        {
+          "price": 46,
+          "observedAt": "2026-11-08T15:05:56.415Z"
         }
       ],
       "minPrice": 38.9
@@ -9327,16 +9335,16 @@
         {
           "price": 59.99,
           "observedAt": "2026-11-08T07:15:03.524Z"
+        },
+        {
+          "price": 59.99,
+          "observedAt": "2026-11-08T15:05:55.700Z"
         }
       ],
       "minPrice": 59.99
     },
     "mercadolivre:MLB56979786": {
       "observations": [
-        {
-          "price": 64.77,
-          "observedAt": "2026-10-19T19:44:40.934Z"
-        },
         {
           "price": 64.77,
           "observedAt": "2026-10-19T20:03:28.013Z"
@@ -9692,6 +9700,10 @@
         {
           "price": 63.19,
           "observedAt": "2026-11-08T07:15:02.395Z"
+        },
+        {
+          "price": 63.19,
+          "observedAt": "2026-11-08T15:05:54.945Z"
         }
       ],
       "minPrice": 63.19
@@ -9775,10 +9787,6 @@
     },
     "mercadolivre:MLB79094088": {
       "observations": [
-        {
-          "price": 162.02,
-          "observedAt": "2026-10-19T19:44:41.145Z"
-        },
         {
           "price": 162.02,
           "observedAt": "2026-10-19T20:03:28.373Z"
@@ -10134,16 +10142,16 @@
         {
           "price": 157,
           "observedAt": "2026-11-08T07:15:04.190Z"
+        },
+        {
+          "price": 157,
+          "observedAt": "2026-11-08T15:05:56.245Z"
         }
       ],
       "minPrice": 157
     },
     "mercadolivre:MLB57468779": {
       "observations": [
-        {
-          "price": 165,
-          "observedAt": "2026-10-19T19:44:41.269Z"
-        },
         {
           "price": 165,
           "observedAt": "2026-10-19T20:03:28.578Z"
@@ -10499,6 +10507,10 @@
         {
           "price": 145.24,
           "observedAt": "2026-11-08T07:15:03.969Z"
+        },
+        {
+          "price": 145.24,
+          "observedAt": "2026-11-08T15:05:56.065Z"
         }
       ],
       "minPrice": 132.66
@@ -10962,10 +10974,6 @@
       "observations": [
         {
           "price": 165,
-          "observedAt": "2026-10-19T19:44:41.792Z"
-        },
-        {
-          "price": 165,
           "observedAt": "2026-10-19T20:03:29.383Z"
         },
         {
@@ -11319,16 +11327,16 @@
         {
           "price": 178.9,
           "observedAt": "2026-11-08T07:15:05.926Z"
+        },
+        {
+          "price": 178.9,
+          "observedAt": "2026-11-08T15:05:57.555Z"
         }
       ],
       "minPrice": 107
     },
     "mercadolivre:MLB21562564": {
       "observations": [
-        {
-          "price": 293.26,
-          "observedAt": "2026-10-19T19:44:41.933Z"
-        },
         {
           "price": 293.26,
           "observedAt": "2026-10-19T20:03:29.614Z"
@@ -11684,16 +11692,16 @@
         {
           "price": 298,
           "observedAt": "2026-11-08T07:15:05.673Z"
+        },
+        {
+          "price": 282.83,
+          "observedAt": "2026-11-08T15:05:57.349Z"
         }
       ],
       "minPrice": 223
     },
     "mercadolivre:MLB24075966": {
       "observations": [
-        {
-          "price": 159.08,
-          "observedAt": "2026-10-19T19:44:42.069Z"
-        },
         {
           "price": 159.08,
           "observedAt": "2026-10-19T20:03:29.818Z"
@@ -12049,16 +12057,16 @@
         {
           "price": 159.08,
           "observedAt": "2026-11-08T07:15:06.213Z"
+        },
+        {
+          "price": 159.08,
+          "observedAt": "2026-11-08T15:05:57.791Z"
         }
       ],
       "minPrice": 134
     },
     "mercadolivre:MLB22306610": {
       "observations": [
-        {
-          "price": 49.99,
-          "observedAt": "2026-10-19T19:44:42.209Z"
-        },
         {
           "price": 49.99,
           "observedAt": "2026-10-19T20:03:30.061Z"
@@ -12414,16 +12422,16 @@
         {
           "price": 49.99,
           "observedAt": "2026-11-08T07:15:07.423Z"
+        },
+        {
+          "price": 50.99,
+          "observedAt": "2026-11-08T15:05:58.720Z"
         }
       ],
       "minPrice": 49.37
     },
     "mercadolivre:MLB73941875": {
       "observations": [
-        {
-          "price": 25.9,
-          "observedAt": "2026-10-19T19:44:42.329Z"
-        },
         {
           "price": 25.9,
           "observedAt": "2026-10-19T20:03:30.251Z"
@@ -12779,6 +12787,10 @@
         {
           "price": 25.9,
           "observedAt": "2026-11-08T07:15:06.753Z"
+        },
+        {
+          "price": 25.9,
+          "observedAt": "2026-11-08T15:05:58.181Z"
         }
       ],
       "minPrice": 25.9
@@ -13334,10 +13346,6 @@
       "observations": [
         {
           "price": 474.4,
-          "observedAt": "2026-10-19T19:44:42.872Z"
-        },
-        {
-          "price": 474.4,
           "observedAt": "2026-10-19T20:03:31.533Z"
         },
         {
@@ -13691,16 +13699,16 @@
         {
           "price": 462.09,
           "observedAt": "2026-11-08T07:15:08.644Z"
+        },
+        {
+          "price": 462.09,
+          "observedAt": "2026-11-08T15:06:00.217Z"
         }
       ],
       "minPrice": 377
     },
     "mercadolivre:MLB22655991": {
       "observations": [
-        {
-          "price": 231,
-          "observedAt": "2026-10-19T19:44:43.032Z"
-        },
         {
           "price": 231,
           "observedAt": "2026-10-19T20:03:31.763Z"
@@ -14056,16 +14064,16 @@
         {
           "price": 259,
           "observedAt": "2026-11-08T07:15:08.393Z"
+        },
+        {
+          "price": 259,
+          "observedAt": "2026-11-08T15:06:00.014Z"
         }
       ],
       "minPrice": 215
     },
     "mercadolivre:MLB28061661": {
       "observations": [
-        {
-          "price": 58.9,
-          "observedAt": "2026-10-19T19:44:43.165Z"
-        },
         {
           "price": 58.9,
           "observedAt": "2026-10-19T20:03:31.963Z"
@@ -14421,16 +14429,16 @@
         {
           "price": 58.9,
           "observedAt": "2026-11-08T07:15:07.889Z"
+        },
+        {
+          "price": 58.9,
+          "observedAt": "2026-11-08T15:05:59.088Z"
         }
       ],
       "minPrice": 54
     },
     "mercadolivre:MLB53196666": {
       "observations": [
-        {
-          "price": 19.99,
-          "observedAt": "2026-10-19T19:44:43.292Z"
-        },
         {
           "price": 19.99,
           "observedAt": "2026-10-19T20:03:32.161Z"
@@ -14786,16 +14794,16 @@
         {
           "price": 21.9,
           "observedAt": "2026-11-08T07:15:09.625Z"
+        },
+        {
+          "price": 21.9,
+          "observedAt": "2026-11-08T15:06:00.955Z"
         }
       ],
       "minPrice": 19.99
     },
     "mercadolivre:MLB27685629": {
       "observations": [
-        {
-          "price": 58.9,
-          "observedAt": "2026-10-19T19:44:43.441Z"
-        },
         {
           "price": 58.9,
           "observedAt": "2026-10-19T20:03:32.372Z"
@@ -15151,16 +15159,16 @@
         {
           "price": 60.9,
           "observedAt": "2026-11-08T07:15:09.371Z"
+        },
+        {
+          "price": 60.9,
+          "observedAt": "2026-11-08T15:06:00.784Z"
         }
       ],
       "minPrice": 58.9
     },
     "mercadolivre:MLB40558338": {
       "observations": [
-        {
-          "price": 37.7,
-          "observedAt": "2026-10-19T19:44:43.582Z"
-        },
         {
           "price": 37.7,
           "observedAt": "2026-10-19T20:03:32.581Z"
@@ -15516,6 +15524,10 @@
         {
           "price": 38.25,
           "observedAt": "2026-11-08T07:15:08.901Z"
+        },
+        {
+          "price": 38.25,
+          "observedAt": "2026-11-08T15:06:00.424Z"
         }
       ],
       "minPrice": 37.7
@@ -15699,10 +15711,6 @@
     },
     "mercadolivre:MLB63236068": {
       "observations": [
-        {
-          "price": 136.9,
-          "observedAt": "2026-10-19T19:44:43.774Z"
-        },
         {
           "price": 136.9,
           "observedAt": "2026-10-19T20:03:32.916Z"
@@ -16058,16 +16066,16 @@
         {
           "price": 136.5,
           "observedAt": "2026-11-08T07:15:07.181Z"
+        },
+        {
+          "price": 136.5,
+          "observedAt": "2026-11-08T15:05:58.521Z"
         }
       ],
       "minPrice": 129.9
     },
     "mercadolivre:MLB43514400": {
       "observations": [
-        {
-          "price": 78,
-          "observedAt": "2026-10-19T19:44:43.912Z"
-        },
         {
           "price": 78,
           "observedAt": "2026-10-19T20:03:33.127Z"
@@ -16423,16 +16431,16 @@
         {
           "price": 80.94,
           "observedAt": "2026-11-08T07:15:07.652Z"
+        },
+        {
+          "price": 80.94,
+          "observedAt": "2026-11-08T15:05:58.906Z"
         }
       ],
       "minPrice": 73.8
     },
     "mercadolivre:MLB62193214": {
       "observations": [
-        {
-          "price": 17.79,
-          "observedAt": "2026-10-19T19:44:44.036Z"
-        },
         {
           "price": 17.79,
           "observedAt": "2026-10-19T20:03:33.331Z"
@@ -16788,6 +16796,10 @@
         {
           "price": 19.9,
           "observedAt": "2026-11-08T07:15:09.861Z"
+        },
+        {
+          "price": 19.9,
+          "observedAt": "2026-11-08T15:06:01.136Z"
         }
       ],
       "minPrice": 17.79
@@ -17149,16 +17161,16 @@
         {
           "price": 71.47,
           "observedAt": "2026-11-08T07:15:10.309Z"
+        },
+        {
+          "price": 71.47,
+          "observedAt": "2026-11-08T15:06:01.522Z"
         }
       ],
       "minPrice": 69.9
     },
     "mercadolivre:MLB32108068": {
       "observations": [
-        {
-          "price": 22.99,
-          "observedAt": "2026-10-19T19:44:44.303Z"
-        },
         {
           "price": 22.99,
           "observedAt": "2026-10-19T20:03:33.760Z"
@@ -17514,16 +17526,16 @@
         {
           "price": 22.98,
           "observedAt": "2026-11-08T07:15:11.763Z"
+        },
+        {
+          "price": 22.98,
+          "observedAt": "2026-11-08T15:06:03.793Z"
         }
       ],
       "minPrice": 21.93
     },
     "mercadolivre:MLB44577765": {
       "observations": [
-        {
-          "price": 14.15,
-          "observedAt": "2026-10-19T19:44:44.453Z"
-        },
         {
           "price": 14.15,
           "observedAt": "2026-10-19T20:03:33.997Z"
@@ -17879,16 +17891,16 @@
         {
           "price": 13.99,
           "observedAt": "2026-11-08T07:15:10.091Z"
+        },
+        {
+          "price": 13.99,
+          "observedAt": "2026-11-08T15:06:01.348Z"
         }
       ],
       "minPrice": 13.99
     },
     "mercadolivre:MLB42452800": {
       "observations": [
-        {
-          "price": 11.92,
-          "observedAt": "2026-10-19T19:44:44.611Z"
-        },
         {
           "price": 11.92,
           "observedAt": "2026-10-19T20:03:34.220Z"
@@ -18244,16 +18256,16 @@
         {
           "price": 19,
           "observedAt": "2026-11-08T07:15:11.021Z"
+        },
+        {
+          "price": 19,
+          "observedAt": "2026-11-08T15:06:03.163Z"
         }
       ],
       "minPrice": 11.92
     },
     "mercadolivre:MLB74889234": {
       "observations": [
-        {
-          "price": 22.56,
-          "observedAt": "2026-10-19T19:44:44.742Z"
-        },
         {
           "price": 22.56,
           "observedAt": "2026-10-19T20:03:34.422Z"
@@ -18609,16 +18621,16 @@
         {
           "price": 19,
           "observedAt": "2026-11-08T07:15:10.528Z"
+        },
+        {
+          "price": 19,
+          "observedAt": "2026-11-08T15:06:01.709Z"
         }
       ],
       "minPrice": 19
     },
     "mercadolivre:MLB54862425": {
       "observations": [
-        {
-          "price": 15.97,
-          "observedAt": "2026-10-19T19:44:44.883Z"
-        },
         {
           "price": 15.97,
           "observedAt": "2026-10-19T20:03:34.632Z"
@@ -18974,6 +18986,10 @@
         {
           "price": 19,
           "observedAt": "2026-11-08T07:15:11.267Z"
+        },
+        {
+          "price": 19,
+          "observedAt": "2026-11-08T15:06:03.371Z"
         }
       ],
       "minPrice": 15.97
@@ -19335,9 +19351,13 @@
         {
           "price": 15.36,
           "observedAt": "2026-11-08T07:15:10.788Z"
+        },
+        {
+          "price": 10.69,
+          "observedAt": "2026-11-08T15:06:02.003Z"
         }
       ],
-      "minPrice": 15.36
+      "minPrice": 10.69
     },
     "mercadolivre:MLB55208592": {
       "observations": [
@@ -19551,10 +19571,6 @@
     },
     "mercadolivre:MLB22368285": {
       "observations": [
-        {
-          "price": 14.9,
-          "observedAt": "2026-10-19T19:44:45.421Z"
-        },
         {
           "price": 14.9,
           "observedAt": "2026-10-19T20:03:35.465Z"
@@ -19910,6 +19926,10 @@
         {
           "price": 12.79,
           "observedAt": "2026-11-08T07:15:12.006Z"
+        },
+        {
+          "price": 12.79,
+          "observedAt": "2026-11-08T15:06:03.988Z"
         }
       ],
       "minPrice": 9.97
@@ -20288,10 +20308,6 @@
       "observations": [
         {
           "price": 15,
-          "observedAt": "2026-10-19T19:44:45.870Z"
-        },
-        {
-          "price": 15,
           "observedAt": "2026-10-19T20:03:36.078Z"
         },
         {
@@ -20645,6 +20661,10 @@
         {
           "price": 15,
           "observedAt": "2026-11-08T07:15:12.985Z"
+        },
+        {
+          "price": 15,
+          "observedAt": "2026-11-08T15:06:04.759Z"
         }
       ],
       "minPrice": 14.71
@@ -21211,10 +21231,6 @@
       "observations": [
         {
           "price": 24.9,
-          "observedAt": "2026-10-19T19:44:46.212Z"
-        },
-        {
-          "price": 24.9,
           "observedAt": "2026-10-19T20:03:36.678Z"
         },
         {
@@ -21568,6 +21584,10 @@
         {
           "price": 15.09,
           "observedAt": "2026-11-08T07:15:13.461Z"
+        },
+        {
+          "price": 15.09,
+          "observedAt": "2026-11-08T15:06:05.057Z"
         }
       ],
       "minPrice": 15.09
@@ -21929,16 +21949,16 @@
         {
           "price": 84.5,
           "observedAt": "2026-11-08T07:15:13.834Z"
+        },
+        {
+          "price": 84.5,
+          "observedAt": "2026-11-08T15:06:05.375Z"
         }
       ],
       "minPrice": 84.5
     },
     "mercadolivre:MLB29659790": {
       "observations": [
-        {
-          "price": 25.9,
-          "observedAt": "2026-10-19T19:44:46.383Z"
-        },
         {
           "price": 25.9,
           "observedAt": "2026-10-19T20:03:37.001Z"
@@ -22294,6 +22314,10 @@
         {
           "price": 24.9,
           "observedAt": "2026-11-08T07:15:13.929Z"
+        },
+        {
+          "price": 24.9,
+          "observedAt": "2026-11-08T15:06:05.463Z"
         }
       ],
       "minPrice": 24.9
@@ -22385,10 +22409,6 @@
     },
     "mercadolivre:MLB72671298": {
       "observations": [
-        {
-          "price": 146,
-          "observedAt": "2026-10-19T19:44:46.559Z"
-        },
         {
           "price": 146,
           "observedAt": "2026-10-19T20:03:37.258Z"
@@ -22744,16 +22764,16 @@
         {
           "price": 128.65,
           "observedAt": "2026-11-08T07:15:14.231Z"
+        },
+        {
+          "price": 128.65,
+          "observedAt": "2026-11-08T15:06:05.698Z"
         }
       ],
       "minPrice": 119.92
     },
     "mercadolivre:MLB35749678": {
       "observations": [
-        {
-          "price": 87.09,
-          "observedAt": "2026-10-19T19:44:46.616Z"
-        },
         {
           "price": 87.09,
           "observedAt": "2026-10-19T20:03:37.350Z"
@@ -23109,16 +23129,16 @@
         {
           "price": 87.09,
           "observedAt": "2026-11-08T07:15:14.456Z"
+        },
+        {
+          "price": 87.09,
+          "observedAt": "2026-11-08T15:06:05.874Z"
         }
       ],
       "minPrice": 87.09
     },
     "mercadolivre:MLB70269779": {
       "observations": [
-        {
-          "price": 109.99,
-          "observedAt": "2026-10-19T19:44:46.679Z"
-        },
         {
           "price": 109.99,
           "observedAt": "2026-10-19T20:03:37.456Z"
@@ -23474,16 +23494,16 @@
         {
           "price": 109.99,
           "observedAt": "2026-11-08T07:15:14.361Z"
+        },
+        {
+          "price": 109.99,
+          "observedAt": "2026-11-08T15:06:05.794Z"
         }
       ],
       "minPrice": 109.99
     },
     "mercadolivre:MLB67158079": {
       "observations": [
-        {
-          "price": 185.49,
-          "observedAt": "2026-10-19T19:44:46.776Z"
-        },
         {
           "price": 185.49,
           "observedAt": "2026-10-19T20:03:37.621Z"
@@ -23839,16 +23859,16 @@
         {
           "price": 194.89,
           "observedAt": "2026-11-08T07:15:14.651Z"
+        },
+        {
+          "price": 194.89,
+          "observedAt": "2026-11-08T15:06:06.080Z"
         }
       ],
       "minPrice": 174.69
     },
     "mercadolivre:MLB75085605": {
       "observations": [
-        {
-          "price": 389.99,
-          "observedAt": "2026-10-19T19:44:46.868Z"
-        },
         {
           "price": 389.99,
           "observedAt": "2026-10-19T20:03:37.784Z"
@@ -24204,16 +24224,16 @@
         {
           "price": 388,
           "observedAt": "2026-11-08T07:15:14.842Z"
+        },
+        {
+          "price": 388,
+          "observedAt": "2026-11-08T15:06:06.258Z"
         }
       ],
       "minPrice": 388
     },
     "mercadolivre:MLB35826455": {
       "observations": [
-        {
-          "price": 32,
-          "observedAt": "2026-10-19T19:44:47.105Z"
-        },
         {
           "price": 32,
           "observedAt": "2026-10-19T20:03:38.030Z"
@@ -24569,6 +24589,10 @@
         {
           "price": 32,
           "observedAt": "2026-11-08T07:15:15.146Z"
+        },
+        {
+          "price": 32,
+          "observedAt": "2026-11-08T15:06:06.498Z"
         }
       ],
       "minPrice": 32
@@ -24901,10 +24925,6 @@
     },
     "mercadolivre:MLB77873647": {
       "observations": [
-        {
-          "price": 9.9,
-          "observedAt": "2026-10-19T19:44:47.440Z"
-        },
         {
           "price": 9.9,
           "observedAt": "2026-10-19T20:03:38.837Z"
@@ -25260,16 +25280,16 @@
         {
           "price": 7.28,
           "observedAt": "2026-11-08T07:15:15.625Z"
+        },
+        {
+          "price": 7.28,
+          "observedAt": "2026-11-08T15:06:06.859Z"
         }
       ],
       "minPrice": 7.28
     },
     "mercadolivre:MLB74470242": {
       "observations": [
-        {
-          "price": 29.9,
-          "observedAt": "2026-10-19T19:44:47.532Z"
-        },
         {
           "price": 29.9,
           "observedAt": "2026-10-19T20:03:39.023Z"
@@ -25625,16 +25645,16 @@
         {
           "price": 29.9,
           "observedAt": "2026-11-08T07:15:15.835Z"
+        },
+        {
+          "price": 29.9,
+          "observedAt": "2026-11-08T15:06:07.018Z"
         }
       ],
       "minPrice": 25
     },
     "mercadolivre:MLB44661657": {
       "observations": [
-        {
-          "price": 28.35,
-          "observedAt": "2026-10-19T19:44:47.631Z"
-        },
         {
           "price": 28.35,
           "observedAt": "2026-10-19T20:03:39.179Z"
@@ -25990,6 +26010,10 @@
         {
           "price": 28.35,
           "observedAt": "2026-11-08T07:15:16.436Z"
+        },
+        {
+          "price": 28.35,
+          "observedAt": "2026-11-08T15:06:07.486Z"
         }
       ],
       "minPrice": 26.79
@@ -26500,6 +26524,10 @@
         {
           "price": 38.9,
           "observedAt": "2026-11-08T07:15:16.946Z"
+        },
+        {
+          "price": 38.9,
+          "observedAt": "2026-11-08T15:06:07.843Z"
         }
       ],
       "minPrice": 38.9
@@ -26771,10 +26799,6 @@
     },
     "mercadolivre:MLB27456461": {
       "observations": [
-        {
-          "price": 78.89,
-          "observedAt": "2026-10-19T19:44:48.154Z"
-        },
         {
           "price": 78.89,
           "observedAt": "2026-10-19T20:03:40.242Z"
@@ -27130,16 +27154,16 @@
         {
           "price": 78.89,
           "observedAt": "2026-11-08T07:15:17.239Z"
+        },
+        {
+          "price": 78.89,
+          "observedAt": "2026-11-08T15:06:08.068Z"
         }
       ],
       "minPrice": 78.89
     },
     "mercadolivre:MLB27574637": {
       "observations": [
-        {
-          "price": 40,
-          "observedAt": "2026-10-19T19:44:48.248Z"
-        },
         {
           "price": 40,
           "observedAt": "2026-10-19T20:03:40.402Z"
@@ -27495,16 +27519,16 @@
         {
           "price": 70.59,
           "observedAt": "2026-11-08T07:15:17.421Z"
+        },
+        {
+          "price": 70.59,
+          "observedAt": "2026-11-08T15:06:08.211Z"
         }
       ],
       "minPrice": 40
     },
     "mercadolivre:MLB63649885": {
       "observations": [
-        {
-          "price": 72.03,
-          "observedAt": "2026-10-19T19:44:48.364Z"
-        },
         {
           "price": 72.03,
           "observedAt": "2026-10-19T20:03:40.693Z"
@@ -27860,16 +27884,16 @@
         {
           "price": 72.03,
           "observedAt": "2026-11-08T07:15:17.727Z"
+        },
+        {
+          "price": 72.03,
+          "observedAt": "2026-11-08T15:06:08.419Z"
         }
       ],
       "minPrice": 72.03
     },
     "mercadolivre:MLB55030281": {
       "observations": [
-        {
-          "price": 38.89,
-          "observedAt": "2026-10-19T19:44:48.457Z"
-        },
         {
           "price": 38.89,
           "observedAt": "2026-10-19T20:03:40.855Z"
@@ -28225,16 +28249,16 @@
         {
           "price": 38.88,
           "observedAt": "2026-11-08T07:15:17.918Z"
+        },
+        {
+          "price": 38.89,
+          "observedAt": "2026-11-08T15:06:08.560Z"
         }
       ],
       "minPrice": 38.88
     },
     "mercadolivre:MLB40045703": {
       "observations": [
-        {
-          "price": 20.61,
-          "observedAt": "2026-10-19T19:44:48.514Z"
-        },
         {
           "price": 20.61,
           "observedAt": "2026-10-19T20:03:40.956Z"
@@ -28590,16 +28614,16 @@
         {
           "price": 19.99,
           "observedAt": "2026-11-08T07:15:18.346Z"
+        },
+        {
+          "price": 19.99,
+          "observedAt": "2026-11-08T15:06:08.654Z"
         }
       ],
       "minPrice": 19.99
     },
     "mercadolivre:MLB26606441": {
       "observations": [
-        {
-          "price": 58.9,
-          "observedAt": "2026-10-19T19:44:48.567Z"
-        },
         {
           "price": 58.9,
           "observedAt": "2026-10-19T20:03:41.050Z"
@@ -28955,6 +28979,10 @@
         {
           "price": 61.29,
           "observedAt": "2026-11-08T07:15:18.474Z"
+        },
+        {
+          "price": 61.29,
+          "observedAt": "2026-11-08T15:06:08.766Z"
         }
       ],
       "minPrice": 58.9
@@ -29190,10 +29218,6 @@
     },
     "mercadolivre:MLB21931871": {
       "observations": [
-        {
-          "price": 59.99,
-          "observedAt": "2026-10-19T19:44:48.720Z"
-        },
         {
           "price": 59.99,
           "observedAt": "2026-10-19T20:03:41.315Z"
@@ -29549,16 +29573,16 @@
         {
           "price": 67.04,
           "observedAt": "2026-11-08T07:15:18.150Z"
+        },
+        {
+          "price": 67.04,
+          "observedAt": "2026-11-08T15:06:08.941Z"
         }
       ],
       "minPrice": 59.99
     },
     "mercadolivre:MLB40163397": {
       "observations": [
-        {
-          "price": 53,
-          "observedAt": "2026-10-19T19:44:48.782Z"
-        },
         {
           "price": 53,
           "observedAt": "2026-10-19T20:03:41.405Z"
@@ -29914,6 +29938,10 @@
         {
           "price": 53,
           "observedAt": "2026-11-08T07:15:18.029Z"
+        },
+        {
+          "price": 53,
+          "observedAt": "2026-11-08T15:06:08.854Z"
         }
       ],
       "minPrice": 53
@@ -30233,10 +30261,6 @@
     },
     "mercadolivre:MLB60747476": {
       "observations": [
-        {
-          "price": 142.89,
-          "observedAt": "2026-10-19T19:44:49.033Z"
-        },
         {
           "price": 142.89,
           "observedAt": "2026-10-19T20:03:41.925Z"
@@ -30592,16 +30616,16 @@
         {
           "price": 138.6,
           "observedAt": "2026-11-08T07:15:19.101Z"
+        },
+        {
+          "price": 138.6,
+          "observedAt": "2026-11-08T15:06:09.494Z"
         }
       ],
       "minPrice": 138.6
     },
     "mercadolivre:MLB32039890": {
       "observations": [
-        {
-          "price": 96.9,
-          "observedAt": "2026-10-19T19:44:49.125Z"
-        },
         {
           "price": 96.9,
           "observedAt": "2026-10-19T20:03:42.098Z"
@@ -30957,6 +30981,10 @@
         {
           "price": 96.9,
           "observedAt": "2026-11-08T07:15:19.000Z"
+        },
+        {
+          "price": 96.9,
+          "observedAt": "2026-11-08T15:06:09.414Z"
         }
       ],
       "minPrice": 96.9
@@ -31847,6 +31875,10 @@
         {
           "price": 69,
           "observedAt": "2026-11-08T07:15:16.315Z"
+        },
+        {
+          "price": 69,
+          "observedAt": "2026-11-08T15:06:07.400Z"
         }
       ],
       "minPrice": 69
@@ -32184,6 +32216,10 @@
         {
           "price": 15.92,
           "observedAt": "2026-11-08T07:15:16.745Z"
+        },
+        {
+          "price": 15.92,
+          "observedAt": "2026-11-08T15:06:07.682Z"
         }
       ],
       "minPrice": 15.92
@@ -32509,6 +32545,10 @@
         {
           "price": 26.5,
           "observedAt": "2026-11-08T07:15:11.522Z"
+        },
+        {
+          "price": 26.5,
+          "observedAt": "2026-11-08T15:06:03.588Z"
         }
       ],
       "minPrice": 22.99
@@ -33121,6 +33161,10 @@
         {
           "price": 42.64,
           "observedAt": "2026-11-08T07:15:00.008Z"
+        },
+        {
+          "price": 42.64,
+          "observedAt": "2026-11-08T15:05:52.899Z"
         }
       ],
       "minPrice": 42.64
@@ -33463,6 +33507,10 @@
         {
           "price": 77.99,
           "observedAt": "2026-11-08T07:15:05.184Z"
+        },
+        {
+          "price": 77.99,
+          "observedAt": "2026-11-08T15:05:56.972Z"
         }
       ],
       "minPrice": 75.19
@@ -33757,6 +33805,10 @@
         {
           "price": 159.9,
           "observedAt": "2026-11-08T07:14:57.403Z"
+        },
+        {
+          "price": 159.9,
+          "observedAt": "2026-11-08T15:05:51.314Z"
         }
       ],
       "minPrice": 159.9
@@ -34111,6 +34163,10 @@
         {
           "price": 187.9,
           "observedAt": "2026-11-08T07:15:04.603Z"
+        },
+        {
+          "price": 187.9,
+          "observedAt": "2026-11-08T15:05:56.559Z"
         }
       ],
       "minPrice": 176.54
@@ -34396,6 +34452,10 @@
         {
           "price": 19,
           "observedAt": "2026-11-08T07:15:09.122Z"
+        },
+        {
+          "price": 19,
+          "observedAt": "2026-11-08T15:06:00.598Z"
         }
       ],
       "minPrice": 19
@@ -34638,6 +34698,10 @@
         {
           "price": 110,
           "observedAt": "2026-11-08T07:14:55.853Z"
+        },
+        {
+          "price": 110,
+          "observedAt": "2026-11-08T15:05:50.239Z"
         }
       ],
       "minPrice": 88.06
@@ -35102,6 +35166,10 @@
         {
           "price": 89.9,
           "observedAt": "2026-11-08T07:15:06.970Z"
+        },
+        {
+          "price": 89.9,
+          "observedAt": "2026-11-08T15:05:58.366Z"
         }
       ],
       "minPrice": 89.9
@@ -35279,6 +35347,10 @@
         {
           "price": 17.1,
           "observedAt": "2026-11-08T07:15:12.740Z"
+        },
+        {
+          "price": 17.1,
+          "observedAt": "2026-11-08T15:06:04.548Z"
         }
       ],
       "minPrice": 17.1
@@ -35384,6 +35456,10 @@
         {
           "price": 25.09,
           "observedAt": "2026-11-08T07:15:00.987Z"
+        },
+        {
+          "price": 25.09,
+          "observedAt": "2026-11-08T15:05:53.594Z"
         }
       ],
       "minPrice": 25.09
@@ -35541,6 +35617,10 @@
         {
           "price": 209,
           "observedAt": "2026-11-08T07:15:00.775Z"
+        },
+        {
+          "price": 209,
+          "observedAt": "2026-11-08T15:05:53.784Z"
         }
       ],
       "minPrice": 199
@@ -35698,6 +35778,10 @@
         {
           "price": 19,
           "observedAt": "2026-11-08T07:15:12.489Z"
+        },
+        {
+          "price": 19,
+          "observedAt": "2026-11-08T15:06:04.361Z"
         }
       ],
       "minPrice": 18.05
@@ -35843,6 +35927,10 @@
         {
           "price": 55,
           "observedAt": "2026-11-08T07:15:02.656Z"
+        },
+        {
+          "price": 55,
+          "observedAt": "2026-11-08T15:05:55.150Z"
         }
       ],
       "minPrice": 54.37
@@ -35988,6 +36076,10 @@
         {
           "price": 132.9,
           "observedAt": "2026-11-08T07:15:03.301Z"
+        },
+        {
+          "price": 132.9,
+          "observedAt": "2026-11-08T15:05:55.519Z"
         }
       ],
       "minPrice": 132.9
@@ -36121,6 +36213,10 @@
         {
           "price": 329.99,
           "observedAt": "2026-11-08T07:15:06.522Z"
+        },
+        {
+          "price": 317,
+          "observedAt": "2026-11-08T15:05:58.015Z"
         }
       ],
       "minPrice": 317
@@ -36254,6 +36350,10 @@
         {
           "price": 264.99,
           "observedAt": "2026-11-08T07:15:08.145Z"
+        },
+        {
+          "price": 264.99,
+          "observedAt": "2026-11-08T15:05:59.290Z"
         }
       ],
       "minPrice": 255
@@ -36379,6 +36479,10 @@
         {
           "price": 19,
           "observedAt": "2026-11-08T07:15:12.270Z"
+        },
+        {
+          "price": 19,
+          "observedAt": "2026-11-08T15:06:04.189Z"
         }
       ],
       "minPrice": 19
@@ -36476,6 +36580,10 @@
         {
           "price": 102.98,
           "observedAt": "2026-11-08T07:15:19.286Z"
+        },
+        {
+          "price": 102.98,
+          "observedAt": "2026-11-08T15:06:09.637Z"
         }
       ],
       "minPrice": 102.98
@@ -36565,6 +36673,10 @@
         {
           "price": 280.9,
           "observedAt": "2026-11-08T07:15:13.731Z"
+        },
+        {
+          "price": 280.9,
+          "observedAt": "2026-11-08T15:06:05.266Z"
         }
       ],
       "minPrice": 280.9
@@ -36654,6 +36766,10 @@
         {
           "price": 56.99,
           "observedAt": "2026-11-08T07:15:16.028Z"
+        },
+        {
+          "price": 56.99,
+          "observedAt": "2026-11-08T15:06:07.173Z"
         }
       ],
       "minPrice": 56.99
@@ -36727,6 +36843,10 @@
         {
           "price": 21.99,
           "observedAt": "2026-11-08T07:15:01.218Z"
+        },
+        {
+          "price": 21.99,
+          "observedAt": "2026-11-08T15:05:54.011Z"
         }
       ],
       "minPrice": 19.9
@@ -36854,6 +36974,10 @@
         {
           "price": 28.56,
           "observedAt": "2026-11-08T07:15:13.083Z"
+        },
+        {
+          "price": 28.56,
+          "observedAt": "2026-11-08T15:06:04.843Z"
         }
       ],
       "minPrice": 28.56
@@ -36911,6 +37035,10 @@
         {
           "price": 448.69,
           "observedAt": "2026-11-08T07:15:16.130Z"
+        },
+        {
+          "price": 448.69,
+          "observedAt": "2026-11-08T15:06:07.256Z"
         }
       ],
       "minPrice": 448.69
@@ -36964,6 +37092,10 @@
         {
           "price": 156.84,
           "observedAt": "2026-11-08T07:15:01.448Z"
+        },
+        {
+          "price": 156.84,
+          "observedAt": "2026-11-08T15:05:54.196Z"
         }
       ],
       "minPrice": 156.84
@@ -37010,6 +37142,10 @@
         {
           "price": 48.59,
           "observedAt": "2026-11-08T07:14:56.863Z"
+        },
+        {
+          "price": 48.59,
+          "observedAt": "2026-11-08T15:05:50.959Z"
         }
       ],
       "minPrice": 48.59
@@ -37031,6 +37167,10 @@
         {
           "price": 62.99,
           "observedAt": "2026-11-08T07:15:05.405Z"
+        },
+        {
+          "price": 62.99,
+          "observedAt": "2026-11-08T15:05:57.154Z"
         }
       ],
       "minPrice": 62.99
@@ -37116,6 +37256,10 @@
     "mercadolivre:MLB75836344": {
       "price": 130,
       "postedAt": "2026-11-06T23:03:51.243Z"
+    },
+    "mercadolivre:MLB41993912": {
+      "price": 10.69,
+      "postedAt": "2026-11-08T15:06:02.932Z"
     }
   }
 }
