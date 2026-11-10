@@ -115,9 +115,9 @@ O conteúdo do TikTok são vídeos de carro rebaixado ou tunado com o preço de 
 
 Pra cada vídeo, rode o workflow **projeto** (Actions → projeto → Run workflow; funciona pelo app do GitHub):
 - `itens`: as peças, separadas por `;`. Cada uma pode ser:
-  - nome e valor aproximado (`roda aro 17: 12k`): o bot busca uma peça parecida no catálogo do ML, na mesma faixa de preço;
+  - nome e valor aproximado (`roda aro 17: 12k`): o bot busca uma peça parecida no catálogo do ML, na mesma faixa de preço. Fica só com o tipo de produto que o ML prevê pra peça ("insulfilm" é película automotiva, não residencial) e com os números do nome no título (roda aro 17 não vira aro 18). Nome ambíguo pode não achar nada ("ponteira" sozinha); aí vale ser específico (`ponteira escapamento`) ou mandar o link;
   - nome, preço e link de um produto do ML (`farol: 389 https://produto.mercadolivre.com.br/...`), pras peças que a busca não acha. Farol e muitas peças de tuning só existem como anúncio comum, que a API do ML não deixa buscar. Com link de catálogo (`/p/MLB...`), o preço é lido sozinho.
-- `carro` (opcional): modelo do carro do vídeo (`saveiro g6`). Entra na busca de cada peça.
+- `carro` (opcional): modelo do carro do vídeo (`saveiro g6`). O bot prefere peça que cita o modelo; sem nenhuma à venda, fica com uma universal.
 - `titulo` (opcional): nome do projeto, vai na legenda e no post.
 - `publicar`: desmarcado, manda só a prévia no seu privado; marcado, também posta no canal.
 

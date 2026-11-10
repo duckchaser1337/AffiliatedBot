@@ -27,6 +27,9 @@ export type MlOffer = z.infer<typeof mlOfferSchema>;
 
 export const mlResultsSchema = z.object({ results: z.array(z.unknown()) });
 
+// Previsão do tipo de produto de uma busca, a mais provável primeiro.
+export const mlDomainDiscoverySchema = z.array(z.object({ domain_id: z.string() }));
+
 export const mlHighlightsSchema = z.object({
   content: z.array(z.object({ id: z.string(), type: z.string() })),
 });

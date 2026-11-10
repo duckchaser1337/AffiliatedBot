@@ -1,5 +1,5 @@
-import { checkNiche, type NicheRules } from "../curation/niche.js";
-import { getCatalogProduct, getProductOffers, searchCatalog } from "../sources/mercadolivre/client.js";
+import { checkNiche, normalize, type NicheRules } from "../curation/niche.js";
+import { getCatalogProduct, getProductOffers, predictDomain, searchCatalog } from "../sources/mercadolivre/client.js";
 import { mapToProduct, pickOffer } from "../sources/mercadolivre/mapToProduct.js";
 import type { MlCatalogProduct } from "../sources/mercadolivre/schemas.js";
 import type { Product } from "../sources/types.js";
@@ -28,18 +28,63 @@ function dominantDomain(results: readonly MlCatalogProduct[]): string | undefine
   return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
 }
 
+// Tipo de produto da peça. Vale a previsão do ML pra peça quando ela aparece na busca da peça
+// ("insulfilm" → película automotiva, mesmo com a busca cheia de película residencial). Senão, a
+// previsão pra "peça + carro" ("kit rebaixamento" sozinho ele prevê como refilador de bordas; com
+// "saveiro g6", como kit de suspensão). Sem carro, o tipo mais comum na busca.
+async function partDomain(
+  label: string,
+  car: string | undefined,
+  labelResults: readonly MlCatalogProduct[],
+  accessToken: string,
+): Promise<string | undefined> {
+  const predicted = await predictDomain(label, accessToken);
+  if (predicted && labelResults.some((result) => result.domain_id === predicted)) return predicted;
+  const predictedWithCar = car ? await predictDomain(`${label} ${car}`, accessToken) : undefined;
+  return predictedWithCar ?? dominantDomain(labelResults);
+}
+
 function closestTo(candidates: Product[], target: number): Product {
   return candidates.reduce((best, product) =>
     Math.abs(product.price - target) < Math.abs(best.price - target) ? product : best,
   );
 }
 
-async function candidatesFor(query: string, accessToken: string, rules: NicheRules): Promise<Product[]> {
-  const results = await searchCatalog(query, accessToken, SEARCH_LIMIT);
-  const domain = dominantDomain(results);
+// "205/55 R16" → ["205", "55", "16"]; "G05" e "g5" viram o mesmo "5".
+function numbersIn(text: string): string[] {
+  return (text.match(/\d+/g) ?? []).map((digits) => String(Number(digits)));
+}
+
+function words(text: string): string[] {
+  return normalize(text).split(" ").filter(Boolean);
+}
+
+interface PartFilter {
+  domain?: string;
+  // Medidas da peça pedida (aro, largura do pneu...): têm que estar no nome do produto.
+  measures: string[];
+  // Palavras do modelo do carro; o produto tem que citar pelo menos uma.
+  carWords: string[];
+}
+
+function matchesFilter(catalogProduct: MlCatalogProduct, filter: PartFilter): boolean {
+  if (filter.domain && catalogProduct.domain_id !== filter.domain) return false;
+  const nameNumbers = new Set(numbersIn(catalogProduct.name));
+  if (!filter.measures.every((measure) => nameNumbers.has(measure))) return false;
+  if (filter.carWords.length === 0) return true;
+  const nameWords = new Set(words(catalogProduct.name));
+  return filter.carWords.some((word) => nameWords.has(word));
+}
+
+async function candidatesFrom(
+  results: readonly MlCatalogProduct[],
+  filter: PartFilter,
+  accessToken: string,
+  rules: NicheRules,
+): Promise<Product[]> {
   const candidates: Product[] = [];
   for (const catalogProduct of results) {
-    if (domain && catalogProduct.domain_id !== domain) continue;
+    if (!matchesFilter(catalogProduct, filter)) continue;
     const offer = pickOffer(await getProductOffers(catalogProduct.id, accessToken));
     if (!offer) continue;
     const product = mapToProduct(catalogProduct, offer);
@@ -50,13 +95,25 @@ async function candidatesFor(query: string, accessToken: string, rules: NicheRul
   return candidates;
 }
 
-// Peça parecida à venda no catálogo do ML. Com o modelo do carro, busca primeiro "peça + carro"
-// e, sem nada à venda, só a peça. Com valor aproximado, fica com a de preço mais próximo
-// (uma roda de ~R$ 12 mil não vira uma de R$ 200); sem valor, com a mais relevante.
+// Peça parecida à venda no catálogo do ML: do tipo de produto da peça e com as medidas que vieram
+// no nome (roda aro 17 não vira aro 18). Com o modelo do carro, prefere o que aparece na busca
+// "peça + carro" e cita o carro; sem nada à venda assim, fica com a busca só da peça. Com valor
+// aproximado, fica com a de preço mais próximo (uma roda de ~R$ 12 mil não vira uma de R$ 200);
+// sem valor, com a mais relevante.
 async function searchPart(item: ProjectItem, accessToken: string, rules: NicheRules, car?: string): Promise<ProjectPart> {
-  const queries = car ? [`${item.label} ${car}`, item.label] : [item.label];
-  for (const query of queries) {
-    const candidates = await candidatesFor(query, accessToken, rules);
+  const labelResults = await searchCatalog(item.label, accessToken, SEARCH_LIMIT);
+  const domain = await partDomain(item.label, car, labelResults, accessToken);
+  const measures = numbersIn(item.label);
+  // "Saveiro G6" → ["saveiro"]: código curto e ano ficam de fora, só o nome do modelo identifica.
+  const carWords = car ? words(car).filter((word) => word.length >= 3 && /[a-z]/.test(word)) : [];
+
+  const passes: { results: () => Promise<readonly MlCatalogProduct[]>; carWords: string[] }[] = [
+    ...(car ? [{ results: () => searchCatalog(`${item.label} ${car}`, accessToken, SEARCH_LIMIT), carWords }] : []),
+    { results: async () => labelResults, carWords: [] },
+  ];
+  for (const pass of passes) {
+    const filter = { domain, measures, carWords: pass.carWords };
+    const candidates = await candidatesFrom(await pass.results(), filter, accessToken, rules);
     if (candidates.length === 0) continue;
     return {
       item,
@@ -64,10 +121,11 @@ async function searchPart(item: ProjectItem, accessToken: string, rules: NicheRu
       product: item.approxPrice === undefined ? candidates[0] : closestTo(candidates, item.approxPrice),
     };
   }
+  const measureNote = measures.length > 0 ? ` com a medida pedida (${measures.join(", ")})` : "";
   return {
     item,
     via: "busca",
-    problem: "nenhuma peça parecida à venda no catálogo; cole o link de um produto do ML junto com o preço",
+    problem: `nenhuma peça parecida à venda no catálogo${measureNote}; cole o link de um produto do ML junto com o preço`,
   };
 }
 

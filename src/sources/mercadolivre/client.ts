@@ -2,6 +2,7 @@ import type { z } from "zod";
 import { logger } from "../../logger.js";
 import {
   mlCatalogProductSchema,
+  mlDomainDiscoverySchema,
   mlHighlightsSchema,
   mlOfferSchema,
   mlResultsSchema,
@@ -56,6 +57,24 @@ export async function searchCatalog(query: string, accessToken: string, limit: n
   }
   const { results } = mlResultsSchema.parse(await response.json());
   return parseEach(results, mlCatalogProductSchema, { query });
+}
+
+// Tipo de produto que o próprio ML prevê pra busca (ex: "insulfilm" → MLB-VEHICLE_TINTED_GLASSES,
+// mesmo com a busca cheia de película residencial). Sem previsão, quem chama decide outro jeito.
+export async function predictDomain(query: string, accessToken: string): Promise<string | undefined> {
+  const url = `${API_BASE}/sites/MLB/domain_discovery/search?limit=1&q=${encodeURIComponent(query)}`;
+  try {
+    const response = await fetchWithRetry(url, accessToken);
+    if (!response.ok) {
+      logger.warn("Previsão de tipo de produto do Mercado Livre falhou", { query, status: response.status });
+      return undefined;
+    }
+    const result = mlDomainDiscoverySchema.safeParse(await response.json());
+    return result.success ? result.data[0]?.domain_id : undefined;
+  } catch (error) {
+    logger.warn("Previsão de tipo de produto do Mercado Livre falhou", { query, error: String(error) });
+    return undefined;
+  }
 }
 
 // Mais vendidos de uma categoria. Só os do tipo PRODUCT são de catálogo; ITEM e USER_PRODUCT

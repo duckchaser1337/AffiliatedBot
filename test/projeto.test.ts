@@ -150,7 +150,7 @@ describe("findSimilarPart", () => {
     expect(part.product?.id).toBe("MLB2");
   });
 
-  it("busca com o modelo do carro e, sem nada à venda, tenta só a peça", async () => {
+  it("busca também com o modelo do carro e, sem nada à venda assim, fica com a peça sozinha", async () => {
     const queries: string[] = [];
     vi.stubGlobal(
       "fetch",
@@ -166,8 +166,121 @@ describe("findSimilarPart", () => {
       }),
     );
     const part = await findSimilarPart({ label: "insulfilm" }, "token", rules, "saveiro g6");
-    expect(queries).toEqual(["insulfilm saveiro g6", "insulfilm"]);
+    expect(queries).toEqual(["insulfilm", "insulfilm saveiro g6"]);
     expect(part.product?.id).toBe("MLB9");
+  });
+
+  type FakeResult = { id: string; name: string; domain_id?: string; price: number };
+
+  // Catálogo falso: resultados da busca (todos com vendedor, no preço dado) e a previsão de tipo
+  // do ML. Os dois podem ser um valor só pra qualquer busca ou um por texto buscado.
+  function stubSearch(
+    results: FakeResult[] | Record<string, FakeResult[]>,
+    predicted?: string | Record<string, string>,
+  ) {
+    const resultsFor = (q: string) => (Array.isArray(results) ? results : (results[q] ?? []));
+    const all = Array.isArray(results) ? results : Object.values(results).flat();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (url: string) => {
+        const { pathname, searchParams } = new URL(url);
+        const q = searchParams.get("q") ?? "";
+        if (pathname === "/sites/MLB/domain_discovery/search") {
+          const domain = typeof predicted === "string" ? predicted : predicted?.[q];
+          return json(domain ? [{ domain_id: domain }] : []);
+        }
+        if (pathname === "/products/search") {
+          return json({ results: resultsFor(q).map(({ price: _price, ...product }) => product) });
+        }
+        const id = pathname.split("/")[2];
+        const price = all.find((result) => result.id === id)?.price;
+        return json({ results: [{ item_id: `${id}0`, price, condition: "new" }] });
+      }),
+    );
+  }
+
+  it("não troca a medida da peça: roda aro 17 não vira aro 18", async () => {
+    stubSearch([
+      { id: "MLB1", name: "Jogo Roda Aro 18 Thor Saveiro G6", price: 5099 },
+      { id: "MLB2", name: "Roda Aro 17 Ramlow Saveiro", price: 931 },
+    ]);
+    const part = await findSimilarPart({ label: "roda aro 17", approxPrice: 5000 }, "token", rules);
+    expect(part.product?.id).toBe("MLB2");
+  });
+
+  it("explica quando nada à venda tem a medida pedida", async () => {
+    stubSearch([{ id: "MLB1", name: "Jogo Roda Aro 18 Thor", price: 5099 }]);
+    const part = await findSimilarPart({ label: "roda aro 17" }, "token", rules);
+    expect(part.problem).toContain("medida pedida (17)");
+  });
+
+  it("usa o tipo de produto que o ML prevê, mesmo sendo minoria na busca", async () => {
+    stubSearch(
+      [
+        { id: "MLB1", name: "Insulfilm Decorativo Janela", domain_id: "MLB-VINYL_ROLLS_AND_SHEETS", price: 40 },
+        { id: "MLB2", name: "Insulfilm Blackout Casa", domain_id: "MLB-VINYL_ROLLS_AND_SHEETS", price: 35 },
+        { id: "MLB3", name: "Película Insulfilm Automotiva G20", domain_id: "MLB-VEHICLE_TINTED_GLASSES", price: 29 },
+      ],
+      "MLB-VEHICLE_TINTED_GLASSES",
+    );
+    const part = await findSimilarPart({ label: "insulfilm" }, "token", rules);
+    expect(part.product?.id).toBe("MLB3");
+  });
+
+  it("ignora a previsão que não aparece na busca", async () => {
+    stubSearch(
+      [
+        { id: "MLB1", name: "Kit Rebaixamento Fixo", domain_id: "MLB-PERFORMANCE_SUSPENSION_KITS", price: 900 },
+        { id: "MLB2", name: "Kit Rebaixamento Rosca", domain_id: "MLB-PERFORMANCE_SUSPENSION_KITS", price: 1500 },
+      ],
+      "MLB-MANUAL_EDGE_BANDING_TRIMMERS",
+    );
+    const part = await findSimilarPart({ label: "kit rebaixamento" }, "token", rules);
+    expect(part.product?.id).toBe("MLB1");
+  });
+
+  it("previsão errada pra peça sozinha usa a previsão com o carro", async () => {
+    const fabric = { domain_id: "MLB-FABRICS", price: 361 };
+    stubSearch(
+      {
+        "kit rebaixamento": [
+          { id: "MLB1", name: "Helanquinha Para Rebaixamento De Teto", ...fabric },
+          { id: "MLB2", name: "Tecido Rebaixamento Teto", ...fabric },
+        ],
+        "kit rebaixamento Saveiro G6": [
+          { id: "MLB3", name: "Kit Rebaixamento Rosca Saveiro G6", domain_id: "MLB-PERFORMANCE_SUSPENSION_KITS", price: 1200 },
+        ],
+      },
+      {
+        "kit rebaixamento": "MLB-MANUAL_EDGE_BANDING_TRIMMERS",
+        "kit rebaixamento Saveiro G6": "MLB-PERFORMANCE_SUSPENSION_KITS",
+      },
+    );
+    const part = await findSimilarPart({ label: "kit rebaixamento" }, "token", rules, "Saveiro G6");
+    expect(part.product?.id).toBe("MLB3");
+  });
+
+  it("o tipo da peça vale também na busca com o carro", async () => {
+    stubSearch(
+      {
+        ponteira: [{ id: "MLB1", name: "Ponteira Escapamento Esportiva Inox", domain_id: "MLB-VEHICLE_EXHAUST_TIPS", price: 280 }],
+        "ponteira Saveiro G6": [
+          { id: "MLB2", name: "Polaina Ponteira Para-choque Saveiro", domain_id: "MLB-VEHICLE_BUMPER_CAPS", price: 53 },
+        ],
+      },
+      { ponteira: "MLB-VEHICLE_EXHAUST_TIPS", "ponteira Saveiro G6": "MLB-VEHICLE_BUMPER_CAPS" },
+    );
+    const part = await findSimilarPart({ label: "ponteira", approxPrice: 300 }, "token", rules, "Saveiro G6");
+    expect(part.product?.id).toBe("MLB1");
+  });
+
+  it("com o carro, prefere a peça que cita o modelo mesmo com preço mais longe", async () => {
+    stubSearch([
+      { id: "MLB1", name: "Roda Aro 17 Renault Logan", price: 2615 },
+      { id: "MLB2", name: "Roda Aro 17 Ramlow Gol Saveiro", price: 931 },
+    ]);
+    const part = await findSimilarPart({ label: "roda aro 17", approxPrice: 12000 }, "token", rules, "Saveiro G6");
+    expect(part.product?.id).toBe("MLB2");
   });
 
   it("sem nada à venda, devolve a peça sem produto", async () => {
